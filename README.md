@@ -1,51 +1,51 @@
 # 🏠 Brokies Land 🏠
 
-_Because awesome ricing doesn't have to break the bank!_
+_When your wallet is empty but your standards aren't_
 
-![Hyprland Badge](https://img.shields.io/badge/WM-Hyprland-blue) ![Status](https://img.shields.io/badge/Status-Awesome-green)
+![Hyprland Badge](https://img.shields.io/badge/WM-Hyprland-blue) ![Status](https://img.shields.io/badge/Status-Broke%20But%20Beautiful-green)
 
 ## 💡 What's This?
 
-A lightweight, snappy Hyprland configuration crafted with love for modest hardware. No more lagging or stuttering—just a clean, responsive desktop experience that makes your old hardware feel new again!
+A ready-to-use Hyprland configuration for those of us who spent all our money on PC hardware and now can't afford to spend hours configuring our desktop. This is for the broke in wallet, not in spirit!
 
-> "The best things in Linux are free... or at least cheap on resources." - Brokie's Wisdom
+> "We may be broke, but our desktops don't have to look that way" - Brokie's Motto
 
 ## ✨ Features
 
-- **Lightweight AF** - Optimized for potato PCs
-- **Clean Aesthetics** - Simple doesn't mean ugly
-- **Easy to Customize** - Make it yours without a headache
-- **Performance First** - Every component chosen for speed
+- **Minimal Effort Required** - Because we're too lazy (or busy hustling) to configure everything
+- **Looks Expensive** - Flex on your friends without spending a dime
+- **Copy-Paste Ready** - Why work hard when you can work smart?
+- **No Premium Addons** - Everything's free, as it should be
 
 ## 📂 What's Inside
 
-- **hypr/** - The heart of the operation: Hyprland configs
-- **waybar/** - Stylish & minimal status bar that won't eat your RAM
-- **rofi/** - Quick app launcher with custom themes
-- **scripts/** - Handy automation to make life easier
-- **wallpapers/** - Some eye candy that won't slow you down
+- **hypr/** - Pre-configured Hyprland setup so you don't have to do it yourself
+- **waybar/** - Status bar that looks like it costs money (it doesn't)
+- **rofi/** - Because typing commands is for people with time to spare
+- **scripts/** - Automation for the "minimum effort" lifestyle
+- **wallpapers/** - Free eye-candy (because art costs money we don't have)
 
 ## 🔧 Dependencies
 
-Essential packages:
-- `hyprland` - Our window manager of choice
-- `waybar` - Status bar extraordinaire 
-- `rofi` - Application launcher that just works
-- `kitty` or `alacritty` - Terminal emulator
-- `swww` - For those silky-smooth wallpaper transitions
+Things you need to install (all free, thankfully):
+- `hyprland` - The fancy compositor that burns GPU, not cash
+- `waybar` - So people think you know what you're doing
+- `rofi` - Click instead of type, save your energy
+- `kitty` or `alacritty` - Terminals that look cooler than they need to
+- `swww` - For those wallpaper transitions that scream "I'm not broke" (even though you are)
 
 ## 🚀 Quick Start
 
-Get up and running in minutes:
+For the lazy and financially challenged:
 
 ```bash
-# Clone this beauty
+# Steal this repo
 git clone https://github.com/yourusername/brokies_land.git
 
-# Deploy the goodness
+# Let someone else do the work
 cp -r brokies_land/* ~/.config/
 
-# Start Hyprland (add to your display manager or run directly)
+# Start it up and pretend you built it yourself
 Hyprland
 ```
 
@@ -53,25 +53,25 @@ Hyprland
 
 | Combo | What it does |
 |-------|--------------|
-| `SUPER + Return` | Opens terminal (your gateway to the matrix) |
-| `SUPER + Q` | Closes window (begone!) |
-| `SUPER + Space` | App launcher (what shall we run today?) |
-| `SUPER + Shift + Q` | Quit Hyprland (farewell, old friend) |
-| `SUPER + F` | Fullscreen (immersion mode engaged) |
-| `SUPER + Left/Right/Up/Down` | Navigate windows like a pro |
+| `SUPER + Return` | Opens terminal (for checking your bank balance) |
+| `SUPER + Q` | Closes windows (like you close conversations about your finances) |
+| `SUPER + Space` | App launcher (find free alternatives to paid software) |
+| `SUPER + Shift + Q` | Quit Hyprland (when your landlord walks in) |
+| `SUPER + F` | Fullscreen (hide all the error notifications) |
+| `SUPER + Left/Right/Up/Down` | Navigate windows (avoid real-life navigation, it costs gas money) |
 
 ## 📷 See It In Action
 
-![Screenshot pending - it's gonna be awesome though!]()
+![Screenshot pending - once I can afford the time to take one]()
 
 ## 💪 Join the Brokie Movement
 
-Contributions welcome! Got a trick to make things even lighter? Performance tweak? Share with the community!
+Contributions welcome! Found a free alternative to something expensive? A configuration that makes things look premium? Share with your fellow brokies!
 
 ## 📜 License
 
-Free as in freedom. Do what you want with it—I'm not your mom.
+It's free. Take it. Like we took it from others. The circle of brokie life.
 
 ---
 
-<p align="center"><i>May your CPU temps be low and your FPS high!</i></p>
+<p align="center"><i>Rich in desktop aesthetics, poor in actual money!</i></p>
