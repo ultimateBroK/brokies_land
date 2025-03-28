@@ -62,7 +62,8 @@ Things you need to install (all free, thankfully):
 
 ```bash
 # Install all the brokie essentials at once
-paru -S hyprland xdg-desktop-portal-hyprland kvantum nwg-look wlogout waybar tofi kitty ghostty dunst wleave-git swww brightnessctl pavucontrol grimblast-git cliphist hyprlock hypridle playerctl polkit-kde-agent thunar zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils qt5-wayland qt6-wayland
+```bash
+paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi thunar polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty
 ```
 
 > 💡 Tip for the ultra broke: Use `yay` instead of `paru` if you're too broke to switch AUR helpers.
