@@ -62,7 +62,6 @@ Things you need to install (all free, thankfully):
 
 ```bash
 # Install all the brokie essentials at once
-```bash
 paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi thunar polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty
 ```
 
