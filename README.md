@@ -50,16 +50,18 @@ Things you need to install (all free, thankfully):
 - `playerctl` - Control media players without paying for a premium remote
 - `polkit-kde-agent` - Free bouncer for your system's VIP requests
 - `thunar` - File manager for organizing your digital poverty
-- `firefox` - Browser because Chrome eats RAM for breakfast
+- `zen-browser` - Browser because Chrome eats RAM for breakfast
 - `code` - Editor to build that million-dollar app idea (someday)
-
+- `noto-fonts-cjk` - Fonts that make your text look like it costs more than it does (for displaying Chinese/Korean)
+- `bluez` - Bluetooth support for when you want to connect your broke headphones
+- `bluez-utils` - Bluetooth utilities for when you want to pretend you have wireless freedom
 ### Installing Dependencies
 
 #### Arch Linux (Using paru)
 
 ```bash
 # Install all the brokie essentials at once
-paru -S hyprland waybar tofi kitty dunst wlogout wleave-git swww brightnessctl pamixer pavucontrol grimblast-git cliphist hyprlock hypridle playerctl polkit-kde-agent thunar firefox visual-studio-code-bin bluez bluez-util qt5-wayland qt6-wayland kvantum
+paru -S hyprland waybar tofi kitty dunst wlogout wleave-git swww brightnessctl pamixer pavucontrol grimblast-git cliphist hyprlock hypridle playerctl polkit-kde-agent thunar zen-browser-bin visual-studio-code-bin bluez bluez-utils qt5-wayland qt6-wayland kvantum
 ```
 
 > 💡 Tip for the ultra broke: Use `yay` instead of `paru` if you're too broke to switch AUR helpers.
