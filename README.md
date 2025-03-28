@@ -31,28 +31,28 @@ A ready-to-use Hyprland configuration for those of us who spent all our money on
 Things you need to install (all free, thankfully):
 - `hyprland` - The fancy compositor that burns GPU, not cash
 - `xdg-desktop-portal-hyprland` - For those who want to pretend they have a portal to a better life
-- `kvantum` - A theme engine that makes your desktop look like it costs more than it does
-- `qt5-wayland` - For those who want to use Qt5 applications
-- `qt6-wayland` - For those who want to use Qt6 applications
-- `nwg-look` - A tool to enhance your desktop aesthetics
 - `waybar` - So people think you know what you're doing
-- `tofi` - Minimal app launcher that saves resources and looks good
-- `kitty` - Terminal that looks cooler than it needs to
+- `kitty` or `ghostty` - Terminal that looks cooler than it needs to
 - `dunst` - Notifications that don't look free (but are)
-- `wleave` - Logout menu for the aesthetically broke
-- `swww` - For those wallpaper transitions that scream "I'm not broke" (even though you are)
-- `brightnessctl` - Control your screen brightness when you can't afford electricity
-- `pamixer` - Audio controls that don't cost a cent
-- `grimblast` - For taking screenshots to show off your free setup
-- `cliphist` - Clipboard manager that doesn't cost extra RAM
+- `tofi` - Minimal app launcher that saves resources and looks good
+- `thunar` - File manager for organizing your digital poverty
 - `hyprlock` - Lock screen that looks premium without the price tag
 - `hypridle` - Free alternative to paying attention to your screen
-- `playerctl` - Control media players without paying for a premium remote
+- `wlogout` and `wleave` - Logout menu for the aesthetically broke
+- `swww` - For those wallpaper transitions that scream "I'm not broke" (even though you are)
+- `grimblast` - For taking screenshots to show off your free setup
+- `cliphist` - Clipboard manager that doesn't cost extra RAM
+- `qt5-wayland` - For those who want to use Qt5 applications
+- `qt6-wayland` - For those who want to use Qt6 applications
 - `polkit-kde-agent` - Free bouncer for your system's VIP requests
-- `thunar` - File manager for organizing your digital poverty
+- `brightnessctl` - Control your screen brightness when you can't afford electricity
+- `playerctl` - Control media players without paying for a premium remote
+- `pavucontrol` - Audio control that makes you feel like a DJ
+- `nwg-look` - A tool to enhance your desktop aesthetics
+- `kvantum` - A theme engine that makes your desktop look like it costs more than it does
 - `zen-browser` - Browser because Chrome eats RAM for breakfast
 - `code` - Editor to build that million-dollar app idea (someday)
-- `noto-fonts-cjk` - Fonts that make your text look like it costs more than it does (for displaying Chinese/Korean)
+- `noto-fonts-cjk` - Fonts that make your text look like it costs more than it does
 - `bluez` - Bluetooth support for when you want to connect your broke headphones
 - `bluez-utils` - Bluetooth utilities for when you want to pretend you have wireless freedom
 
@@ -62,7 +62,7 @@ Things you need to install (all free, thankfully):
 
 ```bash
 # Install all the brokie essentials at once
-paru -S hyprland waybar tofi kitty dunst wlogout wleave-git swww brightnessctl pamixer pavucontrol grimblast-git cliphist hyprlock hypridle playerctl polkit-kde-agent thunar zen-browser-bin visual-studio-code-bin bluez bluez-utils qt5-wayland qt6-wayland kvantum
+paru -S hyprland xdg-desktop-portal-hyprland kvantum nwg-look wlogout waybar tofi kitty ghostty dunst wleave-git swww brightnessctl pavucontrol grimblast-git cliphist hyprlock hypridle playerctl polkit-kde-agent thunar zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils qt5-wayland qt6-wayland
 ```
 
 > 💡 Tip for the ultra broke: Use `yay` instead of `paru` if you're too broke to switch AUR helpers.
