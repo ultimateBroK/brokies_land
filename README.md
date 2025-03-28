@@ -19,20 +19,25 @@ A ready-to-use Hyprland configuration for those of us who spent all our money on
 
 ## 📂 What's Inside
 
-- **hypr/** - Pre-configured Hyprland setup so you don't have to do it yourself
-- **waybar/** - Status bar that looks like it costs money (it doesn't)
-- **rofi/** - Because typing commands is for people with time to spare
-- **scripts/** - Automation for the "minimum effort" lifestyle
-- **wallpapers/** - Free eye-candy (because art costs money we don't have)
+- **.config/hypr/** - Pre-configured Hyprland setup with hyprlock and hypridle
+- **.config/waybar/** - Status bar that looks like it costs money (it doesn't)
+- **.config/tofi/** - Application launcher that's lightweight yet stylish
+- **.config/kitty/** - Terminal config that's both minimal and pretty
+- **.config/dunst/** - Notification system that's clean and functionalaa
+- **.config/wleave/** - Stylish logout/power menu for when you need to escape
 
 ## 🔧 Dependencies
 
 Things you need to install (all free, thankfully):
 - `hyprland` - The fancy compositor that burns GPU, not cash
 - `waybar` - So people think you know what you're doing
-- `rofi` - Click instead of type, save your energy
-- `kitty` or `alacritty` - Terminals that look cooler than they need to
+- `tofi` - Minimal app launcher that saves resources and looks good
+- `kitty` - Terminal that looks cooler than it needs to
+- `dunst` - Notifications that don't look free (but are)
+- `wleave` - Logout menu for the aesthetically broke
 - `swww` - For those wallpaper transitions that scream "I'm not broke" (even though you are)
+- `brightnessctl` - Control your screen brightness when you can't afford electricity
+- `pamixer` - Audio controls that don't cost a cent
 
 ## 🚀 Quick Start
 
@@ -40,10 +45,10 @@ For the lazy and financially challenged:
 
 ```bash
 # Steal this repo
-git clone https://github.com/yourusername/brokies_land.git
+git clone https://github.com/ultimatebrok/brokies_land.git
 
 # Let someone else do the work
-cp -r brokies_land/* ~/.config/
+cp -r brokies_land/.config/* ~/.config/
 
 # Start it up and pretend you built it yourself
 Hyprland
@@ -53,16 +58,18 @@ Hyprland
 
 | Combo | What it does |
 |-------|--------------|
-| `SUPER + Return` | Opens terminal (for checking your bank balance) |
+| `SUPER + T` | Opens terminal (for checking your bank balance) |
 | `SUPER + Q` | Closes windows (like you close conversations about your finances) |
-| `SUPER + Space` | App launcher (find free alternatives to paid software) |
-| `SUPER + Shift + Q` | Quit Hyprland (when your landlord walks in) |
-| `SUPER + F` | Fullscreen (hide all the error notifications) |
+| `SUPER + A` | App launcher (find free alternatives to paid software) |
+| `SUPER + M` | Quit Hyprland (when your landlord walks in) |
+| `SUPER + V` | Toggle floating window (when you need to feel unanchored) |
 | `SUPER + Left/Right/Up/Down` | Navigate windows (avoid real-life navigation, it costs gas money) |
+| `SUPER + L` | Lock screen (when someone asks to borrow money) |
+| `SUPER + ESCAPE` | Show logout menu (when reality becomes too expensive) |
 
 ## 📷 See It In Action
 
-![Screenshot pending - once I can afford the time to take one]()
+![Screenshot](https://raw.githubusercontent.com/ultimatebrok/brokies_land/main/screenshots/desktop.png)
 
 ## 💪 Join the Brokie Movement
 
@@ -70,7 +77,7 @@ Contributions welcome! Found a free alternative to something expensive? A config
 
 ## 📜 License
 
-It's free. Take it. Like we took it from others. The circle of brokie life.
+MIT Licensed. See LICENSE file for details. Free as in "I'm too broke to charge for this anyway."
 
 ---
 
