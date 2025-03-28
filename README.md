@@ -55,6 +55,7 @@ Things you need to install (all free, thankfully):
 - `noto-fonts-cjk` - Fonts that make your text look like it costs more than it does (for displaying Chinese/Korean)
 - `bluez` - Bluetooth support for when you want to connect your broke headphones
 - `bluez-utils` - Bluetooth utilities for when you want to pretend you have wireless freedom
+
 ### Installing Dependencies
 
 #### Arch Linux (Using paru)
