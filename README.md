@@ -23,7 +23,7 @@ A ready-to-use Hyprland configuration for those of us who spent all our money on
 - **.config/waybar/** - Status bar that looks like it costs money (it doesn't)
 - **.config/tofi/** - Application launcher that's lightweight yet stylish
 - **.config/kitty/** - Terminal config that's both minimal and pretty
-- **.config/dunst/** - Notification system that's clean and functionalaa
+- **.config/dunst/** - Notification system that's clean and functional
 - **.config/wleave/** - Stylish logout/power menu for when you need to escape
 
 ## 🔧 Dependencies
@@ -38,6 +38,9 @@ Things you need to install (all free, thankfully):
 - `swww` - For those wallpaper transitions that scream "I'm not broke" (even though you are)
 - `brightnessctl` - Control your screen brightness when you can't afford electricity
 - `pamixer` - Audio controls that don't cost a cent
+- `grimblast` - For taking screenshots to show off your free setup
+- `cliphist` - Clipboard manager that doesn't cost extra RAM
+- `hyprlock` - Lock screen that looks premium without the price tag
 
 ## 🚀 Quick Start
 
@@ -59,13 +62,25 @@ Hyprland
 | Combo | What it does |
 |-------|--------------|
 | `SUPER + T` | Opens terminal (for checking your bank balance) |
-| `SUPER + Q` | Closes windows (like you close conversations about your finances) |
+| `SUPER + E` | Opens file manager (to count your digital pennies) |
+| `SUPER + B` | Opens browser (to search "how to make money fast") |
+| `SUPER + C` | Opens code editor (for that side-hustle) |
 | `SUPER + A` | App launcher (find free alternatives to paid software) |
-| `SUPER + M` | Quit Hyprland (when your landlord walks in) |
-| `SUPER + V` | Toggle floating window (when you need to feel unanchored) |
+| `SUPER + Q` | Closes windows (like you close conversations about your finances) |
+| `SUPER + F` | Toggle fullscreen (maximize what little you have) |
+| `SUPER + Space` | Toggle floating window (when you need to feel unanchored) |
 | `SUPER + Left/Right/Up/Down` | Navigate windows (avoid real-life navigation, it costs gas money) |
+| `SUPER + SHIFT + 1-0` | Move window to workspace (organize your digital poverty) |
+| `SUPER + 1-0` | Switch to workspace (escape to a different free space) |
 | `SUPER + L` | Lock screen (when someone asks to borrow money) |
 | `SUPER + ESCAPE` | Show logout menu (when reality becomes too expensive) |
+| `SUPER + M` | Exit Hyprland (when even virtual life gets too costly) |
+| `SUPER + N` | Change wallpaper (new look, same broke setup) |
+| `SUPER + V` | Show clipboard history (remember all the things you can't afford) |
+| `SUPER + S` | Toggle scratchpad (hide your digital secrets) |
+| `Print` | Screenshot full screen (fake it till you make it) |
+| `SUPER + Print` | Screenshot active window (show off what matters) |
+| `SUPER + ALT + Print` | Screenshot selected area (crop out the broke parts) |
 
 ## 📷 See It In Action
 
