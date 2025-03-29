@@ -3,7 +3,7 @@
 _Where your desktop dreams are big, but your wallet isn't!_
 
 [![Hyprland Badge](https://img.shields.io/badge/WM-Hyprland-blue)](https://hyprland.org/)
-[![Status](https://img.shields.io/badge/Status-Broke%20But%20Beautiful-green)](https://github.com/ultimatebrok/brokies_land)
+[![Status](https://img.shields.io/badge/Status-Broke%20-green)](https://github.com/ultimatebrok/brokies_land)
 
 ## 🌟 What's This All About?
 
