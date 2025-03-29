@@ -55,6 +55,7 @@ Things you need to install (all free, thankfully):
 - `noto-fonts-cjk` - Fonts that make your text look like it costs more than it does
 - `bluez` - Bluetooth support for when you want to connect your broke headphones
 - `bluez-utils` - Bluetooth utilities for when you want to pretend you have wireless freedom
+- `jamesdsp` - A DSP for your audio that doesn't cost a dime
 
 ### Installing Dependencies
 
@@ -62,7 +63,7 @@ Things you need to install (all free, thankfully):
 
 ```bash
 # Install all the brokie essentials at once
-paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi thunar polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty
+paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi thunar polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp
 ```
 
 > 💡 Tip for the ultra broke: Use `yay` instead of `paru` if you're too broke to switch AUR helpers.
