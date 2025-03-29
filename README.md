@@ -1,125 +1,168 @@
 # 🏠 Brokies Land 🏠
 
-_When your wallet is empty but your standards aren't_
+_Where your desktop dreams are big, but your wallet isn't!_
 
-![Hyprland Badge](https://img.shields.io/badge/WM-Hyprland-blue) ![Status](https://img.shields.io/badge/Status-Broke%20But%20Beautiful-green)
+[![Hyprland Badge](https://img.shields.io/badge/WM-Hyprland-blue)](https://hyprland.org/)
+[![Status](https://img.shields.io/badge/Status-Broke%20But%20Beautiful-green)](https://github.com/ultimatebrok/brokies_land)
 
-## 💡 What's This?
+## 🌟 What's This All About?
 
-A ready-to-use Hyprland configuration for those of us who spent all our money on PC hardware and now can't afford to spend hours configuring our desktop. This is for the broke in wallet, not in spirit!
+Ever spent all your money on that sweet PC hardware and realized you're too broke to spend hours configuring your desktop? Welcome to Brokies Land! This is a ready-to-rock Hyprland configuration crafted for those who are rich in spirit but challenged in funds.
 
-> "We may be broke, but our desktops don't have to look that way" - Brokie's Motto
+> "We may be broke, but our desktops? They're priceless." - The Brokie Manifesto
 
-## ✨ Features
+## ✨ Why You'll Love It
 
-- **Minimal Effort Required** - Because we're too lazy (or busy hustling) to configure everything
-- **Looks Expensive** - Flex on your friends without spending a dime
-- **Copy-Paste Ready** - Why work hard when you can work smart?
-- **No Premium Addons** - Everything's free, as it should be
+-   **Zero Effort Setup** - Because time is money, and you ain't got either to waste on configs.
+-   **Looks Like a Million Bucks** - Impress your friends without emptying your already empty pockets.
+-   **Copy-Paste Magic** - Why reinvent the wheel when you can just... borrow it?
+-   **100% Free, Always** - No premium BS here. Just pure, unadulterated, free goodness.
 
-## 📂 What's Inside
+## 🗂️ What's Inside the Box?
 
-- **.config/hypr/** - Pre-configured Hyprland setup with hyprlock and hypridle
-- **.config/waybar/** - Status bar that looks like it costs money (it doesn't)
-- **.config/tofi/** - Application launcher that's lightweight yet stylish
-- **.config/kitty/** - Terminal config that's both minimal and pretty
-- **.config/dunst/** - Notification system that's clean and functional
-- **.config/wleave/** - Stylish logout/power menu for when you need to escape
+-   `.config/hypr/` - The heart of the operation: a fully configured Hyprland setup, complete with hyprlock and hypridle.
+-   `.config/waybar/` - A status bar so stylish, it'll make you forget your financial woes.
+-   `.config/tofi/` - An application launcher that's both lightweight and a joy to look at.
+-   `.config/kitty/` - A terminal config that proves you don't need money to have good taste.
+-   `.config/dunst/` - Notifications that are clean, functional, and won't remind you of your overdue bills.
+-   `.config/wleave/` - A sleek logout/power menu for those moments when you just need to escape.
 
-## 🔧 Dependencies
+## 🛠️ Gear Up: Dependencies
 
-Things you need to install (all free, thankfully):
-- `hyprland` - The fancy compositor that burns GPU, not cash
-- `xdg-desktop-portal-hyprland` - For those who want to pretend they have a portal to a better life
-- `waybar` - So people think you know what you're doing
-- `kitty` or `ghostty` - Terminal that looks cooler than it needs to
-- `dunst` - Notifications that don't look free (but are)
-- `tofi` - Minimal app launcher that saves resources and looks good
-- `thunar` - File manager for organizing your digital poverty
-- `hyprlock` - Lock screen that looks premium without the price tag
-- `hypridle` - Free alternative to paying attention to your screen
-- `wlogout` and `wleave` - Logout menu for the aesthetically broke
-- `swww` - For those wallpaper transitions that scream "I'm not broke" (even though you are)
-- `grimblast` - For taking screenshots to show off your free setup
-- `cliphist` - Clipboard manager that doesn't cost extra RAM
-- `qt5-wayland` - For those who want to use Qt5 applications
-- `qt6-wayland` - For those who want to use Qt6 applications
-- `polkit-kde-agent` - Free bouncer for your system's VIP requests
-- `brightnessctl` - Control your screen brightness when you can't afford electricity
-- `playerctl` - Control media players without paying for a premium remote
-- `pavucontrol` - Audio control that makes you feel like a DJ
-- `nwg-look` - A tool to enhance your desktop aesthetics
-- `kvantum` - A theme engine that makes your desktop look like it costs more than it does
-- `zen-browser` - Browser because Chrome eats RAM for breakfast
-- `code` - Editor to build that million-dollar app idea (someday)
-- `noto-fonts-cjk` - Fonts that make your text look like it costs more than it does
-- `bluez` - Bluetooth support for when you want to connect your broke headphones
-- `bluez-utils` - Bluetooth utilities for when you want to pretend you have wireless freedom
-- `jamesdsp` - A DSP for your audio that doesn't cost a dime
+### Core Essentials
 
-### Installing Dependencies
+The bread and butter (or ramen and water) of this setup:
+
+-   `hyprland` - The compositor that proves you can have nice things without selling a kidney.
+-   `xdg-desktop-portal-hyprland` - Because everyone deserves a portal... to a cooler desktop.
+
+### The Bling (Bar)
+
+-   `waybar` - Making you look like you know what you're doing, even if you don't.
+
+### Terminal Time
+
+-   `kitty` or `ghostty` - Terminals that are way too cool for their own good.
+
+### Stay Notified
+
+-   `dunst` - Notifications that are informative without being intrusive (or expensive).
+
+### Launch It!
+
+-   `tofi` - The minimalist app launcher that's big on style.
+
+### File Wrangling
+
+-   `thunar` - File manager for keeping your digital life (and budget) in order.
+
+### Lock It Down
+
+-   `hyprlock` - A lock screen that screams "premium" without the price tag.
+-   `hypridle` - The free alternative to actually paying attention.
+-   `wlogout` and `wleave` - Because even logging out should be aesthetically pleasing.
+
+### Eye Candy
+
+-   `swww` - Wallpaper transitions that say, "I'm not broke," even if you are.
+-   `grimblast` - Capture your awesome (and free) setup for bragging rights.
+-   `nwg-look` - Polish your desktop to a mirror shine.
+-   `kvantum` - Make your apps look like they cost more than your car.
+-   `noto-fonts-cjk` - Fonts that add a touch of class to your broke existence.
+
+### Clipboard Hero
+
+-   `cliphist` - Clipboard manager that saves you from repeating yourself (and wasting precious time).
+
+### Qt Corner
+
+-   `qt5-wayland` - For those Qt5 apps you can't live without.
+-   `qt6-wayland` - Future-proofing your broke life, one Qt6 app at a time.
+
+### Polkit Power
+
+-   `polkit-kde-agent` - The free bouncer for your system's VIP requests.
+
+### Utility Belt
+
+-   `brightnessctl` - Control your screen brightness and save those precious watts.
+-   `playerctl` - Control your media without paying for a fancy remote.
+-   `pavucontrol` - Audio control that makes you feel like a sound engineer.
+-   `bluez` - Bluetooth support for your budget headphones.
+-   `bluez-utils` - Bluetooth utilities for when you want to cut the cord (without cutting your budget).
+    -   `jamesdsp` - A DSP for your audio that doesn't cost a dime
+
+### Browser
+
+-   `zen-browser` - Because Chrome eats RAM for breakfast
+
+### Code Editor
+
+-   `visual-studio-code` - Editor to build that million-dollar app idea (someday)
+
+### Time to Install (The Free Way)
 
 #### Arch Linux (Using paru)
 
 ```bash
-# Install all the brokie essentials at once
+# One command to rule them all (the broke way)
 paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi thunar polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp
 ```
 
-> 💡 Tip for the ultra broke: Use `yay` instead of `paru` if you're too broke to switch AUR helpers.
+> 💡 Pro Brokie Tip: Too broke for `paru`? `yay` still works wonders!
 
-## 🚀 Quick Start
+## 🚀 Get Started ASAP
 
-For the lazy and financially challenged:
+For the financially challenged and impatient:
 
 ```bash
-# Steal this repo
+# Clone the magic
 git clone https://github.com/ultimatebrok/brokies_land.git
 
-# Let someone else do the work
+# Copy-paste like a pro
 cp -r brokies_land/.config/* ~/.config/
 
-# Start it up and pretend you built it yourself
+# Fire it up and bask in the glory
 Hyprland
 ```
 
-## ⌨️ Keyboard Shortcuts
+## ⌨️ Keyboard Ninja Moves
 
-| Combo | What it does |
-|-------|--------------|
-| `SUPER + T` | Opens terminal (for checking your bank balance) |
-| `SUPER + E` | Opens file manager (to count your digital pennies) |
-| `SUPER + B` | Opens browser (to search "how to make money fast") |
-| `SUPER + C` | Opens code editor (for that side-hustle) |
-| `SUPER + A` | App launcher (find free alternatives to paid software) |
-| `SUPER + Q` | Closes windows (like you close conversations about your finances) |
-| `SUPER + F` | Toggle fullscreen (maximize what little you have) |
-| `SUPER + Space` | Toggle floating window (when you need to feel unanchored) |
-| `SUPER + Left/Right/Up/Down` | Navigate windows (avoid real-life navigation, it costs gas money) |
-| `SUPER + SHIFT + 1-0` | Move window to workspace (organize your digital poverty) |
-| `SUPER + 1-0` | Switch to workspace (escape to a different free space) |
-| `SUPER + L` | Lock screen (when someone asks to borrow money) |
-| `SUPER + ESCAPE` | Show logout menu (when reality becomes too expensive) |
-| `SUPER + M` | Exit Hyprland (when even virtual life gets too costly) |
-| `SUPER + N` | Change wallpaper (new look, same broke setup) |
-| `SUPER + V` | Show clipboard history (remember all the things you can't afford) |
-| `SUPER + S` | Toggle scratchpad (hide your digital secrets) |
-| `Print` | Screenshot full screen (fake it till you make it) |
-| `SUPER + Print` | Screenshot active window (show off what matters) |
-| `SUPER + ALT + Print` | Screenshot selected area (crop out the broke parts) |
+| Combo               | What it does                                                    |
+| :------------------ | :-------------------------------------------------------------- |
+| `SUPER + T`         | Opens terminal (to check if you've won the lottery)            |
+| `SUPER + E`         | Opens file manager (to admire your collection of free ebooks) |
+| `SUPER + B`         | Opens browser (to find more free stuff)                       |
+| `SUPER + C`         | Opens code editor (for that side hustle that will make you rich) |
+| `SUPER + A`         | App launcher (find even more free apps)                       |
+| `SUPER + Q`         | Closes windows (like you close those "urgent" emails)          |
+| `SUPER + F`         | Toggle fullscreen (maximize your limited screen space)         |
+| `SUPER + Space`     | Toggle floating window (because sometimes you just need to float) |
+| `SUPER + Left/Right/Up/Down` | Navigate windows (avoiding real-life expenses)            |
+| `SUPER + SHIFT + 1-0` | Move window to workspace (organize your digital empire)        |
+| `SUPER + 1-0`       | Switch to workspace (escape reality)                          |
+| `SUPER + L`         | Lock screen (hide your shame... or your awesome desktop)      |
+| `SUPER + ESCAPE`    | Show logout menu (when you need a break from being awesome)    |
+| `SUPER + M`         | Exit Hyprland (when even virtual life gets too real)           |
+| `SUPER + N`         | Change wallpaper (new look, same broke you)                   |
+| `SUPER + V`         | Show clipboard history (relive your copy-paste victories)      |
+| `SUPER + S`         | Toggle scratchpad (hide your secrets... or your grocery list)  |
+| `Print`             | Screenshot full screen (proof that you're winning at life)     |
+| `SUPER + Print`     | Screenshot active window (show off your best side)             |
+| `SUPER + ALT + Print` | Screenshot selected area (crop out the messy parts)            |
 
-## 📷 See It In Action
+## 📸 Proof's in the Pudding
 
 ![Screenshot](https://raw.githubusercontent.com/ultimatebrok/brokies_land/main/screenshots/desktop.png)
 
-## 💪 Join the Brokie Movement
+## 💖 Join the Brokie Revolution
 
-Contributions welcome! Found a free alternative to something expensive? A configuration that makes things look premium? Share with your fellow brokies!
+Got a free alternative to share? A config tweak that makes things look extra fancy? Fork it, tweak it, and share it with your fellow brokies!
 
-## 📜 License
+## 📜 The Fine Print (License)
 
-MIT Licensed. See LICENSE file for details. Free as in "I'm too broke to charge for this anyway."
+MIT Licensed. See LICENSE file for details. Free as in beer... or instant noodles.
 
 ---
 
-<p align="center"><i>Rich in desktop aesthetics, poor in actual money!</i></p>
+<p align="center"><i>Living the high-resolution life on a low-resolution budget!</i></p>
