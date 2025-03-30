@@ -109,7 +109,7 @@ The bread and butter (or ramen and water) of this setup:
 paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp
 ```
 
-> 💡 Pro Brokie Tip: Too broke for `paru`? `yay` still works wonders!
+> 💡 Brokie Tip: Hate `paru`? `yay` still works wonders!
 
 ## 🚀 Get Started ASAP
 
