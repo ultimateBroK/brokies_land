@@ -70,6 +70,12 @@ The bread and butter (or ramen and water) of this setup:
 -   `kvantum` - Make your apps look like they cost more than your car.
 -   `noto-fonts-cjk` - Fonts that add a touch of class to your broke existence.
 
+### Theming
+- `bibata-cursor-theme`: Cursor theme
+- [fluent-icon-theme](https://github.com/vinceliuice/Fluent-icon-theme): Icon theme 
+- ![orchis-theme](https://github.com/vinceliuice/Orchis-theme): Shell theme
+
+> Clone the 2 above and install via script inside
 ### Clipboard Hero
 
 -   `cliphist` - Clipboard manager that saves you from repeating yourself (and wasting precious time).
@@ -106,7 +112,7 @@ The bread and butter (or ramen and water) of this setup:
 
 ```bash
 # One command to rule them all (the broke way)
-paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp
+paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp bibata-cursor-theme
 ```
 
 > 💡 Brokie Tip: Hate `paru`? `yay` still works wonders!
