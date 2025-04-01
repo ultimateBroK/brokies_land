@@ -20,12 +20,7 @@ Ever spent all your money on that sweet PC hardware and realized you're too brok
 
 ## 🗂️ What's Inside the Box?
 
--   `.config/hypr/` - The heart of the operation: a fully configured Hyprland setup, complete with hyprlock and hypridle.
--   `.config/waybar/` - A status bar so stylish, it'll make you forget your financial woes.
--   `.config/tofi/` - An application launcher that's both lightweight and a joy to look at.
--   `.config/kitty/` - A terminal config that proves you don't need money to have good taste.
--   `.config/dunst/` - Notifications that are clean, functional, and won't remind you of your overdue bills.
--   `.config/wleave/` - A sleek logout/power menu for those moments when you just need to escape.
+go check it out...I'm lazy to write it all out, lol
 
 ## 🛠️ Gear Up: Dependencies
 
@@ -72,8 +67,8 @@ The bread and butter (or ramen and water) of this setup:
 
 ### Theming
 - `bibata-cursor-theme`: Cursor theme
-- [fluent-icon-theme](https://github.com/vinceliuice/Fluent-icon-theme): Icon theme 
-- ![orchis-theme](https://github.com/vinceliuice/Orchis-theme): Shell theme
+- fluent-icon-theme-git`: Icon theme 
+- ![Orchis-theme](https://github.com/vinceliuice/Orchis-theme): Shell theme (GTK theme)
 
 > Clone the 2 above and install via script inside
 ### Clipboard Hero
@@ -105,6 +100,7 @@ The bread and butter (or ramen and water) of this setup:
 ### Code Editor
 
 -   `visual-studio-code` - Editor to build that million-dollar app idea (someday)
+-  `zed-preview` - An alternative to VSCode
 
 ### Time to Install (The Free Way)
 
@@ -112,7 +108,7 @@ The bread and butter (or ramen and water) of this setup:
 
 ```bash
 # One command to rule them all (the broke way)
-paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp bibata-cursor-theme
+paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin zed-preview-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp bibata-cursor-theme fluent-icon-theme-git 
 ```
 
 > 💡 Brokie Tip: Hate `paru`? `yay` still works wonders!
