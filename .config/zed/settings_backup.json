@@ -1,0 +1,346 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (Cmd+Shift+P / Ctrl+Shift+P)
+{
+  // --- General Appearance & Behavior ---
+
+  "theme": {
+    "mode": "system", // "system" | "light" | "dark" - Follows OS theme
+    "light": "Vercel Light",
+    "dark": "Vercel Dark"
+  },
+  "ui_font_family": "JetBrains Mono",
+  "ui_font_size": 16,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 16,
+  "border_size": 0.5,
+  "modal_max_width": "medium",
+  "base_keymap": "VSCode", // Keymap: "Zed" | "VSCode" | "Sublime" | "Atom" | "JetBrains"
+  "auto_update": true,
+
+  // --- Assistant (AI) ---
+  "assistant": {
+    "enabled": true, // Explicitly enable
+    "enable_experimental_live_diffs": false, // Consider enabling for live diffs (experimental)
+    "default_model": {
+      "provider": "google", // Consider "zed.dev" for Zed's provider.
+      "model": "gemini-2.0-pro-exp" // Consider newer models.
+    },
+    "version": "2"
+  },
+
+  // --- Panels & Layout ---
+  // Grouped and consistent order
+
+  "project_panel": { "dock": "right" },
+  "outline_panel": { "dock": "right" },
+  "chat_panel": { "dock": "left" }, // Consider if you use Zed's chat
+  "notification_panel": { "dock": "left" },
+
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": true,
+    "show_tab_bar_buttons": true
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": false, // Consider `true` if you use Git heavily
+    "activate_on_close": "history",
+    "always_show_close_button": false
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": false,
+    "enable_preview_from_code_navigation": false
+  },
+  "toolbar": {
+    "breadcrumbs": true, // Useful for navigating large projects
+    "quick_actions": true // For Run, Build, etc.
+  },
+
+  // --- Editor: Core Functionality ---
+
+  "autosave": "on_focus_change",
+  "restore_on_startup": "last_session",
+  "format_on_save": "on", // Global, overridden by language-specific
+  "use_autoclose": true, // Automatically close brackets, quotes, etc.
+  "hover_popover_enabled": true,
+  "show_completions_on_input": true,
+
+  // --- Editor: Visual ---
+
+  "current_line_highlight": "all",
+  "cursor_blink": true,
+  "cursor_shape": "underline",
+  "autoscroll_on_clicks": true,
+  "indent_guides": { "enabled": false }, // Cleaner look, less visual clutter
+
+  // --- Editor: Predictions & Hints ---
+
+  "show_edit_predictions": true, // Copilot-like suggestions
+  "edit_predictions": {
+    "disabled_globs": [
+      // Files to exclude from predictions (security)
+      "**/.env*",
+      "**/*.pem",
+      "**/*.key",
+      "**/*.cert",
+      "**/*.crt",
+      "**/secrets.yml"
+    ]
+  },
+  "inlay_hints": {
+    "enabled": false, // Disable by default for cleaner view.
+    "show_type_hints": true, // Enable if you want type hints.
+    "show_parameter_hints": true, // Enable if you want parameter hints.
+    "show_other_hints": true, // Enable if you want other hints.
+    "show_background": false, // No background for a cleaner look.
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50
+  },
+
+  // --- Editor: Scrollbar ---
+
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true, // Show other users' cursors (collaboration)
+    "git_diff": true, // Show Git changes in the scrollbar
+    "search_results": true,
+    "selected_symbol": true,
+    "diagnostics": "all",
+    "axes": {
+      "horizontal": true,
+      "vertical": true
+    }
+  },
+
+  // --- Language Configuration ---
+
+  "enable_language_server": true, // Enable Language Server Protocol (LSP)
+
+  "languages": {
+    // --- Python ---
+    "Python": {
+      "tab_size": 4,
+      "language_servers": ["ruff"], // Use Ruff for linting AND formatting
+      "formatter": {
+        // Ruff (formatter)
+        "external": {
+          "command": "ruff",
+          "arguments": ["format", "--stdin-filepath", "{buffer_path}", "-"] // "-" is crucial
+        }
+      },
+      "linter": {
+        // Ruff (linter)
+        "external": {
+          "command": "ruff",
+          "arguments": ["check", "--stdin-filename", "{buffer_path}", "-"] // "-" is crucial
+        },
+        "debounce_ms": 200 // Adjust if needed
+      },
+      "diagnostics": {
+        // Control diagnostic display
+        "enable_syntax_errors": true,
+        "enable_diagnostics": true,
+        "diagnostics_debounce_ms": 250
+      },
+      "format_on_save": "on",
+      "auto_doc_strings": true, // If you want automatic docstring generation
+      "diagnostic_mode": "open_files" // Diagnostics only for open files
+    },
+
+    // --- JavaScript ---
+    "JavaScript": {
+      "tab_size": 2,
+      "language_servers": ["biome"], // Biome for linting and formatting
+      "formatter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "linter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    },
+
+    // --- TypeScript ---
+    "TypeScript": {
+      "tab_size": 2,
+      "language_servers": ["biome"], // Biome for linting and formatting
+      "formatter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "linter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    },
+
+    // --- Rust ---
+    "Rust": {
+      "tab_size": 4,
+      "formatter": "language_server", // rust-analyzer
+      "format_on_save": "on"
+    },
+
+    // --- JSON ---
+    "JSON": {
+      "language_servers": ["biome"], // Biome for linting and formatting
+      "formatter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "linter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    },
+    // --- TSX ---
+    "TSX": {
+      "tab_size": 2,
+      "language_servers": ["biome"],
+      "formatter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "linter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    },
+    // --- JSX ---
+    "JSX": {
+      "tab_size": 2,
+      "language_servers": ["biome"],
+      "formatter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "linter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    },
+    // --- Markdown ---
+    "Markdown": {
+      "formatter": {
+        "external": {
+          "command": "biome",
+          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    },
+
+    // --- LaTeX ---
+    "LaTeX": {
+      "show_inline_completions": false, // Disable AI completions
+      "soft_wrap": "preferred_line_length",
+      "preferred_line_length": 110
+    }
+  },
+
+  // --- LSP Configuration ---
+  // Configure specific language servers
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        // Example: rust-analyzer
+        // "checkOnSave": {      // Example: Use clippy instead of check (commented)
+        //   "command": "clippy"
+        // }
+      }
+    }
+  },
+
+  // --- Biome Configuration ---
+  "biome": {
+    "enabled": true,
+    "path": null, // Path to Biome binary. null for bundled (recommended)
+    "formatter": {
+      "enabled": true,
+      "format_with_errors": false,
+      "indent_style": "space",
+      "indent_width": 2,
+      "line_width": 88,
+      "line_ending": "lf"
+    },
+    "linter": {
+      "enabled": true,
+      "rules": {
+        "all": true, // Start with all rules enabled
+        "suspicious": {
+          // Example: Disable a specific rule
+          "noDebugger": "off"
+        }
+      }
+    }
+  },
+
+  // --- Terminal ---
+
+  "terminal": {
+    "alternate_scroll": "on",
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "dock": "bottom",
+    "detect_venv": {
+      // Python virtual environment detection
+      "on": {
+        "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "default"
+      }
+    },
+    "env": {},
+    "font_family": "JetBrains Mono",
+    "font_features": null,
+    "font_size": null, // Inherits from buffer font size
+    "line_height": "comfortable",
+    "option_as_meta": false,
+    "button": true,
+    "shell": "system", // Use the system's default shell
+    "toolbar": {
+      "breadcrumbs": true
+    },
+    "working_directory": "current_project_directory",
+    "scrollbar": { "show": null }
+  },
+
+  // --- Journal ---
+  "journal": {
+    "path": "~",
+    "hour_format": "hour24"
+  }
+}
