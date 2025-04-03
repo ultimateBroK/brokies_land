@@ -8,11 +8,15 @@
 // command palette (Cmd+Shift+P / Ctrl+Shift+P)
 {
   // --- General Appearance & Behavior ---
-
+  "use_system_path_prompts": false,
+  "icon_theme": "Symbols",
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "theme": {
     "mode": "dark", // "system" | "light" | "dark" - Follows OS theme
     "light": "Vercel Light",
-    "dark": "Vercel Dark"
+    "dark": "Vesper"
   },
   "ui_font_family": "JetBrains Mono",
   "ui_font_size": 16,
@@ -28,8 +32,8 @@
     "enabled": true, // Explicitly enable
     "enable_experimental_live_diffs": false, // Consider enabling for live diffs (experimental)
     "default_model": {
-      "provider": "google", // Consider "zed.dev" for Zed's provider.
-      "model": "gemini-2.0-pro-exp" // Consider newer models.
+      "provider": "copilot_chat", // Consider "zed.dev" for Zed's provider.
+      "model": "claude-3-7-sonnet" // Consider newer models.
     },
     "version": "2"
   },
