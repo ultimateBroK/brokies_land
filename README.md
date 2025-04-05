@@ -92,6 +92,7 @@ The bread and butter (or ramen and water) of this setup:
 -   `bluez` - Bluetooth support for your budget headphones.
 -   `bluez-utils` - Bluetooth utilities for when you want to cut the cord (without cutting your budget).
     -   `jamesdsp` - A DSP for your audio that doesn't cost a dime
+-   `gnome-clocks` - Wake up, brokies, watch out for alarms
 
 ### Browser
 
@@ -108,7 +109,7 @@ The bread and butter (or ramen and water) of this setup:
 
 ```bash
 # One command to rule them all (the broke way)
-paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin zed-preview-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp bibata-cursor-theme fluent-icon-theme-git 
+paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin zed-preview-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp bibata-cursor-theme fluent-icon-theme-git gnome-clocks
 ```
 
 > 💡 Brokie Tip: Hate `paru`? `yay` still works wonders!
