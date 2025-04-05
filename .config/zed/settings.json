@@ -89,6 +89,7 @@
 
   "show_edit_predictions": true, // Copilot-like suggestions
   "edit_predictions": {
+    "mode": "subtle",
     "disabled_globs": [
       // Files to exclude from predictions (security)
       "**/.env*",
@@ -348,3 +349,4 @@
     "hour_format": "hour24"
   }
 }
+V
