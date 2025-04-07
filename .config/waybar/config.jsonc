@@ -6,141 +6,224 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   "height": 0,
-  "modules-left": [
-      "clock",
-      "hyprland/workspaces"
-  ],
-  "modules-center": ["hyprland/window"],
-  "modules-right": [
-      "tray",
-      "memory",
-      "cpu",
-      "network",
-      "battery",
-      "backlight",
-      "pulseaudio",
-      "pulseaudio#microphone"
-  ],
+  "margin-right": 2,
+  "margin-left": 2,
+  "modules-left": ["clock", "hyprland/window"],
+  "modules-center": ["custom/mpris_scrolling", "cava", "hyprland/workspaces"],
+  "modules-right": ["tray", "group/system", "group/hardware", "group/audio", "custom/power"],
+
+  // Remove main background, keep spacing and margins
+  "margin": 5,
+  "spacing": 5,
+  "background": "rgba(0, 0, 0, 0)", // Completely transparent main background
+  "border-radius": 8,
 
   "hyprland/window": {
-      "format": "󰣇 {}"
+    "format": "<span color='#00ffbb'>{class}</span>",
+    "icon": true,
+    "max-length": 40
+  },
+
+	"custom/power": {
+		"format" : "󰐥",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "~/.config/waybar/power_menu.xml",
+		"menu-actions": {
+			"shutdown": "shutdown now",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate",
+			"logout": "hyprctl dispatch exit",
+			"lock": "hyprlock"
+		}
+	},
+	
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{icon}"
   },
   
-  "hyprland/workspaces": {
-      "disable-scroll": true,
-      "all-outputs": true,
-      "on-click": "activate"
-      //"format": "{icon}",
+  "cava": {
+		"cava_config": "home/ultimatebrok/.config/cava/config",
+		"framerate": 60,
+		"autosens": 0,
+		"sensitivity": 5,
+		"bars": 14,
+		"lower_cutoff_freq": 20,
+		"higher_cutoff_freq": 10000,
+		"hide-empty": true,
+		"method": "pipewire",
+		"source": "auto",
+		"stereo": false,
+		"reverse": false,
+		"bar_delimiter": 0,
+		"monstercat": false,
+		"waves": true,
+		"noise_reduction": 0.9,
+		"input_delay": 1,
+		"format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+		"actions": {
+			"on-click-right": "mode"
+		}
+  },
+  
+	"custom/mpris_scrolling": {
+		"format": "{}",
+		"exec": "~/.config/waybar/scripts/mpris_scroller.sh",
+		"interval": 1,
+		"return-type": "text",
+		"on-click": "playerctl play-pause",
+		"on-click-right": "playerctl next",
+		"on-click-middle": "playerctl previous",
+		"on-scroll-up": "playerctl position 5+",
+		"on-scroll-down": "playerctl position 5-"
+	},
+
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": ["memory", "cpu", "network"],
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "system-drawer"
+    }
   },
 
-  "tray": {
-      "icon-size": 13,
-      "spacing": 10
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": ["battery", "backlight"],
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "hardware-drawer"
+    }
   },
 
-  "clock": {
-      "format": "{:%A    %B-%d-%Y    %I:%M:%S %p}",
-      "interval": 1,
-      "rotate": 0,
-      "tooltip-format": "<tt>{calendar}</tt>",
-      "calendar": {
-          "mode": "month",
-          "mode-mon-col": 3,
-          "on-scroll": 1,
-          "on-click-right": "mode",
-          "format": {
-              "months": "<span color='#a6adc8'><b>{}</b></span>",
-              "weekdays": "<span color='#a6adc8'><b>{}</b></span>",
-              "today": "<span color='#a6adc8'><b>{}</b></span>",
-              "days": "<span color='#555869'><b>{}</b></span>"
-          }
-      }
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio", "pulseaudio#microphone"],
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "audio-drawer"
+    }
   },
 
+	"clock": {
+		"format": "<span color='#f9e2af'>󰥔</span> {:%I:%M:%S %p}",
+		"format-alt": "<span color='#f9e2af'>󰥔</span> {:%A | %d/%m/%y | %I:%M:%S %p}",
+		"interval": 1,
+		"tooltip-format": "<tt>{calendar}</tt>",
+		"tooltip": true,
+		"calendar": {
+		  "mode": "month",
+		  "mode-mon-col": 3,
+		  "on-scroll": 1,
+		  "on-click-right": "mode",
+		  "format": {
+		    "months": "<span color='#f5c2e7'><b>{}</b></span>",
+		    "weekdays": "<span color='#cba6f7'><b>{}</b></span>",
+		    "today": "<span color='#f9e2af'><b><u>{}</u></b></span>",
+		    "days": "<span color='#cdd6f4'>{}</span>"
+		  }
+		}
+	},
+	
+	
   "backlight": {
-      "device": "intel_backlight",
-      "format": "{icon} {percent}%",
-      "format-icons": ["󰃞", "󰃟", "󰃠"],
-      "on-scroll-up": "brightnessctl set 1%+",
-      "on-scroll-down": "brightnessctl set 1%-",
-      "min-length": 6
+    "device": "intel_backlight",
+    "format": "<span color='#f9e2af'>{icon}</span> {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
   },
 
   "battery": {
-      "states": {
-          "good": 95,
-          "warning": 30,
-          "critical": 20
-      },
-      "format": "{icon} {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-alt": "{time} {icon}",
-      "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "<span color='#a6e3a1'>󰂄</span> {capacity}%",
+    "format-plugged": "<span color='#a6e3a1'>󰚥</span> {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": [
+      "<span color='#f38ba8'>󰂃</span>",
+      "<span color='#f38ba8'>󰁺</span>",
+      "<span color='#f9e2af'>󰁻</span>",
+      "<span color='#f9e2af'>󰁼</span>",
+      "<span color='#f9e2af'>󰁽</span>",
+      "<span color='#a6e3a1'>󰁾</span>",
+      "<span color='#a6e3a1'>󰁿</span>",
+      "<span color='#a6e3a1'>󰂀</span>",
+      "<span color='#a6e3a1'>󰂁</span>",
+      "<span color='#a6e3a1'>󰂂</span>",
+      "<span color='#a6e3a1'>󰁹</span>"
+    ]
   },
 
   "pulseaudio": {
-      "format": "{icon}  {volume}%",
-      "tooltip": false,
-      "format-muted": "  Muted",
-      "on-click": "pamixer -t",
-      "on-scroll-up": "pamixer -i 1",
-      "on-scroll-down": "pamixer -d 1",
-      "scroll-step": 5,
-      "format-icons": {
-          "headphone": "",
-          "hands-free": "",
-          "headset": "",
-          "phone": "",
-          "portable": "",
-          "car": "",
-          "default": ["","", "", ""]
-      }
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}% ",
+    "format-muted": " Muted",
+    "format-icons": ["󰝟", "󰕿", "󰖀", "󰕾"],
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
   },
 
   "pulseaudio#microphone": {
-      "format": "{format_source}",
-      "format-source": " {volume}%",
-      "format-source-muted": "  Muted",
-      "on-click": "pamixer --default-source -t",
-      "on-scroll-up": "pamixer --default-source -i 5",
-      "on-scroll-down": "pamixer --default-source -d 5",
-      "scroll-step": 5
+    "format": "{format_source}",
+    "format-source": "<span color='#cba6f7'>󰍬</span> {volume}%",
+    "format-source-muted": "<span color='#f38ba8'>󰍭</span> Muted",
+    "on-click": "pamixer --default-source -t",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5,
+    "tooltip": false
   },
 
   "memory": {
-      "states": {
-          "c": 90, // critical
-          "h": 60, // high
-          "m": 30 // medium
-      },
-      "interval": 10,
-      "format": "󰾆 {used}GB",
-      "format-m": "󰾅 {used}GB",
-      "format-h": "󰓅 {used}GB",
-      "format-c": " {used}GB",
-      "format-alt": "󰾆 {percentage}%",
-      "max-length": 10,
-      "tooltip": true,
-      "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
+    "states": {
+      "warning": 70,
+      "critical": 90
+    },
+    "interval": 5,
+    "format": "<span color='#a6e3a1'>󰍛</span> {used:0.1f}GB",
+    "format-warning": "<span color='#f9e2af'>󰍛</span> {used:0.1f}GB",
+    "format-critical": "<span color='#f38ba8'>󰍛</span> {used:0.1f}GB",
+    "format-alt": "<span color='#89b4fa'>󰍛</span> {percentage}%",
+    "max-length": 10,
+    "tooltip": true,
+    "tooltip-format": "󰆼 {used:0.1f}GB/{total:0.1f}GB ({percentage}%)",
+    "on-click": "btop"
   },
 
   "cpu": {
-      "interval": 10,
-      "format": "󰍛 {usage}%",
-      "format-alt": "{icon0}{icon1}{icon2}{icon3}",
-      "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    "interval": 5,
+    "format": "<span color='#89dceb'>󰻠</span> {usage}%",
+    "format-alt": "{icon0}{icon1}{icon2}{icon3}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "on-click": "btop"
   },
 
   "network": {
-      "tooltip": true,
-      "format-wifi": "  {essid}",
-      "format-ethernet": "󰈀 ",
-      "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-      "format-linked": "󰈀 {ifname} (No IP)",
-      "format-disconnected": "󰖪 ",
-      "tooltip-format-disconnected": "Disconnected",
-      "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
-      "interval": 2
+    "tooltip": true,
+    "format-wifi": "<span color='#89b4fa'>󰖩</span> {essid}",
+    "format-ethernet": "<span color='#a6e3a1'>󰈀</span> Connected",
+    "tooltip-format": "<span color='#f9e2af'>Network</span>\n<span color='#89b4fa'>SSID:</span> {essid}\n<span color='#89b4fa'>Strength:</span> {signalStrength}%\n<span color='#89b4fa'>IP:</span> {ipaddr}",
+    "format-linked": "<span color='#f9e2af'>󰈀</span> {ifname}",
+    "format-disconnected": "<span color='#f38ba8'>󰖪</span> Disconnected",
+    "tooltip-format-disconnected": "Disconnected",
+    "format-alt": "<span color='#89b4fa'>󰦛</span> {bandwidthDownBytes} <span color='#f9e2af'>󰦘</span> {bandwidthUpBytes}",
+    "interval": 2,
+    "on-click-right": "nm-connection-editor"
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
   }
 }
