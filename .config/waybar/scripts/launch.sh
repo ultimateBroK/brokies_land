@@ -1,6 +1,8 @@
 #!/bin/bash
-killall waybar
-killall mpris_scroller.sh
-
-waybar &
-~/.config/waybar/scripts/mpris_scroller.sh &
+if pgrep -x "waybar" > /dev/null; then
+    killall waybar
+    killall mpris_scroller.sh
+else
+    waybar &
+    ~/.config/waybar/scripts/mpris_scroller.sh &
+fi
