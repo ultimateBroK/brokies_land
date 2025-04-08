@@ -120,12 +120,10 @@ window#waybar {
 
 /* Enhanced mpris scrolling */
 #custom-mpris_scrolling {
-    color: @color2;
     font-weight: bold;
     padding: 0 8px;
     margin: 3px 2px;
     min-width: 100px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Cava waveform (if using) */
