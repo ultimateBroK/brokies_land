@@ -9,21 +9,12 @@
     font-size: 14px;
 }
 
-/* The whole bar - make completely transparent */
+/* Transparent Waybar background */
 window#waybar {
     background: transparent;
 }
 
-#window {
-    padding: 2px 10px;
-    margin: 3px 2px;
-    border-radius: 10px;
-    transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
-}
-
-/* Base style for all modules */
+/* Common module base style */
 #workspaces,
 #custom-mpris_scrolling,
 #clock,
@@ -43,7 +34,6 @@ window#waybar {
     padding: 2px 10px;
     margin: 3px 2px;
     background-color: rgba(30, 30, 46, 0.5);
-    /* Consistent module background */
     border-radius: 10px;
     color: #cdd6f4;
     transition:
@@ -51,12 +41,7 @@ window#waybar {
         color 0.3s ease;
 }
 
-#pulseaudio.muted {
-    opacity: 0.5;
-    color: #f38ba8;
-}
-
-/* Module hover effects - apply to all modules consistently */
+/* Hover effect */
 #clock:hover,
 #memory:hover,
 #cpu:hover,
@@ -75,9 +60,9 @@ window#waybar {
     color: #89b4fa;
 }
 
-/* Workspaces styling */
+/* Workspaces */
 #workspaces button {
-    padding: 0px 5px;
+    padding: 0 5px;
     margin: 3px 2px;
     color: #a6adc8;
     border-radius: 6px;
@@ -102,9 +87,8 @@ window#waybar {
     background-color: rgba(243, 139, 168, 0.2);
 }
 
-/* States styling */
+/* Warnings and critical states */
 #memory.warning,
-#memory.critical,
 #cpu.critical,
 #battery.warning,
 #battery.critical {
@@ -112,17 +96,7 @@ window#waybar {
     color: #1e1e2e;
 }
 
-#memory.format-warning {
-    background-color: rgba(250, 179, 135, 0.7);
-    color: #1e1e2e;
-}
-
-#custom-mpris_scrolling {
-    color: @color2;
-    font-weight: bold;
-    padding: 0 8px;
-}
-
+#memory.format-warning,
 #battery.warning {
     background-color: rgba(250, 179, 135, 0.7);
     color: #1e1e2e;
@@ -139,54 +113,34 @@ window#waybar {
     color: #cdd6f4;
 }
 
-/* Drawer groups */
-#group-system,
-#group-hardware,
-#group-audio,
-#group-datetime {
-    margin: 3px 2px;
-    padding: 2px 10px;
+#pulseaudio.muted {
+    opacity: 0.5;
+    color: #f38ba8;
 }
 
-/* Module children (inside drawers) now consistent with other modules */
-#memory,
-#cpu,
-#network,
-#battery,
-#backlight,
-#pulseaudio,
-#pulseaudio.microphone,
-#clock {
+/* Enhanced mpris scrolling */
+#custom-mpris_scrolling {
+    color: @color2;
+    font-weight: bold;
+    padding: 0 8px;
     margin: 3px 2px;
-    padding: 0 6px;
-    background-color: rgba(30, 30, 46, 0.5);
-    /* Match other modules' background */
+    min-width: 100px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Cava waveform (if using) */
 #cava {
     color: @material_accent;
-}
-
-/* Enhanced mpris module */
-#custom-mpris_scrolling {
-    padding: 0 5px;
-    min-width: 100px;
+    font-weight: bold;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
+    padding: 0 10px;
     margin: 3px 2px;
+    background-color: rgba(30, 30, 46, 0.5);
+    border-radius: 10px;
 }
 
-/* Visual separation for the tray */
-#tray {
-    margin-right: 5px;
-}
-
-#tray menu,
-#custom-power menu {
-    background-color: rgba(30, 30, 46, 0.95);
-    border-radius: 8px;
-    border: 1px solid rgba(205, 214, 244, 0.2);
-}
-
-/* Smooth state changes */
+/* Smooth transitions */
 #memory,
 #cpu,
 #network,
@@ -200,7 +154,29 @@ window#waybar {
         color 0.2s ease;
 }
 
-/* Clock specific styling */
+/* Window title */
+#window {
+    padding: 2px 10px;
+    margin: 3px 2px;
+    border-radius: 10px;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+/* Tray spacing & menu style */
+#tray {
+    margin-right: 5px;
+}
+
+#tray menu,
+#custom-power menu {
+    background-color: rgba(30, 30, 46, 0.95);
+    border-radius: 8px;
+    border: 1px solid rgba(205, 214, 244, 0.2);
+}
+
+/* Clock */
 #clock {
     font-weight: bold;
 }

@@ -24,14 +24,26 @@ title=$(playerctl -p "$selected_player" metadata title 2>/dev/null)
 status=$(playerctl -p "$selected_player" status 2>/dev/null)
 
 # Kiểm tra tên của cửa sổ (chỉ thực hiện khi player là chrome hoặc chromium)
-window_title=""
-if [[ "$selected_player" == *"chrome"* || "$selected_player" == *"chromium"* ]]; then
-  window_title=$(hyprctl clients | grep -oP '(?<=title: ).*')
-fi
+#window_title=""
+#if [[ "$selected_player" == *"chrome"* || "$selected_player" == *"chromium"* ]]; then
+#  window_title=$(hyprctl clients | grep -oP '(?<=title: ).*')
+#fi
+
+pid=$(playerctl -p "$selected_player" metadata mpris:pid 2>/dev/null)
+window_title=$(hyprctl clients | awk -v pid="$pid" '
+  $1 == "pid:" && $2 == pid {found=1}
+  found && $1 == "title:" {print substr($0, index($0,$2)); exit}
+')
+
 
 # Escape dấu & thành &amp; trong title và artist
-artist=$(echo "$artist" | sed 's/&/\&amp;/g')
-title=$(echo "$title" | sed 's/&/\&amp;/g')
+escape_amp() {
+  echo "$1" | sed 's/&/\&amp;/g'
+}
+
+artist=$(escape_amp "$artist")
+title=$(escape_amp "$title")
+
 
 # Detect app icon theo player name
 icon=""
