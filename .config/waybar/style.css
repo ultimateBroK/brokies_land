@@ -14,9 +14,17 @@ window#waybar {
     background: transparent;
 }
 
+#window {
+    padding: 2px 10px;
+    margin: 3px 2px;
+    border-radius: 10px;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+}
+
 /* Base style for all modules */
 #workspaces,
-#window,
 #custom-mpris_scrolling,
 #clock,
 #tray,
@@ -38,7 +46,9 @@ window#waybar {
     /* Consistent module background */
     border-radius: 10px;
     color: #cdd6f4;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 #pulseaudio.muted {
@@ -47,7 +57,6 @@ window#waybar {
 }
 
 /* Module hover effects - apply to all modules consistently */
-#window:hover,
 #clock:hover,
 #memory:hover,
 #cpu:hover,
@@ -72,7 +81,9 @@ window#waybar {
     margin: 3px 2px;
     color: #a6adc8;
     border-radius: 6px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 #workspaces button.active {
@@ -154,12 +165,11 @@ window#waybar {
 
 #cava {
     color: @material_accent;
-    margin: 0 8px;
 }
 
 /* Enhanced mpris module */
 #custom-mpris_scrolling {
-    padding: 0 10px;
+    padding: 0 5px;
     min-width: 100px;
     margin: 3px 2px;
 }
@@ -185,7 +195,9 @@ window#waybar {
 #pulseaudio,
 #pulseaudio.microphone,
 #clock {
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 /* Clock specific styling */
