@@ -4,8 +4,7 @@
   "mode": "dock",
   "exclusive": true,
   "passthrough": false,
-  "gtk-layer-shell": true,
-  "height": 0,
+  "height": 30,
   "margin-right": 2,
   "margin-left": 2,
   "modules-left": [
@@ -14,7 +13,6 @@
     "hyprland/window"
   ],
   "modules-center": [
-    "cava",
     "custom/mpris_scrolling",
     "cava"
   ],
@@ -33,7 +31,7 @@
   "hyprland/window": {
     "format": "{class}",
     "icon": true,
-    "max-length": 40,
+    "max-length": 40
   },
   "custom/power": {
     "format": "󰐥",
@@ -60,13 +58,13 @@
     "framerate": 60,
     "autosens": 0,
     "sensitivity": 2,
-    "bars": 10,
+    "bars": 20,
     "lower_cutoff_freq": 20,
     "higher_cutoff_freq": 10000,
     "hide-empty": true,
     "method": "pipewire",
     "source": "auto",
-    "stereo": true,
+    "stereo": false,
     "reverse": false,
     "bar_delimiter": 0,
     "monstercat": false,
