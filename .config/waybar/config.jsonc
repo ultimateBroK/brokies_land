@@ -21,7 +21,7 @@
   "hyprland/window": {
     "format": "<span color='#00ffbb'>{class}</span>",
     "icon": true,
-    "max-length": 40
+    "max-length": 40,
   },
 
 	"custom/power": {
@@ -47,7 +47,7 @@
   },
   
   "cava": {
-		"cava_config": "home/ultimatebrok/.config/cava/config",
+		"cava_config": "/home/ultimatebrok/.config/cava/config",
 		"framerate": 60,
 		"autosens": 0,
 		"sensitivity": 5,
@@ -165,12 +165,12 @@
   },
 
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}% ",
-    "format-muted": " Muted",
-    "format-icons": ["󰝟", "󰕿", "󰖀", "󰕾"],
-    "scroll-step": 5,
-    "on-click": "pavucontrol"
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}% ",
+		"format-muted": "󰝟 Muted",
+  		"format-icons": ["󰕿", "󰖀", "󰕾"],
+		"scroll-step": 5,
+		"on-click": "pavucontrol"
   },
 
   "pulseaudio#microphone": {
