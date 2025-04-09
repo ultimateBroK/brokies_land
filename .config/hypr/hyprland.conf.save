@@ -6,19 +6,23 @@
 # #/_/ /_/\__, / .___/_/  /_/\__,_/_/ /_/\__,_/  \____/\____/_/ /_/_/ /_/\__, /
 # #      /____/_/                                                        /____/
 # #
-# # Personal Hyprland Configuration for Brokies
+# # Personal Hyprland Configuration for Brokies 
 # #########################################################################################
+
+source = $HOME/.config/hypr/monitors.conf
+source = $HOME/.config/hypr/workspaces.conf
 
 # --- GENERAL SETTINGS & VARIABLES --- #
 
 # Define frequently used applications as variables for easier management
-$terminal = kitty        # Your preferred terminal emulator
-# $terminal = ghostty 	  # Your preferred terminal emulator
-$fileManager = thunar     # Your preferred file manager
-# $menu = wofi --show drun # Example using wofi (uncomment to use)
-$menu = tofi-drun -c ~/.config/tofi/configA --drun-launch=true # Your application launcher (tofi)
+# $terminal = kitty        # Your preferred terminal emulator
+$terminal = ghostty 	  # Your preferred terminal emulator
+$fileManager = nautilus     # Your preferred file manager (thunar, nautlis, dolphin, whatever you want)
+$menu = wofi --show drun -n # Example using wofi (uncomment to use)
+# $menu = tofi-drun -c $HOME/.config/tofi/configA --drun-launch=true # Your application launcher (tofi)
 $browser = zen-browser      # Your web browser
-$editor = code          # Your code editor (VS Code)
+# $editor = code          # Your code editor (VS Code)
+$editor = zeditor 		# Zed editor
 $trading = tradingview  # Escape brokie toolkit
 
 # Set the primary modifier key (Mod key)
@@ -43,15 +47,20 @@ $mainMod = SUPER
 #            1 = 100%, 1.5 = 150%, 2 = 200% etc.
 #            `auto` tries to guess a scale.
 
-monitor = eDP-1, highres@highrr, 0x0, 1      # Laptop display: preferred resolution, max refresh, top-left, 100% scale
-monitor = HDMI-A-1, highres@highrr, 1920x0, 1 # External HDMI: preferred resolution, max refresh, positioned right of eDP-1, 100% scale
+# default (auto-detect multiple monitors, to change the position of each one, follow the below config)
+# monitor = ,highres@highrr,auto,auto
+
+# I use nwg-displays so no need, just source to the monitors
+# monitor = eDP-1, highres@highrr, 0x0, 1      # Laptop display: preferred resolution, max refresh, top-left, 100% scale
+# monitor = HDMI-A-1, highres@highrr, 1920x0, 1 # External HDMI: preferred resolution, max refresh, positioned right of eDP-1, 100% scale
 
 # --- AUTOSTART APPLICATIONS --- #
 # Programs to launch automatically when Hyprland starts.
 # `exec-once` ensures the command runs only once per session.
 
 # Authentication Agent: Handles password prompts for privileged actions (polkit)
-exec-once = /usr/lib/polkit-kde-authentication-agent-1
+# exec-once = /usr/lib/polkit-kde-authentication-agent-1
+exec-once = /usr/bin/lxqt-policykit-agent
 
 # Notification Daemon: Manages desktop notifications
 exec-once = /usr/bin/dunst
@@ -69,11 +78,14 @@ exec-once = swww-daemon # Start the swww daemon first
 # Idle Management: Handles screen locking/sleeping after inactivity
 exec-once = hypridle
 
-# ibus 
-exec-once = ibus-daemon -drx
+# ibus (or fcitx)
+# exec-once = ibus-daemon -drx
+exec-once = fcitx5 -d
 
 # jamesdsp
 exec-once = jamesdsp
+
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # --- OPTIONAL AUTOSTART (Uncomment to enable) --- #
 # exec-once = $terminal        # Start terminal on login
@@ -103,7 +115,12 @@ env = CLUTTER_BACKEND,wayland              # Force Clutter applications to use W
 
 # Cursor Configuration
 env = XCURSOR_SIZE,24                      # Set cursor size for XWayland applications
+env = XCURSOR_THEME,Bibata-Modern-Amber
 # Note: HYPRCURSOR_SIZE is set via Hyprland's own cursor settings section now.
+
+# Firefox
+env = MOZ_ENABLE_WAYLAND, 1
+env = ELECTRON_OZONE_PLATFORM_HINT, auto
 
 # --- INPUT DEVICE CONFIGURATION --- #
 # Configure keyboards, mice, touchpads, etc.
@@ -117,9 +134,8 @@ input {
 
     follow_mouse = 1          # Focus follows mouse movement (1 = normal, 0 = disabled, 2 = focus only, 3 = full focus switch)
     sensitivity = 0           # Mouse sensitivity (-1.0 to 1.0, 0 = default/no change)
-    accel_profile = default   # Acceleration profile (e.g., default, flat, adaptive)
+    accel_profile = adaptive  # Acceleration profile (e.g., default, flat, adaptive)
     force_no_accel = false    # Force disable mouse acceleration
-
     touchpad {
         natural_scroll = true  # Enable natural (reversed) scrolling direction
         disable_while_typing = true # Disable touchpad while typing
@@ -143,7 +159,7 @@ gestures {
 # Use `hyprctl devices` to find the name of your device.
 device {
     name = epic-mouse-v1    # Example: Apply settings only to this specific mouse
-    sensitivity = -0.5      # Set a different sensitivity for this device
+    sensitivity = 0      # Set a different sensitivity for this device
 }
 
 # --- VISUAL APPEARANCE --- #
@@ -216,6 +232,7 @@ animations {
     bezier = easeOutQuart, 0.25, 1, 0.5, 1    # Starts fast, decelerates quickly towards the end
     bezier = easeInOutSine, 0.37, 0, 0.63, 1 # Gentle acceleration and deceleration
     bezier = modernBounce, 0.18, 0.99, 0, 1.15 # A custom curve with a slight overshoot/bounce effect
+    bezier = easeInOutBack, 0.68, -0.55, 0.27, 1.55 # Starts slow, overshoots, then settles back
     # bezier = linear, 0, 0, 1, 1              # Constant speed (no easing)
 
     # --- Animation Definitions --- #
@@ -233,8 +250,20 @@ animations {
     animation = windowsMove, 1, 4, easeInOutSine        # Window move/resize animation (no style needed usually)
 
     # Border Animations
-    animation = border, 1, 5, default                     # Border color transition (when focus changes)
-    animation = borderangle, 1, 30, default, loop        # Animated border gradient angle rotation (loops)
+    animation = border, 1, 8, easeInOutBack                     # Border color transition (when focus changes)
+    animation = borderangle, 1, 60, modernBounce, loop        # Animated border gradient angle rotation (loops)
+
+    # # More balanced
+    # animation = border, 1, 7, easeInOutBack
+    # animation = borderangle, 1, 45, modernBounce, loop
+
+    # # Smoother and slower
+    # animation = border, 1, 10, easeInOutSine
+    # animation = borderangle, 1, 90, easeInOutSine, loop
+
+    # # Lively with a slight bounce effect
+    # animation = border, 1, 6, modernBounce
+    # animation = borderangle, 1, 50, easeInOutBack, loop
 
     # Fade Animations (Often affect layers, dimming, etc.)
     animation = fadeIn, 1, 4, easeInOutSine             # General fade-in effect
@@ -290,7 +319,7 @@ misc {
     # force_default_wallpaper = -1 # -1: Hyprland default, 0: Disable, >0: Use specified default wallpaper index
     disable_hyprland_logo = false     # Disable the Hyprland logo shown briefly on startup
     disable_splash_rendering = false  # Disable the splash screen rendering (logo and version)
-    # mouse_move_enables_dpms = false # Wake display from DPMS sleep on mouse movement
+ 	# mouse_move_enables_dpms = false # Wake display from DPMS sleep on mouse movement
     # key_press_enables_dpms = true  # Wake display from DPMS sleep on key press
     # always_follow_on_dnd = true    # Make Hyprland follow the cursor during drag and drop operations
     # layers_dont_check_resource = true # May fix issues with some layer-shell apps if they misbehave
@@ -318,19 +347,20 @@ misc {
 # Application Launchers
 bind = $mainMod, Return, exec, $terminal      # Launch terminal
 bind = $mainMod, C, exec, $editor        # Launch code editor
-bind = $mainMod, B, exec, $browser       # Launch web browser
+bind = $mainMod, B, exec, MOZ_ENABLE_WAYLAND=0 $browser       # Launch web browser
 bind = $mainMod, E, exec, $fileManager   # Launch file manager
 bind = $mainMod, A, exec, $menu          # Launch application menu (tofi)
 bind = $mainMod, T, exec, $trading       # Launch TradingView
+bind = ALT, w, exec, $HOME/.config/hypr/wallpaper.sh
 
 # System / Session Actions
-bind = Ctrl, Escape, exec, killall waybar || waybar # Toggle Waybar (kill if running, start if not)
+bind = Ctrl, Escape, exec, $HOME/.config/waybar/scripts/launch.sh # Toggle Waybar (kill if running, start if not)
 bind = SUPER, L, exec, hyprlock             # Lock the screen
 bind = SUPER, ESCAPE, exec, wlogout         # Show logout menu (wlogout)
 bind = $mainMod, M, exit,                   # Exit Hyprland session (graceful quit)
 
 # Clipboard History
-bind = SUPER, V, exec, cliphist list | tofi -c ~/.config/tofi/configV | cliphist decode | wl-copy # Show clipboard history via tofi
+bind = SUPER, V, exec, cliphist list | tofi -c $HOME/.config/tofi/configV | cliphist decode | wl-copy # Show clipboard history via tofi
 
 # Wallpaper Changer
 # Note: Adjust path and transition options as needed
@@ -443,22 +473,29 @@ windowrule = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned
 # Example: windowrulev2 = opacity <active_opacity> <inactive_opacity>, <criteria>
 windowrulev2 = opacity 0.90 0.90, class:^(kitty)$       # Set kitty terminal opacity (active/inactive)
 # windowrulev2 = opacity 0.90 0.90, class:^(ghostty)$     # Set ghostty terminal opacity
-windowrulev2 = opacity 0.90 0.90, class:^(Code)$        # Set VS Code opacity
-windowrulev2 = opacity 0.90 0.90, class:^(firefox)$     # Set Firefox opacity
-windowrulev2 = opacity 0.90 0.90, class:^(gedit)$       # Set Gedit opacity
-windowrulev2 = opacity 0.85 0.85, class:^(zen-browser)$ # Set Zen browser opacity
+# windowrulev2 = opacity 0.90 0.90, class:^(Code)$        # Set VS Code opacity
+# windowrulev2 = opacity 0.90 0.90, class:^(firefox)$     # Set Firefox opacity
+# windowrulev2 = opacity 0.90 0.90, class:^(gedit)$       # Set Gedit opacity
+# windowrulev2 = opacity 0.85 0.85, class:^(zen-browser)$ # Set Zen browser opacity
+windowrulev2 = opacity 0.90 0.90, class:^* 
 # Note: Use `^()` for exact class matching, or just the class name for substring matching.
 
 # --- Example Rules (Uncomment and modify as needed) --- #
 
 # Make specific applications always float
-# windowrule = float, class:^(pavucontrol)$       # Make Pavucontrol (Volume Control) float
-# windowrule = float, class:^(blueman-manager)$   # Make Blueman (Bluetooth Manager) float
-# windowrule = float, title:^(Picture-in-Picture)$ # Make Firefox Picture-in-Picture float
+windowrule = float, class:^(pavucontrol)$       # Make Pavucontrol (Volume Control) float
+windowrule = float, class:^(blueman-manager)$   # Make Blueman (Bluetooth Manager) float
+windowrule = float, title:^(Picture-in-Picture)$ # Make Firefox Picture-in-Picture float
 
 # Center floating windows
-# windowrule = center, class:^(pavucontrol)$
-# windowrule = center, class:^(blueman-manager)$
+windowrule = center, class:^(pavucontrol)$
+windowrule = center, class:^(blueman-manager)$
+windowrule = center, class:^(Picture-in-Picture)$
+
+# Layer rule
+layerrule = blur, wofi
+layerrule = ignorezero, wofi
+layerrule = ignorealpha 0.5, wofi
 
 # Assign applications to specific workspaces
 # windowrule = workspace 2, class:^(firefox)$
@@ -466,6 +503,7 @@ windowrulev2 = opacity 0.85 0.85, class:^(zen-browser)$ # Set Zen browser opacit
 
 # Set size for floating windows
 # windowrule = size 800 600, class:^(pavucontrol)$
+# windowrule = size 800 600, class:^(Picture-in-Picture)$
 
 # --- OPTIONAL WORKSPACE LAYOUT RULES (Uncomment to enable) --- #
 # These rules can override global gap/border settings for specific workspaces.

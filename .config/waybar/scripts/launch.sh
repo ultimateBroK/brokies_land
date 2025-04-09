@@ -4,5 +4,5 @@ if pgrep -x "waybar" > /dev/null; then
     killall mpris_scroller.sh
 else
     waybar &
-    ~/.config/waybar/scripts/mpris_scroller.sh &
+    $HOME/.config/waybar/scripts/mpris_scroller.sh &
 fi

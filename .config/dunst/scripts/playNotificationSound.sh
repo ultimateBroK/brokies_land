@@ -1,3 +1,3 @@
 #!/bin/bash
 
-canberra-gtk-play -i message
+mpv $HOME/.config/dunst/assets/notification/notification-sound-3-262896.wav
