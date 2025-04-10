@@ -1,0 +1,121 @@
+@import url('~/.cache/wal/colors-waybar.css');
+
+@define-color mauve  @color9;
+@define-color red  @color9;
+@define-color lavender  @color7;
+@define-color text  @color7;
+
+@keyframes fadeIn {
+    0% {}
+    100% {}
+}
+
+* {
+    all:unset;
+    font-family: 'JetBrainsMono Nerd Font', monospace;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    text-shadow:none;
+    background-color:transparent;
+}
+
+window {
+    all:unset;
+    padding: 20px;
+    border-radius: 24px; 
+}
+
+#outer-box {
+    margin: 4px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0 auto;
+    padding: 20px;
+    border: none;
+    border-radius: 24px;
+    width: 95%; /* Giới hạn chiều rộng */
+    box-sizing: border-box;
+
+    /* Gradient mờ ở trên và dưới */
+    background-image: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0) 10%, 
+        rgba(0, 0, 0, 0) 90%, 
+        rgba(0, 0, 0, 0.5) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: top;
+
+    /* Làm mờ bằng mask và bo tròn đồng bộ */
+    mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 10%, 
+        black 90%, 
+        transparent 100%);
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-composite: intersect;
+}
+
+#input {
+    all:unset;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    color: @text;
+    background-color: alpha(@background, .2);
+    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
+}
+
+#input image {
+    color: @red;
+    padding-right: 10px;
+    border-radius: 999px;
+}
+
+#input * {
+    border: none;
+    outline: none;
+}
+
+#input:focus {
+    border-radius: 16px;
+    outline: none;
+}
+
+#entry {
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+#entry arrow {
+    color: @lavender;
+}
+
+#entry:selected {
+    background-color: rgba(138, 173, 244, 0.3);
+    box-shadow: 0 6px 20px rgba(138, 173, 244, 0.5);
+    transition: all 0.2s ease-in-out;
+}
+
+#entry:selected #text {
+    color: @text;
+    font-weight: bold;
+}
+
+#entry:drop(active) {
+    background-color: @lavender !important;
+}
+
+#text {
+    margin: 5px;
+    color: @text;
+    border-radius: 20px;
+}
+

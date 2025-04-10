@@ -66,7 +66,7 @@ function show_volume_notif {
     get_volume_icon
 
     if [[ $show_music_in_volume_indicator == "true" ]]; then
-        current_song=$(playerctl metadata --format='<b>{{title}}</b>\n{{artist}}')
+        current_song=$(playerctl metadata --format='<b>{{title}}</b>\n{{artist}}\n<b>{{album}}</b>')
         if [[ $show_album_art == "true" ]]; then
             get_album_art
         fi
@@ -93,11 +93,11 @@ function show_music_notif {
         get_album_art
     fi
 
-    notif_body="<b>$song_artist</b>\nAlbum: <i>$song_album</i>"
+    notif_body=$(playerctl metadata --format='{{artist}}\n<b>{{album}}</b>')
 		notify-send -t $notification_timeout \
 				-h string:x-dunst-stack-tag:music_notif \
 				-i "$album_art" \
-				"<b>$song_title</b>" "$notif_body"
+				"$song_title" "$notif_body"
 }
 
 # Hiển thị thông báo độ sáng
@@ -146,4 +146,3 @@ case $1 in
         show_music_notif
         ;;
 esac
-
