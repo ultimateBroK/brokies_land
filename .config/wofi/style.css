@@ -100,7 +100,7 @@ window {
 
 #entry:selected {
     background-color: rgba(138, 173, 244, 0.3);
-    box-shadow: 0 6px 20px rgba(138, 173, 244, 0.5);
+    box-shadow: 5px 5px 5px rgba(138, 173, 244, 0.5);
     transition: all 0.2s ease-in-out;
 }
 
@@ -118,4 +118,3 @@ window {
     color: @text;
     border-radius: 20px;
 }
-
