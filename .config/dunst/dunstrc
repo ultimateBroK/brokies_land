@@ -5,7 +5,9 @@
     format = "<b>%s</b>\n%b"
     sort = yes
     indicate_hidden = yes
-    origin = top-right
+    origin = top-center
+    geometry = "300x5-0+30"
+		alignment = center
     follow = mouse
     show_indicators = no
 	  sticky_history = yes
@@ -26,7 +28,7 @@
     icon_corner_radius = 15
     min_icon_size = 64
     max_icon_size = 128
-    offset = (10, 12)
+    offset = (10, 10)
     icon_theme = Fluent
 		enable_recursive_icon_lookup = true
     mouse_left_click = close_current
@@ -40,22 +42,23 @@
 		timeout = 10
 		background = "#0d0f16"
 		foreground = "#CDD6F4"
-		frame_color = "#3b4a5a"
+		frame_color = "#00ffbb"
 		highlight = "#7ba5dd"
 
 [urgency_normal]
-    timeout = 10
+    script = $HOME/.config/dunst/scripts/playNotificationSound_Normal.sh
+    timeout = 20
 		background = "#0d0f16"
 		foreground = "#CDD6F4"
-		frame_color = "#4e6175"
+		frame_color = "#00ffbb"
 		highlight = "#7ba5dd"
 
 [urgency_critical]
     script = $HOME/.config/dunst/scripts/playNotificationSound.sh
-    timeout = 10
+    timeout = 30
 		background = "#0d0f16"
 		foreground = "#CDD6F4"
-		frame_color = "#f38ba8"
+		frame_color = "#00ffbb"
 		highlight = "#ee6a70"
     
 [backlight]
