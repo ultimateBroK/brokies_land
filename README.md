@@ -1,178 +1,224 @@
-# 🏠 Brokies Land 🏠
+<h1 align="center">🏠 Brokies Land 🏠</h1>
 
-_Where your desktop dreams are big, but your wallet isn't!_
+<p align="center"><i>A minimal Hyprland configuration for Linux desktops</i></p>
 
-[![Hyprland Badge](https://img.shields.io/badge/WM-Hyprland-blue)](https://hyprland.org/)
-[![Status](https://img.shields.io/badge/Status-Broke%20-green)](https://github.com/ultimatebrok/brokies_land)
+<p align="center">
+  <a href="https://hyprland.org/"><img src="https://img.shields.io/badge/WM-Hyprland-blue" alt="Hyprland Badge"></a>
+  <a href="https://github.com/ultimatebrok/brokies_land"><img src="https://img.shields.io/badge/Status-Active-green" alt="Status"></a>
+</p>
 
-## 🌟 What's This All About?
+<div align="center">
+  <h2>🎬 See It In Action</h2>
+  <p>Check out this video tour of Brokies Land:</p>
+  <p>https://github.com/user-attachments/assets/45feadbf-fcd9-45b8-b92e-083919a5048a</p>
+</div>
 
-Ever spent all your money on that sweet PC hardware and realized you're too broke to spend hours configuring your desktop? Welcome to Brokies Land! This is a ready-to-rock Hyprland configuration crafted for those who are rich in spirit but challenged in funds.
+## 🌟 Overview
 
-> "We may be broke, but our desktops? They're priceless." - The Brokie Manifesto
+Brokies Land is a ready-to-use Hyprland configuration designed for Linux users who want a functional and aesthetic desktop environment without spending hours on configuration.
 
-## ✨ Why You'll Love It
+<details>
+<summary><b>✨ Features</b></summary>
 
--   **Zero Effort Setup** - Because time is money, and you ain't got either to waste on configs.
--   **Looks Like a Million Bucks** - Impress your friends without emptying your already empty pockets.
--   **Copy-Paste Magic** - Why reinvent the wheel when you can just... borrow it?
--   **100% Free, Always** - No premium BS here. Just pure, unadulterated, free goodness.
+- **Simple Setup** - Easy installation and configuration process
+- **Modern Aesthetic** - Clean, minimal interface with thoughtful design
+- **Performance Focused** - Optimized for efficiency on various hardware
+- **100% Free** - Open source and freely available
+</details>
 
-## 🗂️ What's Inside the Box?
+## 🗂️ Components
 
-go check it out...I'm lazy to write it all out, lol
+<details open>
+<summary><b>Configuration Includes</b></summary>
+<p>The complete desktop setup with configuration for multiple components</p>
+</details>
 
-## 🛠️ Gear Up: Dependencies
+## 🛠️ Dependencies
 
-### Core Essentials
+<details>
+<summary><b>Core Components</b></summary>
 
-The bread and butter (or ramen and water) of this setup:
+- `hyprland` - Wayland compositor
+- `xdg-desktop-portal-hyprland` - XDG portal for Hyprland
+</details>
 
--   `hyprland` - The compositor that proves you can have nice things without selling a kidney.
--   `xdg-desktop-portal-hyprland` - Because everyone deserves a portal... to a cooler desktop.
+<details>
+<summary><b>Interface</b></summary>
 
-### The Bling (Bar)
+- `waybar` - Status bar
+- `tofi` - Application launcher
+- `dunst` - Notification daemon
+</details>
 
--   `waybar` - Making you look like you know what you're doing, even if you don't.
+<details>
+<summary><b>Terminal & File Management</b></summary>
 
-### Terminal Time
+- `kitty` or `ghostty` - Terminal emulators
+- `nautilus` - File manager
+</details>
 
--   `kitty` or `ghostty` - Terminals that are way too cool for their own good.
+<details>
+<summary><b>System Tools</b></summary>
 
-### Stay Notified
+- `hyprlock` - Screen locker
+- `hypridle` - Idle daemon
+- `wlogout` - Session management
+- `swww` - Wallpaper manager
+- `grimblast` - Screenshot utility
+</details>
 
--   `dunst` - Notifications that are informative without being intrusive (or expensive).
+<details>
+<summary><b>Appearance</b></summary>
 
-### Launch It!
+- `nwg-look` - GTK settings manager
+- `kvantum` - Qt theme engine
+- `noto-fonts-cjk` - Font package
+- `bibata-cursor-theme` - Cursor theme
+- `fluent-icon-theme-git` - Icon theme
+- <a href="https://github.com/vinceliuice/Orchis-theme">Orchis-theme</a> - GTK theme
+</details>
 
--   `tofi` - The minimalist app launcher that's big on style.
+<details>
+<summary><b>Additional Utilities</b></summary>
 
-### File Wrangling
+- `cliphist` - Clipboard manager
+- `qt5-wayland` & `qt6-wayland` - Qt Wayland support
+- `polkit-kde-agent` - Authentication agent
+- `brightnessctl` - Brightness control
+- `playerctl` - Media player control
+- `pavucontrol` - Audio control panel
+- `bluez` & `bluez-utils` - Bluetooth support
+- `jamesdsp` - Audio effects processor
+- `gnome-clocks` - Clock application
+</details>
 
--   `nautilus` - File manager for keeping your digital life (and budget) in order.
+<details>
+<summary><b>Applications</b></summary>
 
-### Lock It Down
+- `zen-browser` - Web browser
+- `visual-studio-code` - Code editor
+- `zed-preview` - Alternative code editor
+</details>
 
--   `hyprlock` - A lock screen that screams "premium" without the price tag.
--   `hypridle` - The free alternative to actually paying attention.
--   `wlogout` and `wleave` - Because even logging out should be aesthetically pleasing.
-
-### Eye Candy
-
--   `swww` - Wallpaper transitions that say, "I'm not broke," even if you are.
--   `grimblast` - Capture your awesome (and free) setup for bragging rights.
--   `nwg-look` - Polish your desktop to a mirror shine.
--   `kvantum` - Make your apps look like they cost more than your car.
--   `noto-fonts-cjk` - Fonts that add a touch of class to your broke existence.
-
-### Theming
-- `bibata-cursor-theme`: Cursor theme
-- fluent-icon-theme-git`: Icon theme 
-- ![Orchis-theme](https://github.com/vinceliuice/Orchis-theme): Shell theme (GTK theme)
-
-> Clone the 2 above and install via script inside
-### Clipboard Hero
-
--   `cliphist` - Clipboard manager that saves you from repeating yourself (and wasting precious time).
-
-### Qt Corner
-
--   `qt5-wayland` - For those Qt5 apps you can't live without.
--   `qt6-wayland` - Future-proofing your broke life, one Qt6 app at a time.
-
-### Polkit Power
-
--   `polkit-kde-agent` - The free bouncer for your system's VIP requests.
-
-### Utility Belt
-
--   `brightnessctl` - Control your screen brightness and save those precious watts.
--   `playerctl` - Control your media without paying for a fancy remote.
--   `pavucontrol` - Audio control that makes you feel like a sound engineer.
--   `bluez` - Bluetooth support for your budget headphones.
--   `bluez-utils` - Bluetooth utilities for when you want to cut the cord (without cutting your budget).
-    -   `jamesdsp` - A DSP for your audio that doesn't cost a dime
--   `gnome-clocks` - Wake up, brokies, watch out for alarms
-
-### Browser
-
--   `zen-browser` - Because Chrome eats RAM for breakfast
-
-### Code Editor
-
--   `visual-studio-code` - Editor to build that million-dollar app idea (someday)
--  `zed-preview` - An alternative to VSCode
-
-### Time to Install (The Free Way)
-
-#### Arch Linux (Using paru)
+### Installation Command
 
 ```bash
-# One command to rule them all (the broke way)
+# Install all dependencies with paru
 paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin zed-preview-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp bibata-cursor-theme fluent-icon-theme-git gnome-clocks
 ```
 
-> 💡 Brokie Tip: Hate `paru`? `yay` still works wonders!
+> You can substitute `paru` with `yay` if preferred
 
-## 🚀 Get Started ASAP
-
-For the financially challenged and impatient:
+## 🚀 Quick Start
 
 ```bash
-# Clone the magic
+# Clone the repository
 git clone https://github.com/ultimatebrok/brokies_land.git
 
-# Copy-paste like a pro
+# Copy configuration files
 cp -r brokies_land/.config/* ~/.config/
 
-# Fire it up and bask in the glory
+# Start Hyprland
 Hyprland
 ```
 
-## ⌨️ Keyboard Ninja Moves
+## ⌨️ Keyboard Shortcuts
 
-| Combo               | What it does                                                    |
-| :------------------ | :-------------------------------------------------------------- |
-| `SUPER + T`         | Opens terminal (to check if you've won the lottery)            |
-| `SUPER + E`         | Opens file manager (to admire your collection of free ebooks) |
-| `SUPER + B`         | Opens browser (to find more free stuff)                       |
-| `SUPER + C`         | Opens code editor (for that side hustle that will make you rich) |
-| `SUPER + A`         | App launcher (find even more free apps)                       |
-| `SUPER + Q`         | Closes windows (like you close those "urgent" emails)          |
-| `SUPER + F`         | Toggle fullscreen (maximize your limited screen space)         |
-| `SUPER + Space`     | Toggle floating window (because sometimes you just need to float) |
-| `SUPER + Left/Right/Up/Down` | Navigate windows (avoiding real-life expenses)            |
-| `SUPER + SHIFT + 1-0` | Move window to workspace (organize your digital empire)        |
-| `SUPER + 1-0`       | Switch to workspace (escape reality)                          |
-| `SUPER + L`         | Lock screen (hide your shame... or your awesome desktop)      |
-| `SUPER + ESCAPE`    | Show logout menu (when you need a break from being awesome)    |
-| `SUPER + M`         | Exit Hyprland (when even virtual life gets too real)           |
-| `SUPER + N`         | Change wallpaper (new look, same broke you)                   |
-| `SUPER + V`         | Show clipboard history (relive your copy-paste victories)      |
-| `SUPER + S`         | Toggle scratchpad (hide your secrets... or your grocery list)  |
-| `Print`             | Screenshot full screen (proof that you're winning at life)     |
-| `SUPER + Print`     | Screenshot active window (show off your best side)             |
-| `SUPER + ALT + Print` | Screenshot selected area (crop out the messy parts)            |
+<table align="center">
+  <tr>
+    <th>Shortcut</th>
+    <th>Function</th>
+  </tr>
+  <tr>
+    <td><code>SUPER + T</code></td>
+    <td>Open terminal</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + E</code></td>
+    <td>Open file manager</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + B</code></td>
+    <td>Open browser</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + C</code></td>
+    <td>Open code editor</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + A</code></td>
+    <td>App launcher</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + Q</code></td>
+    <td>Close active window</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + F</code></td>
+    <td>Toggle fullscreen</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + Space</code></td>
+    <td>Toggle floating window</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + Arrow Keys</code></td>
+    <td>Navigate between windows</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + SHIFT + 1-0</code></td>
+    <td>Move window to workspace</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + 1-0</code></td>
+    <td>Switch to workspace</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + L</code></td>
+    <td>Lock screen</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + ESCAPE</code></td>
+    <td>Show logout menu</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + M</code></td>
+    <td>Exit Hyprland</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + N</code></td>
+    <td>Change wallpaper</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + V</code></td>
+    <td>Show clipboard history</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + S</code></td>
+    <td>Toggle scratchpad</td>
+  </tr>
+  <tr>
+    <td><code>Print</code></td>
+    <td>Screenshot full screen</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + Print</code></td>
+    <td>Screenshot active window</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + ALT + Print</code></td>
+    <td>Screenshot selected area</td>
+  </tr>
+</table>
 
-## 📸 Proof's in the Pudding
+## 💖 Contributing
 
-![Screenshot](https://raw.githubusercontent.com/ultimatebrok/brokies_land/main/screenshots/desktop.png)
+Contributions are welcome! If you have improvements, configurations, or bug fixes, please feel free to fork the repository and submit a pull request.
 
-## 🎬 See It In Action
+## 📜 License
 
-Why settle for static screenshots when you can see the full broke experience? Check out this video tour of Brokies Land in all its glory:
+MIT License. See LICENSE file for details.
 
-<https://github.com/ultimateBroK/brokies_land/blob/main/demo/Video_2025-04-11_21-17-51.mp4>
+<hr>
 
-
-## 💖 Join the Brokie Revolution
-
-Got a free alternative to share? A config tweak that makes things look extra fancy? Fork it, tweak it, and share it with your fellow brokies!
-
-## 📜 The Fine Print (License)
-
-MIT Licensed. See LICENSE file for details. Free as in beer... or instant noodles.
-
----
-
-<p align="center"><i>Living the high-resolution life on a low-resolution budget!</i></p>
+<p align="center"><i>A minimal, efficient Hyprland configuration for Linux enthusiasts</i></p>
