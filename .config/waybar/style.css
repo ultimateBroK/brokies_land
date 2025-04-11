@@ -1,141 +1,231 @@
-@import url('~/.cache/wal/colors-waybar.css');
-
-@define-color mauve  @color9;
-@define-color red  @color9;
-@define-color lavender  @color7;
-@define-color text  @color7;
-
-@keyframes fadeIn {
-    0% {}
-    100% {}
-}
-
+/* ========== GLOBAL STYLE RESET ========== */
 * {
-    all:unset;
-    font-family: 'JetBrainsMono Nerd Font', monospace;
-    font-size: 18px;
-    outline: none;
     border: none;
-    text-shadow:none;
-    background-color:transparent;
-}
-
-window {
-    all:unset;
-    padding: 20px;
-    border-radius: 24px; /* bo góc rõ và đều hơn */
-    background-color: alpha(@background, 0.85);
-    backdrop-filter: blur(10px);
-}
-
-#outer-box {
-    border: none;
-    border-radius: 24px;
-    padding: 10px;
-    background-color: transparent;
-}
-
-#inner-box {
-    margin: 2px;
-    padding: 5px;
-    border: none;
-    border-radius: 24px;
-    background-color: transparent;
-    width: 100%;
-    max-width: 600px;
-}
-
-
-#scroll {
-    margin: 0 auto;
-    padding: 20px;
-    border: none;
-    border-radius: 24px;
-    width: 95%; /* Giới hạn chiều rộng */
-    box-sizing: border-box;
-
-    /* Gradient mờ ở trên và dưới */
-    background-image: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0.5) 0%, 
-        rgba(0, 0, 0, 0) 10%, 
-        rgba(0, 0, 0, 0) 90%, 
-        rgba(0, 0, 0, 0.5) 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: top;
-
-    /* Làm mờ bằng mask và bo tròn đồng bộ */
-    mask-image: linear-gradient(to bottom, 
-        transparent 0%, 
-        black 10%, 
-        black 90%, 
-        transparent 100%);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    mask-composite: intersect;
-    border-radius: 24px;
-}
-
-
-#input {
-    all:unset;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 16px;
-    color: @text;
-    background-color: alpha(@background, .2);
-    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
-}
-
-#input image {
-    color: @red;
-    padding-right: 10px;
-    border-radius: 999px;
-}
-
-#input * {
-    border: none;
-    outline: none;
-}
-
-#input:focus {
-    border-radius: 16px;
-    outline: none;
-}
-
-#entry {
-    margin: 5px;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: transparent;
-    transition: background-color 0.2s ease;
-}
-
-#entry arrow {
-    color: @lavender;
-    border-radius: 20px;
-}
-
-#entry:selected {
-    border-radius: 20px;
-    background-color: rgba(138, 173, 244, 0.3);
-    box-shadow: 0 6px 20px rgba(138, 173, 244, 0.5);
-    transition: all 0.2s ease-in-out;
-}
-
-#entry:selected #text {
-    color: @text;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    font-family: "JetBrainsMono Nerd Font", monospace;
     font-weight: bold;
-    border-radius: 20px;
+    font-size: 14px;
 }
 
-#entry:drop(active) {
-    background-color: @lavender !important;
-    border-radius: 20px;
+window#waybar {
+    background: transparent;
 }
 
-#text {
-    margin: 5px;
-    color: @text;
-    border-radius: 20px;
+/* ========== MODULE BASE STYLE ========== */
+#workspaces,
+#custom-mpris_scrolling,
+#clock,
+#tray,
+#memory,
+#cpu,
+#network,
+#battery,
+#backlight,
+#pulseaudio,
+#pulseaudio.microphone,
+#group-system,
+#group-hardware,
+#group-audio,
+#group-datetime,
+#custom-power,
+#window,
+#cava {
+    padding: 2px 10px;
+    margin: 3px 2px;
+    background-color: rgba(30, 30, 46, 0.5);
+    border-radius: 10px;
+    color: #cdd6f4;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#battery {
+    color: #dde6fa;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* ========== HOVER ========== */
+#clock:hover,
+#memory:hover,
+#cpu:hover,
+#network:hover,
+#battery:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#pulseaudio.microphone:hover,
+#custom-mpris_scrolling:hover,
+#group-system:hover,
+#group-hardware:hover,
+#group-audio:hover,
+#group-datetime:hover,
+#custom-power:hover,
+#power-profiles-daemon:hover,
+#cava:hover {
+    background-color: rgba(69, 71, 90, 0.7);
+    color: #89b4fa;
+}
+
+/* ========== POWER PROFILE ========== */
+#power-profiles-daemon {
+    padding: 2px 10px;
+    margin: 3px 2px;
+    background-color: rgba(30, 30, 46, 0.5);
+    border-radius: 10px;
+    color: #cdd6f4;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#power-profiles-daemon.performance {
+    background-color: rgba(255, 40, 0, 0.9);
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 40, 0, 0.5);
+}
+
+#power-profiles-daemon.balanced {
+    background-color: rgba(0, 255, 150, 0.9);
+    color: #1e1e2e;
+    box-shadow: 0 0 8px rgba(0, 255, 150, 0.5);
+}
+
+#power-profiles-daemon.power-saver {
+    background-color: rgba(64, 180, 255, 0.9);
+    color: #1e1e2e;
+    box-shadow: 0 0 8px rgba(64, 180, 255, 0.5);
+}
+
+#power-profiles-daemon.performance:hover,
+#power-profiles-daemon.balanced:hover,
+#power-profiles-daemon.power-saver:hover {
+    background-color: rgba(205, 214, 244, 0.9);
+    color: #1e1e2e;
+}
+
+/* ========== WORKSPACES ========== */
+#workspaces button {
+    padding: 0 5px;
+    margin: 3px 2px;
+    color: #a6adc8;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#workspaces button.active {
+    color: #f5c2e7;
+    background-color: rgba(245, 194, 231, 0.2);
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    background-color: rgba(137, 180, 250, 0.3);
+    color: #cad3f5;
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+    background-color: rgba(243, 139, 168, 0.2);
+}
+
+/* ========== WARNINGS ========== */
+#memory.warning,
+#cpu.critical,
+#battery.warning,
+#battery.critical {
+    background-color: rgba(243, 139, 168, 0.7);
+    color: #1e1e2e;
+}
+
+#memory.format-warning,
+#battery.warning {
+    background-color: rgba(250, 179, 135, 0.7);
+    color: #1e1e2e;
+}
+
+#battery.charging,
+#battery.plugged {
+    background-color: rgba(166, 227, 161, 0.7);
+    color: #1e1e2e;
+}
+
+#network.disconnected {
+    background-color: rgba(243, 139, 168, 0.5);
+    color: #cdd6f4;
+}
+
+#pulseaudio.muted {
+    opacity: 0.5;
+    color: #f38ba8;
+}
+
+/* ========== MPRIS ========== */
+#custom-mpris_scrolling {
+    font-weight: bold;
+    padding: 0 8px;
+    margin: 3px 2px;
+    min-width: 100px;
+    background-color: rgba(30, 30, 46, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== CUSTOM POWER MENU ========== */
+#custom-power {
+    font-size: 16px;
+    color: #89b4fa;
+    background-color: rgba(24, 24, 38, 0.9);
+    border: 1px solid #89b4fa;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(137, 180, 250, 0.5);
+    transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+    background-color: rgba(137, 180, 250, 0.1);
+    color: #cdd6f4;
+    box-shadow: 0 0 8px rgba(137, 180, 250, 0.7);
+}
+
+#custom-power menu {
+    background-color: rgba(30, 30, 46, 0.95);
+    border-radius: 8px;
+    border: 1px solid rgba(205, 214, 244, 0.2);
+}
+
+/* Cava waveform (if using) */
+#cava {
+    color: #00ffbb;
+}
+
+/* ========== SMOOTH TRANSITIONS ========== */
+#memory,
+#cpu,
+#network,
+#battery,
+#backlight,
+#pulseaudio,
+#pulseaudio.microphone,
+#clock {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ========== TRAY MENU ========== */
+#tray {
+    margin-right: 5px;
+}
+
+#tray menu,
+#custom-power menu {
+    background-color: rgba(30, 30, 46, 0.95);
+    border-radius: 8px;
+    border: 1px solid rgba(205, 214, 244, 0.2);
+}
+
+#clock {
+    font-weight: bold;
 }

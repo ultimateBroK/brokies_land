@@ -13,6 +13,7 @@
     "hyprland/window"
   ],
   "modules-center": [
+    "cava",
     "custom/mpris_scrolling",
     "cava"
   ],
@@ -21,6 +22,7 @@
     "group/system",
     "group/hardware",
     "group/audio",
+    "power-profiles-daemon",
     "custom/power"
   ],
   // Remove main background, keep spacing and margins
@@ -29,15 +31,16 @@
   "background": "rgba(0, 0, 0, 0)", // Completely transparent main background
   "border-radius": 8,
   "hyprland/window": {
-    "format": "{class}",
+    "format": "{}",
     "icon": true,
-    "max-length": 40
+    "max-length": 30,
+    "separate-outputs": true
   },
   "custom/power": {
     "format": "󰐥",
     "tooltip": false,
     "menu": "on-click",
-    "menu-file": "$HOME/.config/waybar/power_menu.xml",
+    "menu-file": "~/.config/waybar/power_menu.xml",
     "menu-actions": {
       "shutdown": "shutdown now",
       "reboot": "reboot",
@@ -47,18 +50,31 @@
       "lock": "hyprlock"
     }
   },
+  "power-profiles-daemon": {
+    "format": "{icon} {profile}",
+    "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰾆", // fallback
+      "performance": "", // chip
+      "balanced": "󰾅", // leaf-circle
+      "power-saver": "󱉚" // battery-heart
+    }
+  },
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
     "format": "{icon}"
   },
   "cava": {
-    "cava_config": "$HOME/.config/.config/cava/config",
-    "framerate": 60,
-    "autosens": 0,
-    "sensitivity": 2,
-    "bars": 20,
+    "cava_config": "/home/ultimatebrok/.config/cava/config",
+    "framerate": 50,
+    "autosens": 1,
+    "sensitivity": 4,
+    "bars": 12,
     "lower_cutoff_freq": 20,
     "higher_cutoff_freq": 10000,
     "hide-empty": true,
@@ -69,7 +85,7 @@
     "bar_delimiter": 0,
     "monstercat": false,
     "waves": true,
-    "noise_reduction": 0.9,
+    "noise_reduction": 0.77,
     "input_delay": 1,
     "format-icons": [
       "▁",
@@ -87,9 +103,10 @@
   },
   "custom/mpris_scrolling": {
     "format": "{}",
-    "exec": "$HOME/.config/waybar/scripts/mpris_scroller.sh",
+    "exec": "~/.config/waybar/scripts/mpris_scroller.sh",
     "interval": 1,
     "return-type": "text",
+    "tooltip": false,
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",
@@ -167,6 +184,7 @@
       "warning": 30,
       "critical": 15
     },
+    "interval": 5,
     "format": "{icon} {capacity}%",
     "format-charging": "<span color='#a6e3a1'>󰂄</span> {capacity}%",
     "format-plugged": "<span color='#a6e3a1'>󰚥</span> {capacity}%",
