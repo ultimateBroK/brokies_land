@@ -46,7 +46,7 @@ Brokies Land is a ready-to-use Hyprland configuration designed for Linux users w
 <summary><b>Interface</b></summary>
 
 - `waybar` - Status bar
-- `tofi` - Application launcher
+- `tofi` or `wofi` - Application launcher
 - `dunst` - Notification daemon
 </details>
 
