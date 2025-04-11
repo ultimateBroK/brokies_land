@@ -44,8 +44,8 @@ window#waybar {
 }
 
 #battery {
-    color: #dde6fa;
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+  color: #dde6fa;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 /* ========== HOVER ========== */
@@ -200,6 +200,8 @@ window#waybar {
 /* Cava waveform (if using) */
 #cava {
     color: #00ffbb;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 13px;
 }
 
 /* ========== SMOOTH TRANSITIONS ========== */
