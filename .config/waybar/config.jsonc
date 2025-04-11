@@ -148,8 +148,8 @@
     }
   },
   "clock": {
-    "format": "<span color='#f9e2af'>󰥔</span> {:%I:%M:%S %p}",
-    "format-alt": "<span color='#f9e2af'>󰥔</span> {:%A | %d/%m/%y | %I:%M:%S %p}",
+    "format": "<span color='#f9e2af'>󰥔</span> {:%Z|%w|%W|%H:%M:%S}",
+    "format-alt": "<span color='#f9e2af'>󰥔</span> {%A|%d/%m/%y|%H:%M:%S}",
     "interval": 1,
     "tooltip-format": "<tt>{calendar}</tt>",
     "tooltip": true,
