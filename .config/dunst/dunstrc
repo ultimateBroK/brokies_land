@@ -1,5 +1,5 @@
 [global]
-    font = "JetBrainsMono Nerd Font 11"
+    font = "JetBrainsMono Nerd Font 12"
     allow_markup = yes
     markup = full
     format = "<b>%s</b>\n%b"
@@ -7,7 +7,7 @@
     indicate_hidden = yes
     origin = top-center
     geometry = "300x5-0+30"
-		alignment = center
+		alignment = left
     follow = mouse
     show_indicators = no
 	  sticky_history = yes
@@ -47,7 +47,7 @@
 
 [urgency_normal]
     script = $HOME/.config/dunst/scripts/playNotificationSound_Normal.sh
-    timeout = 20
+    timeout = 15
 		background = "#0d0f16"
 		foreground = "#CDD6F4"
 		frame_color = "#00ffbb"
@@ -55,7 +55,7 @@
 
 [urgency_critical]
     script = $HOME/.config/dunst/scripts/playNotificationSound.sh
-    timeout = 30
+    timeout = 20
 		background = "#0d0f16"
 		foreground = "#CDD6F4"
 		frame_color = "#00ffbb"
