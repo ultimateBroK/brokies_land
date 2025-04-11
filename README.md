@@ -162,7 +162,7 @@ Hyprland
 
 Why settle for static screenshots when you can see the full broke experience? Check out this video tour of Brokies Land in all its glory:
 
-https://github.com/ultimateBroK/brokies_land/blob/main/demo/Video_2025-04-11_21-17-51.mp4
+<https://github.com/ultimateBroK/brokies_land/blob/main/demo/Video_2025-04-11_21-17-51.mp4>
 
 
 ## 💖 Join the Brokie Revolution
