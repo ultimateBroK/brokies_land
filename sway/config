@@ -1,0 +1,327 @@
+# SwayFX Configuration (Converted from Hyprland)
+
+# Include External Configurations
+# include ~/.config/sway/monitors.conf
+# include ~/.config/sway/workspaces.conf
+
+# --- GENERAL SETTINGS & VARIABLES --- #
+
+# Define frequently used applications as variables
+set $terminal ghostty
+set $fileManager nautilus
+set $menu wofi --show drun -n
+set $browser zen-browser
+set $editor zeditor
+set $trading tradingview
+
+### Monitor Configuration ###
+output "HDMI-A-1" {
+    mode  1920x1080@74.973Hz
+    pos 2482 1200
+    transform normal
+    scale 1.0
+    scale_filter nearest
+    adaptive_sync off
+    dpms on
+}
+output "eDP-1" {
+    mode  1920x1200@60.026Hz
+    pos 562 1080
+    transform normal
+    scale 1.0
+    scale_filter nearest
+    adaptive_sync off
+    dpms on
+}
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output HDMI-A-1
+
+# Set the primary modifier key (Mod key)
+# SUPER is typically the Windows key or Command key on Mac keyboards
+set $mainMod Mod4
+
+# --- VISUAL APPEARANCE --- #
+
+# Border Configuration
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders none
+
+# Border Colors
+# Class                 Border            Background        Text              Indicator         Child Border
+client.focused          #00ffbb           #24273A           #FFFFFF           #00ffbb           #00ffbb
+client.unfocused        #24273A           #24273A           #AAAAAA           #ff1100           #24273A
+client.urgent           #FF0000           #FF0000           #FFFFFF           #FF0000           #FF0000
+
+# Gaps between windows
+gaps inner 5
+gaps outer 5
+
+# Allow resizing by dragging borders
+mouse_warping output
+
+# Customize window decorations
+titlebar_separator disable
+
+# Window shadows
+shadows enable
+shadow_blur_radius 4
+shadow_color #1a1a1aee
+shadows_on_csd enable
+shadow_offset 0 0
+
+# Corner radius for windows
+corner_radius 10
+
+# Background blur settings
+blur enable
+blur_passes 1
+blur_radius 3
+blur_xray disable
+blur_noise 0.0117
+blur_contrast 0.8916
+blur_brightness 0.8172
+blur_saturation 0.1696
+
+# Window Opacity
+for_window [class=".*"] opacity 0.85
+
+# Dim unfocused windows
+default_dim_inactive 0.0
+
+# --- INPUT DEVICE CONFIGURATION --- #
+input {
+    * {
+        xkb_layout "us"
+    }
+    
+    # Touchpad settings
+    "type:touchpad" {
+        tap enabled
+        natural_scroll enabled
+        dwt enabled  # disable while typing
+    }
+    
+    # Pointer acceleration
+    "type:pointer" {
+        accel_profile "adaptive"
+        pointer_accel 0
+    }
+}
+
+# --- AUTOSTART APPLICATIONS --- #
+exec_always {
+    # Authentication Agent
+    exec /usr/bin/lxqt-policykit-agent
+    
+    # Notification Daemon
+    exec /usr/bin/dunst
+    
+    # Status Bar
+    exec waybar
+    
+    # Clipboard Manager
+    exec wl-paste --type text --watch cliphist store
+    exec wl-paste --type image --watch cliphist store
+    
+    # Wallpaper Daemon
+    exec swww-daemon
+    
+    # Input methods
+    exec fcitx5 -d
+    
+    # Audio Effects
+    exec jamesdsp
+    
+    # Environment setup
+    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    
+    # GTK Settings
+    exec gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Teal-Dark"
+    exec gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+}
+
+# --- ENVIRONMENT VARIABLES --- #
+# Desktop Environment
+exec export XDG_CURRENT_DESKTOP=sway
+exec export XDG_SESSION_TYPE=wayland
+exec export XDG_SESSION_DESKTOP=sway
+
+# QT Settings
+exec export QT_QPA_PLATFORM=wayland;xcb
+exec export QT_QPA_PLATFORMTHEME=qt6ct
+exec export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+exec export QT_AUTO_SCREEN_SCALE_FACTOR=1
+exec export QT_STYLE_OVERRIDE=kvantum
+
+# GTK/Graphics Backend
+exec export GDK_BACKEND=wayland,x11,*
+exec export SDL_VIDEODRIVER=wayland
+exec export CLUTTER_BACKEND=wayland
+
+# Cursor Configuration
+exec export XCURSOR_SIZE=24
+exec export XCURSOR_THEME=Bibata-Modern-Amber
+
+# Firefox
+exec export MOZ_ENABLE_WAYLAND=1
+exec export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+# --- KEY BINDINGS --- #
+
+# Application Launchers
+bindsym $mainMod+Return exec $terminal
+bindsym $mainMod+c exec $editor
+bindsym $mainMod+b exec /home/ultimatebrok/Downloads/zen-x86_64.AppImage
+bindsym $mainMod+e exec $fileManager
+bindsym $mainMod+a exec $menu
+bindsym $mainMod+t exec $trading
+bindsym Mod1+w exec ~/.config/sway/wallpaper.sh
+
+# System / Session Actions
+bindsym Ctrl+Escape exec ~/.config/waybar/scripts/launch.sh
+bindsym Mod4+l exec swaylock
+bindsym Mod4+Escape exec wlogout
+bindsym $mainMod+m exit
+
+# Clipboard History
+bindsym Mod4+v exec cliphist list | tofi -c ~/.config/tofi/configV | cliphist decode | wl-copy
+
+# Wallpaper Changer
+bindsym Mod4+n exec swww img ~/Pictures/Another_Wallpaper/renato-ramos-puma-37WxvlfW3to-unsplash.jpg --transition-fps 255 --transition-type grow --transition-duration 0.8
+
+# Screenshotting
+bindsym Print exec grimblast --notify copysave screen
+bindsym Mod4+Print exec grimblast --notify copysave active
+bindsym Mod4+Mod1+Print exec grimblast --notify copysave area
+
+# Window Management
+bindsym $mainMod+q kill
+bindsym $mainMod+f fullscreen toggle
+bindsym $mainMod+space floating toggle
+bindsym $mainMod+p layout toggle split
+bindsym $mainMod+j layout toggle
+
+# Focus Movement (Arrow keys)
+bindsym $mainMod+Left focus left
+bindsym $mainMod+Right focus right
+bindsym $mainMod+Up focus up
+bindsym $mainMod+Down focus down
+
+# Move Active Window
+bindsym $mainMod+Shift+Left move left
+bindsym $mainMod+Shift+Right move right
+bindsym $mainMod+Shift+Up move up
+bindsym $mainMod+Shift+Down move down
+
+# Workspace Navigation
+bindsym $mainMod+1 workspace number 1
+bindsym $mainMod+2 workspace number 2
+bindsym $mainMod+3 workspace number 3
+bindsym $mainMod+4 workspace number 4
+bindsym $mainMod+5 workspace number 5
+bindsym $mainMod+6 workspace number 6
+bindsym $mainMod+7 workspace number 7
+bindsym $mainMod+8 workspace number 8
+bindsym $mainMod+9 workspace number 9
+bindsym $mainMod+0 workspace number 10
+
+# Move Active Window to Workspace
+bindsym $mainMod+Shift+1 move container to workspace number 1
+bindsym $mainMod+Shift+2 move container to workspace number 2
+bindsym $mainMod+Shift+3 move container to workspace number 3
+bindsym $mainMod+Shift+4 move container to workspace number 4
+bindsym $mainMod+Shift+5 move container to workspace number 5
+bindsym $mainMod+Shift+6 move container to workspace number 6
+bindsym $mainMod+Shift+7 move container to workspace number 7
+bindsym $mainMod+Shift+8 move container to workspace number 8
+bindsym $mainMod+Shift+9 move container to workspace number 9
+bindsym $mainMod+Shift+0 move container to workspace number 10
+
+# Scratchpad (Special Workspace)
+bindsym $mainMod+s scratchpad show
+bindsym $mainMod+Shift+s move scratchpad
+
+# Workspace Scrolling with Mouse Wheel
+bindsym $mainMod+button5 workspace next_on_output
+bindsym $mainMod+button4 workspace prev_on_output
+
+# Window Manipulation with Mouse
+floating_modifier $mainMod normal
+
+# Media Control Keys
+bindsym --locked XF86AudioRaiseVolume exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh volume_up
+bindsym --locked XF86AudioLowerVolume exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh volume_down
+bindsym --locked XF86AudioMicMute exec pamixer --default-source -m
+bindsym --locked XF86AudioMute exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh volume_mute
+bindsym --locked XF86AudioPlay exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh play_pause
+bindsym --locked XF86AudioPause exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh play_pause
+bindsym --locked XF86AudioNext exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh next_track
+bindsym --locked XF86AudioPrev exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh prev_track
+bindsym --locked XF86MonBrightnessUp exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh brightness_up
+bindsym --locked XF86MonBrightnessDown exec /home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh brightness_down
+
+# --- WINDOW RULES --- #
+# Basic rules
+for_window [app_id=".*"] inhibit_idle focus
+for_window [class=".*"] inhibit_idle fullscreen
+no_focus [class="^$" app_id="^$"]
+
+# Make specific applications always float
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman-manager"] floating enable
+for_window [title="Picture-in-Picture"] floating enable
+
+# Center floating windows
+for_window [app_id="pavucontrol"] move position center
+for_window [app_id="blueman-manager"] move position center
+for_window [title="Picture-in-Picture"] move position center
+
+# Layer Effects for UI elements
+layer_effects "waybar" {
+    blur enable;
+    shadows enable;
+    corner_radius 6;
+}
+
+layer_effects "wofi" {
+    blur enable;
+    corner_radius 10;
+}
+
+# --- GESTURE CONFIGURATION --- #
+# Note: Requires libinput-gestures or similar tool configured separately
+# This is an approximation of Hyprland's gesture support
+
+# --- ADDITIONAL SWAY-SPECIFIC SETTINGS --- #
+
+# Configure idle management (swayidle needs to be installed)
+exec swayidle timeout 300 'swaylock' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock'
+
+# Focus settings
+focus_follows_mouse yes
+
+# Set default layout
+workspace_layout default
+
+# Use window title bar as separator
+titlebar_separator disable
+
+# Minimization settings for scratchpad
+scratchpad_minimize disable
+
+# --- INCLUDE ADDITIONAL CONFIGURATIONS --- #
+# Include any additional configuration files
+include /etc/sway/config.d/*
