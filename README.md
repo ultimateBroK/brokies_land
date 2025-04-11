@@ -158,6 +158,13 @@ Hyprland
 
 ![Screenshot](https://raw.githubusercontent.com/ultimatebrok/brokies_land/main/screenshots/desktop.png)
 
+## 🎬 See It In Action
+
+Why settle for static screenshots when you can see the full broke experience? Check out this video tour of Brokies Land in all its glory:
+
+https://github.com/ultimatebrok/brokies_land/raw/main/demo/showcase.mp4
+
+
 ## 💖 Join the Brokie Revolution
 
 Got a free alternative to share? A config tweak that makes things look extra fancy? Fork it, tweak it, and share it with your fellow brokies!
