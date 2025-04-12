@@ -114,6 +114,14 @@ window#waybar {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Style for active workspace in Sway */
+#workspaces button.focused {
+    color: #f5c2e7;
+    background-color: rgba(245, 194, 231, 0.2);
+    font-weight: bold;
+}
+
+/* Keep .active for compatibility with other WMs */
 #workspaces button.active {
     color: #f5c2e7;
     background-color: rgba(245, 194, 231, 0.2);

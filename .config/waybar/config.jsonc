@@ -8,15 +8,13 @@
   "margin-right": 2,
   "margin-left": 2,
   "modules-left": [
-    "hyprland/workspaces",
+    // "hyprland/workspaces",
+    "sway/workspaces",
     "clock",
-    "hyprland/window"
+    // "hyprland/window"
+    "sway/window"
   ],
-  "modules-center": [
-    "cava",
-    "custom/mpris_scrolling",
-    "cava"
-  ],
+  "modules-center": ["custom/mpris_scrolling", "cava"],
   "modules-right": [
     "tray",
     "group/system",
@@ -30,11 +28,16 @@
   "spacing": 5,
   "background": "rgba(0, 0, 0, 0)", // Completely transparent main background
   "border-radius": 8,
-  "hyprland/window": {
-    "format": "{}",
+  // "hyprland/window": {
+  //   "format": "{class}",
+  //   "icon": true,
+  //   "max-length": 30,
+  //   "separate-outputs": true,
+  // },
+  "sway/window": {
+    "format": "{app_id}",
     "icon": true,
-    "max-length": 30,
-    "separate-outputs": true
+    "max-length": 30
   },
   "custom/power": {
     "format": "󰐥",
@@ -46,8 +49,10 @@
       "reboot": "reboot",
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate",
-      "logout": "hyprctl dispatch exit",
-      "lock": "hyprlock"
+      // "logout": "hyprctl dispatch exit",
+      "logout": "swaymsg exit",
+      // "lock": "hyprlock"
+      "lock": "swaylock"
     }
   },
   "power-profiles-daemon": {
@@ -69,12 +74,31 @@
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "format": "{icon}"
   },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10"
+    },
+    "on-scroll-up": "swaymsg workspace prev",
+    "on-scroll-down": "swaymsg workspace next"
+  },
   "cava": {
     "cava_config": "/home/ultimatebrok/.config/cava/config",
-    "framerate": 50,
+    "framerate": 30,
     "autosens": 1,
     "sensitivity": 4,
-    "bars": 12,
+    "bars": 15,
     "lower_cutoff_freq": 20,
     "higher_cutoff_freq": 10000,
     "hide-empty": true,
@@ -87,16 +111,7 @@
     "waves": true,
     "noise_reduction": 0.77,
     "input_delay": 1,
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ],
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "actions": {
       "on-click-right": "mode"
     }
@@ -115,11 +130,7 @@
   },
   "group/system": {
     "orientation": "horizontal",
-    "modules": [
-      "memory",
-      "cpu",
-      "network"
-    ],
+    "modules": ["memory", "cpu", "network"],
     "drawer": {
       "transition-duration": 500,
       "children-class": "system-drawer"
@@ -127,10 +138,7 @@
   },
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": [
-      "battery",
-      "backlight"
-    ],
+    "modules": ["battery", "backlight"],
     "drawer": {
       "transition-duration": 500,
       "children-class": "hardware-drawer"
@@ -138,19 +146,16 @@
   },
   "group/audio": {
     "orientation": "horizontal",
-    "modules": [
-      "pulseaudio",
-      "pulseaudio#microphone"
-    ],
+    "modules": ["pulseaudio", "pulseaudio#microphone"],
     "drawer": {
       "transition-duration": 500,
       "children-class": "audio-drawer"
     }
   },
   "clock": {
-    "format": "<span color='#f9e2af'>󰥔</span> {:%Z|%w|%W|%H:%M:%S}",
-    "format-alt": "<span color='#f9e2af'>󰥔</span> {%A|%d/%m/%y|%H:%M:%S}",
-    "interval": 1,
+    "format": "<span color='#f9e2af'>󰥔</span> {:%H:%M:%S}",
+    "format-alt": "<span color='#f9e2af'>󰥔</span> {:%a|%d/%m/%y|%w|%W|%Z}",
+    "interval": 2,
     "tooltip-format": "<tt>{calendar}</tt>",
     "tooltip": true,
     "calendar": {
@@ -169,11 +174,7 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "<span color='#f9e2af'>{icon}</span> {percent}%",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ],
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
     "min-length": 6
@@ -184,7 +185,7 @@
       "warning": 30,
       "critical": 15
     },
-    "interval": 5,
+    "interval": 10,
     "format": "{icon} {capacity}%",
     "format-charging": "<span color='#a6e3a1'>󰂄</span> {capacity}%",
     "format-plugged": "<span color='#a6e3a1'>󰚥</span> {capacity}%",
@@ -207,11 +208,7 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}% ",
     "format-muted": "󰝟 Muted",
-    "format-icons": [
-      "󰕿",
-      "󰖀",
-      "󰕾"
-    ],
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
     "scroll-step": 5,
     "on-click": "pavucontrol"
   },
@@ -245,16 +242,7 @@
     "interval": 5,
     "format": "<span color='#89dceb'>󰻠</span> {usage}%",
     "format-alt": "{icon0}{icon1}{icon2}{icon3}",
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ],
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "on-click": "btop"
   },
   "network": {
@@ -266,7 +254,7 @@
     "format-disconnected": "<span color='#f38ba8'>󰖪</span> Disconnected",
     "tooltip-format-disconnected": "Disconnected",
     "format-alt": "<span color='#89b4fa'>󰦛</span> {bandwidthDownBytes} <span color='#f9e2af'>󰦘</span> {bandwidthUpBytes}",
-    "interval": 2,
+    "interval": 5,
     "on-click-right": "nm-connection-editor"
   },
   "tray": {

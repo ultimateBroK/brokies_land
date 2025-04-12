@@ -1,0 +1,53 @@
+# Appearance
+ignore-empty-password
+font=JetBrainsMono Nerd Font
+font-size=20
+image=/home/ultimatebrok/Pictures/Another_Wallpaper/eastman-childs-CEtIM994vaI-unsplash.jpg
+
+# Effects
+screenshot
+effect-blur=10x5
+effect-vignette=0.5:0.5
+fade-in=0.5
+
+# Clock
+clock
+timestr=%H:%M:%S
+datestr=%A, %d %B %Y
+text-color=00ffbbff
+text-ver-color=00ffbbff
+text-wrong-color=ff1100ff
+text-clear-color=ffffffff
+
+# Indicator
+indicator
+indicator-radius=120
+indicator-thickness=10
+indicator-caps-lock
+
+# Colors
+key-hl-color=00ffbbff
+bs-hl-color=ff1100ff
+caps-lock-key-hl-color=ffffffff
+caps-lock-bs-hl-color=ff1100ff
+
+# Ring Colors
+inside-color=1e1e2eaa
+inside-clear-color=1e1e2eaa
+inside-caps-lock-color=1e1e2eaa
+inside-ver-color=1e1e2eaa
+inside-wrong-color=1e1e2eaa
+
+ring-color=00ffbb55
+ring-clear-color=ffffff55
+ring-caps-lock-color=ffffff55
+ring-ver-color=00ffbb55
+ring-wrong-color=ff110055
+
+line-color=00000000
+line-clear-color=ffffffFF
+line-caps-lock-color=ffffffFF
+line-ver-color=00ffbbFF
+line-wrong-color=ff1100FF
+
+separator-color=00000000

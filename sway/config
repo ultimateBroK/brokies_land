@@ -96,7 +96,9 @@ blur_saturation 0.1696
 for_window [class=".*"] opacity 0.85
 
 # Dim unfocused windows
-default_dim_inactive 0.0
+default_dim_inactive 0.1
+default_border_radius 10
+smart_corner_radius enable
 
 # --- INPUT DEVICE CONFIGURATION --- #
 input {
@@ -275,6 +277,9 @@ bindsym --locked XF86MonBrightnessDown exec /home/ultimatebrok/.config/dunst/scr
 for_window [app_id=".*"] inhibit_idle focus
 for_window [class=".*"] inhibit_idle fullscreen
 no_focus [class="^$" app_id="^$"]
+for_window [app_id="waybar"] blur enable
+for_window [app_id="waybar"] shadow enable
+for_window [app_id="waybar"] opacity 0.85
 
 # Make specific applications always float
 for_window [app_id="pavucontrol"] floating enable
