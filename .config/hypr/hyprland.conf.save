@@ -23,7 +23,8 @@ $menu = wofi --show drun -n # Example using wofi (uncomment to use)
 $browser = zen-browser      # Your web browser
 # $editor = code          # Your code editor (VS Code)
 $editor = zeditor 		# Zed editor
-$trading = tradingview  # Escape brokie toolkit
+# $trading = tradingview  # Escape brokie toolkit
+$trading = flatpak run com.tradingview.tradingview
 
 # Set the primary modifier key (Mod key)
 # SUPER is typically the Windows key or Command key on Mac keyboards
