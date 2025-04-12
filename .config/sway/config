@@ -1,8 +1,4 @@
-# SwayFX Configuration (Converted from Hyprland)
-
-# Include External Configurations
-# include ~/.config/sway/monitors.conf
-# include ~/.config/sway/workspaces.conf
+# Sway Configuration
 
 # --- GENERAL SETTINGS & VARIABLES --- #
 
@@ -16,7 +12,7 @@ set $trading tradingview
 
 ### Monitor Configuration ###
 output "HDMI-A-1" {
-    mode  1920x1080@74.973Hz
+    mode 1920x1080@74.973Hz
     pos 2482 1200
     transform normal
     scale 1.0
@@ -25,7 +21,7 @@ output "HDMI-A-1" {
     dpms on
 }
 output "eDP-1" {
-    mode  1920x1200@60.026Hz
+    mode 1920x1200@60.026Hz
     pos 562 1080
     transform normal
     scale 1.0
@@ -46,7 +42,6 @@ workspace 9 output HDMI-A-1
 workspace 10 output HDMI-A-1
 
 # Set the primary modifier key (Mod key)
-# SUPER is typically the Windows key or Command key on Mac keyboards
 set $mainMod Mod4
 
 # --- VISUAL APPEARANCE --- #
@@ -69,94 +64,59 @@ gaps outer 5
 # Allow resizing by dragging borders
 mouse_warping output
 
-# Customize window decorations
-titlebar_separator disable
-
-# Window shadows
-shadows enable
-shadow_blur_radius 4
-shadow_color #1a1a1aee
-shadows_on_csd enable
-shadow_offset 0 0
-
-# Corner radius for windows
-corner_radius 10
-
-# Background blur settings
-blur enable
-blur_passes 1
-blur_radius 3
-blur_xray disable
-blur_noise 0.0117
-blur_contrast 0.8916
-blur_brightness 0.8172
-blur_saturation 0.1696
-
-# Window Opacity
-for_window [class=".*"] opacity 0.85
-
-# Dim unfocused windows
-default_dim_inactive 0.1
-smart_corner_radius enable
-
 # --- INPUT DEVICE CONFIGURATION --- #
-input {
-    * {
-        xkb_layout "us"
-    }
-    
-    # Touchpad settings
-    "type:touchpad" {
-        tap enabled
-        natural_scroll enabled
-        dwt enabled  # disable while typing
-    }
-    
-    # Pointer acceleration
-    "type:pointer" {
-        accel_profile "adaptive"
-        pointer_accel 0
-    }
+input * {
+    xkb_layout "us"
+}
+
+input "type:touchpad" {
+    tap enabled
+    natural_scroll enabled
+    dwt enabled  # disable while typing
+}
+
+input "type:pointer" {
+    accel_profile "adaptive"
+    pointer_accel 0
 }
 
 # --- AUTOSTART APPLICATIONS --- #
-exec_always {
-    # Authentication Agent
-    exec /usr/bin/lxqt-policykit-agent
-    
-    # Notification Daemon
-    exec /usr/bin/dunst
-    
-    # Status Bar
-    exec waybar
-    
-    # Idle Management
-		exec swayidle -w \
-        timeout 300 'swaylock' \
-        timeout 600 'swaymsg "output * dpms off"' \
-            resume 'swaymsg "output * dpms on"' \
-        before-sleep 'swaylock'
 
-    # Clipboard Manager
-    exec wl-paste --type text --watch cliphist store
-    exec wl-paste --type image --watch cliphist store
-    
-    # Wallpaper Daemon
-    exec swww-daemon
-    
-    # Input methods
-    exec fcitx5 -d
-    
-    # Audio Effects
-    exec jamesdsp
-    
-    # Environment setup
-    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-    
-    # GTK Settings
-    exec gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Teal-Dark"
-    exec gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-}
+# Authentication Agent
+exec /usr/bin/lxqt-policykit-agent
+
+# Notification Daemon
+exec /usr/bin/dunst
+
+# Status Bar
+exec waybar
+
+# Idle Management
+exec swayidle -w \
+    timeout 300 'swaylock' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock'
+
+# Clipboard Manager
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+
+# Wallpaper
+exec swaybg -i ~/Pictures/Another_Wallpaper/renato-ramos-puma-37WxvlfW3to-unsplash.jpg
+
+# Input methods
+exec fcitx5 -d
+
+# Audio Effects
+exec jamesdsp
+
+# Environment setup
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# GTK Settings
+exec gsettings set org.gnome.desktop.interface gtk-theme "Orchis-Teal-Dark"
+exec gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
 
 # --- ENVIRONMENT VARIABLES --- #
 # Desktop Environment
@@ -192,7 +152,6 @@ bindsym $mainMod+c exec $editor
 bindsym $mainMod+b exec /home/ultimatebrok/Downloads/zen-x86_64.AppImage
 bindsym $mainMod+e exec $fileManager
 bindsym $mainMod+a exec $menu
-# bindsym $mainMod+t exec $trading
 bindsym $mainMod+t exec flatpak run com.tradingview.tradingview
 bindsym Mod1+w exec ~/.config/sway/wallpaper.sh
 
@@ -206,7 +165,7 @@ bindsym $mainMod+m exit
 bindsym Mod4+v exec cliphist list | tofi -c ~/.config/tofi/configV | cliphist decode | wl-copy
 
 # Wallpaper Changer
-bindsym Mod4+n exec swww img ~/Pictures/Another_Wallpaper/renato-ramos-puma-37WxvlfW3to-unsplash.jpg --transition-fps 255 --transition-type grow --transition-duration 0.8
+bindsym Mod4+n exec swaybg -i ~/Pictures/Another_Wallpaper/renato-ramos-puma-37WxvlfW3to-unsplash.jpg
 
 # Screenshots
 bindsym Print exec grimshot --notify savecopy screen
@@ -284,9 +243,6 @@ bindsym --locked XF86MonBrightnessDown exec /home/ultimatebrok/.config/dunst/scr
 for_window [app_id=".*"] inhibit_idle focus
 for_window [class=".*"] inhibit_idle fullscreen
 no_focus [class="^$" app_id="^$"]
-for_window [app_id="waybar"] blur enable
-for_window [app_id="waybar"] shadow enable
-for_window [app_id="waybar"] opacity 0.85
 
 # Make specific applications always float
 for_window [app_id="pavucontrol"] floating enable
@@ -298,29 +254,7 @@ for_window [app_id="pavucontrol"] move position center
 for_window [app_id="blueman-manager"] move position center
 for_window [title="Picture-in-Picture"] move position center
 
-# Layer Effects for UI elements
-layer_effects "waybar" {
-    blur enable;
-    shadows enable;
-    corner_radius 6;
-}
-
-layer_effects "wofi" {
-    blur enable;
-    corner_radius 10;
-}
-
-# --- GESTURE CONFIGURATION --- #
-# Note: Requires libinput-gestures or similar tool configured separately
-# This is an approximation of Hyprland's gesture support
-
 # --- ADDITIONAL SWAY-SPECIFIC SETTINGS --- #
-
-# Configure idle management (swayidle needs to be installed)
-exec swayidle timeout 300 'swaylock' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock'
 
 # Focus settings
 focus_follows_mouse yes
@@ -328,11 +262,8 @@ focus_follows_mouse yes
 # Set default layout
 workspace_layout default
 
-# Use window title bar as separator
-titlebar_separator disable
-
-# Minimization settings for scratchpad
-scratchpad_minimize disable
+# Set title separator
+titlebar_border_thickness 1
 
 # --- INCLUDE ADDITIONAL CONFIGURATIONS --- #
 # Include any additional configuration files
