@@ -97,7 +97,6 @@ for_window [class=".*"] opacity 0.85
 
 # Dim unfocused windows
 default_dim_inactive 0.1
-default_border_radius 10
 smart_corner_radius enable
 
 # --- INPUT DEVICE CONFIGURATION --- #
@@ -186,7 +185,8 @@ bindsym $mainMod+c exec $editor
 bindsym $mainMod+b exec /home/ultimatebrok/Downloads/zen-x86_64.AppImage
 bindsym $mainMod+e exec $fileManager
 bindsym $mainMod+a exec $menu
-bindsym $mainMod+t exec $trading
+# bindsym $mainMod+t exec $trading
+bindsym $mainMod+t exec flatpak run com.tradingview.tradingview
 bindsym Mod1+w exec ~/.config/sway/wallpaper.sh
 
 # System / Session Actions
@@ -201,10 +201,10 @@ bindsym Mod4+v exec cliphist list | tofi -c ~/.config/tofi/configV | cliphist de
 # Wallpaper Changer
 bindsym Mod4+n exec swww img ~/Pictures/Another_Wallpaper/renato-ramos-puma-37WxvlfW3to-unsplash.jpg --transition-fps 255 --transition-type grow --transition-duration 0.8
 
-# Screenshotting
-bindsym Print exec grimblast --notify copysave screen
-bindsym Mod4+Print exec grimblast --notify copysave active
-bindsym Mod4+Mod1+Print exec grimblast --notify copysave area
+# Screenshots
+bindsym Print exec grimshot --notify savecopy screen
+bindsym Mod4+Print exec grimshot --notify savecopy output
+bindsym Mod4+Mod1+Print exec grimshot --notify savecopy area
 
 # Window Management
 bindsym $mainMod+q kill
