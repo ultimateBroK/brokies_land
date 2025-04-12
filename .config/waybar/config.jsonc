@@ -8,13 +8,16 @@
   "margin-right": 2,
   "margin-left": 2,
   "modules-left": [
-    // "hyprland/workspaces",
-    "sway/workspaces",
+    "hyprland/workspaces",
+    //"sway/workspaces",
     "clock",
-    // "hyprland/window"
-    "sway/window"
+    "hyprland/window"
+    //"sway/window"
   ],
-  "modules-center": ["custom/mpris_scrolling", "cava"],
+  "modules-center": [
+    "custom/mpris_scrolling",
+    "cava"
+  ],
   "modules-right": [
     "tray",
     "group/system",
@@ -28,12 +31,12 @@
   "spacing": 5,
   "background": "rgba(0, 0, 0, 0)", // Completely transparent main background
   "border-radius": 8,
-  // "hyprland/window": {
-  //   "format": "{class}",
-  //   "icon": true,
-  //   "max-length": 30,
-  //   "separate-outputs": true,
-  // },
+  "hyprland/window": {
+    "format": "{class}",
+    "icon": true,
+    "max-length": 30,
+    "separate-outputs": true,
+  },
   "sway/window": {
     "format": "{app_id}",
     "icon": true,
@@ -111,7 +114,16 @@
     "waves": true,
     "noise_reduction": 0.77,
     "input_delay": 1,
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
     "actions": {
       "on-click-right": "mode"
     }
@@ -130,7 +142,11 @@
   },
   "group/system": {
     "orientation": "horizontal",
-    "modules": ["memory", "cpu", "network"],
+    "modules": [
+      "memory",
+      "cpu",
+      "network"
+    ],
     "drawer": {
       "transition-duration": 500,
       "children-class": "system-drawer"
@@ -138,7 +154,10 @@
   },
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["battery", "backlight"],
+    "modules": [
+      "battery",
+      "backlight"
+    ],
     "drawer": {
       "transition-duration": 500,
       "children-class": "hardware-drawer"
@@ -146,7 +165,10 @@
   },
   "group/audio": {
     "orientation": "horizontal",
-    "modules": ["pulseaudio", "pulseaudio#microphone"],
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#microphone"
+    ],
     "drawer": {
       "transition-duration": 500,
       "children-class": "audio-drawer"
@@ -174,7 +196,11 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "<span color='#f9e2af'>{icon}</span> {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
     "min-length": 6
@@ -208,7 +234,11 @@
     "format": "{icon} {volume}%",
     "format-bluetooth": "{icon} {volume}% ",
     "format-muted": "󰝟 Muted",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-icons": [
+      "󰕿",
+      "󰖀",
+      "󰕾"
+    ],
     "scroll-step": 5,
     "on-click": "pavucontrol"
   },
@@ -242,7 +272,16 @@
     "interval": 5,
     "format": "<span color='#89dceb'>󰻠</span> {usage}%",
     "format-alt": "{icon0}{icon1}{icon2}{icon3}",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
     "on-click": "btop"
   },
   "network": {
