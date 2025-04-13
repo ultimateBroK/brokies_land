@@ -5,103 +5,120 @@
 @define-color lavender  @color7;
 @define-color text  @color7;
 
-@keyframes fadeIn {
-    0% {}
-    100% {}
+/* Essential animations */
+@keyframes slideInFromTop {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes led-glow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
 }
 
 * {
-    all:unset;
+    all: unset;
     font-family: 'JetBrainsMono Nerd Font', monospace;
     font-size: 18px;
-    outline: none;
-    border: none;
-    text-shadow:none;
-    background-color:transparent;
 }
 
 window {
-    all:unset;
-    padding: 20px;
-    border-radius: 24px; 
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    width: 700px;
+    max-height: 500px;
+    animation: slideInFromTop 0.3s ease-out forwards;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 #outer-box {
-    margin: 4px;
-    padding: 10px;
-    border: none;
+    padding: 20px;
     border-radius: 20px;
-    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #scroll {
-    margin: 0 auto;
-    padding: 20px;
-    border: none;
-    border-radius: 24px;
-    width: 95%; /* Giới hạn chiều rộng */
+    padding: 10px 5px;
+    border-radius: 16px;
+    width: 100%;
+    max-height: 350px;
     box-sizing: border-box;
-
-    /* Gradient mờ ở trên và dưới */
+    
+    /* Gradient fading effect */
     background-image: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0.5) 0%, 
+        rgba(0, 0, 0, 0.3) 0%, 
         rgba(0, 0, 0, 0) 10%, 
         rgba(0, 0, 0, 0) 90%, 
-        rgba(0, 0, 0, 0.5) 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: top;
-
-    /* Làm mờ bằng mask và bo tròn đồng bộ */
+        rgba(0, 0, 0, 0.3) 100%);
+    
+    /* Fading mask */
     mask-image: linear-gradient(to bottom, 
         transparent 0%, 
         black 10%, 
         black 90%, 
         transparent 100%);
-    mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    mask-composite: intersect;
+}
+
+#input-container {
+    position: relative;
+    margin: 0 0 20px 0;
+    width: 90%;
+    border-radius: 14px;
 }
 
 #input {
-    all:unset;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 16px;
+    padding: 15px;
+    border-radius: 12px;
     color: @text;
-    background-color: alpha(@background, .2);
-    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
+    background-color: alpha(@background, .3);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0, .3), 
+                inset 0 0 5px rgba(138, 173, 244, 0.2);
+    position: relative;
+}
+
+#input::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    z-index: -1;
+    border-radius: 14px;
+    background: linear-gradient(90deg, 
+        @color1, @color9, @color3, @color4, 
+        @color5, @color2, @color7, @color1);
+    background-size: 200% 100%;
+    animation: led-glow 3s linear infinite;
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(138, 173, 244, 0.5);
+}
+
+#input:focus {
+    background-color: alpha(@background, .4);
 }
 
 #input image {
     color: @red;
     padding-right: 10px;
-    border-radius: 999px;
-}
-
-#input * {
-    border: none;
-    outline: none;
-}
-
-#input:focus {
-    border-radius: 16px;
-    outline: none;
 }
 
 #entry {
     background-color: transparent;
-    transition: background-color 0.2s ease;
-}
-
-#entry arrow {
-    color: @lavender;
+    transition: all 0.2s ease;
+    padding: 10px;
+    margin: 3px 0;
+    border-radius: 10px;
 }
 
 #entry:selected {
-    background-color: rgba(138, 173, 244, 0.3);
-    box-shadow: 5px 5px 5px rgba(138, 173, 244, 0.5);
-    transition: all 0.2s ease-in-out;
+    background-color: rgba(138, 173, 244, 0.2);
+    box-shadow: 0 2px 8px rgba(138, 173, 244, 0.4);
 }
 
 #entry:selected #text {
@@ -109,12 +126,7 @@ window {
     font-weight: bold;
 }
 
-#entry:drop(active) {
-    background-color: @lavender !important;
-}
-
 #text {
     margin: 5px;
     color: @text;
-    border-radius: 20px;
 }

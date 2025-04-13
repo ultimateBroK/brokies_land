@@ -1,5 +1,5 @@
 [global]
-    font = "JetBrainsMono Nerd Font 12"
+    font = "JetBrainsMono Nerd Font 10"
     allow_markup = yes
     markup = full
     format = "<b>%s</b>\n%b"
@@ -8,11 +8,12 @@
     origin = top-center
     geometry = "300x5-0+30"
 		alignment = left
+		transparency = 30
     follow = mouse
-    show_indicators = no
+    show_indicators = true
 	  sticky_history = yes
-    line_height = 8
     separator_height = 3
+  		line_height = 5
     padding = 16
     horizontal_padding = 16
     text_icon_padding = 10
@@ -20,7 +21,6 @@
     separator_width = 1
     startup_notification = false
     corner_radius = 15
-    frame_color = "#FFFFFF"
     width = 400
     height = 500
     progress_bar_corner_radius = 5
@@ -32,38 +32,39 @@
     icon_theme = Fluent
 		enable_recursive_icon_lookup = true
     mouse_left_click = close_current
-		mouse_middle_click = do_action, close_current
+		mouse_middle_click = do_action, open_url
 		mouse_right_click = close_all
+		ignore_dbusclose = true
 
 [songArtLogger]
 		script = $HOME/.config/dunst/scripts/songArtLogger.sh
 
 [urgency_low]
-		timeout = 10
-		background = "#0d0f16"
+		timeout = 5
+		background = "#0D0F1699"
 		foreground = "#CDD6F4"
-		frame_color = "#00ffbb"
-		highlight = "#7ba5dd"
+		frame_color = "#00FFBB"
+		highlight = "#7BA5DD"
 
 [urgency_normal]
     script = $HOME/.config/dunst/scripts/playNotificationSound_Normal.sh
-    timeout = 15
-		background = "#0d0f16"
+    timeout = 10
+		background = "#0D0F16CC"
 		foreground = "#CDD6F4"
 		frame_color = "#00ffbb"
-		highlight = "#7ba5dd"
+		highlight = "#7BA5DD"
 
 [urgency_critical]
     script = $HOME/.config/dunst/scripts/playNotificationSound.sh
-    timeout = 20
-		background = "#0d0f16"
+    timeout = 15
+		background = "#0D0F16"
 		foreground = "#CDD6F4"
-		frame_color = "#00ffbb"
-		highlight = "#ee6a70"
+		frame_color = "#00FFBB"
+		highlight = "#EE6A70"
     
 [backlight]
 		summary = "Backlight"
-		highlight = "#ffb29b"
+		highlight = "#FFB29B"
 		set_stack_tag = "backlight"
 
 [volume]
@@ -72,7 +73,7 @@
 
 [volume-muted]
 		summary = "Volume Muted"
-		highlight = "#ee6a70"
+		highlight = "#EE6A70"
 
 [volume-unmuted]
 		summary = "Volume Unmuted"
