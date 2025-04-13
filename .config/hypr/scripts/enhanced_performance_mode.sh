@@ -3,8 +3,8 @@
 
 # --- Cấu hình và biến môi trường ---
 HYPR_CONFIG="$HOME/.config/hypr"
-CURRENT_MODE_FILE="$HYPR_CONFIG/.current_mode"
-LOG_FILE="$HYPR_CONFIG/performance_mode.log"
+CURRENT_MODE_FILE="$HYPR_CONFIG/logs/.current_mode"
+LOG_FILE="$HYPR_CONFIG/logs/performance_mode.log"
 NOTIFICATION_TIMEOUT=3000
 
 # Tìm đường dẫn tuyệt đối của các lệnh

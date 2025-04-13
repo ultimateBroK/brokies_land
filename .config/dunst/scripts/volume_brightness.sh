@@ -146,3 +146,4 @@ case $1 in
         show_music_notif
         ;;
 esac
+
