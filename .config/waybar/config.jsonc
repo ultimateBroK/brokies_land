@@ -60,7 +60,7 @@
   },
   "power-profiles-daemon": {
     "format": "{icon} {profile}",
-    "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
       "default": "󰾆", // fallback
@@ -101,7 +101,7 @@
     "framerate": 30,
     "autosens": 1,
     "sensitivity": 4,
-    "bars": 15,
+    "bars": 12,
     "lower_cutoff_freq": 20,
     "higher_cutoff_freq": 10000,
     "hide-empty": true,
@@ -196,6 +196,7 @@
   "backlight": {
     "device": "intel_backlight",
     "format": "<span color='#f9e2af'>{icon}</span> {percent}%",
+    "tooltip": false,
     "format-icons": [
       "󰃞",
       "󰃟",
