@@ -70,13 +70,13 @@ function show_volume_notif {
         if [[ $show_album_art == "true" ]]; then
             get_album_art
         fi
-        notify-send -t $notification_timeout \
+        dunstify -t $notification_timeout \
             -h string:x-dunst-stack-tag:volume_notif \
             -h int:value:$volume \
             -i "$album_art" \
             "$volume_icon $volume%" "$current_song"
     else
-        notify-send -t $notification_timeout \
+        dunstify -t $notification_timeout \
             -h string:x-dunst-stack-tag:volume_notif \
             -h int:value:$volume \
             "$volume_icon $volume%"
@@ -94,7 +94,7 @@ function show_music_notif {
     fi
 
     notif_body=$(playerctl metadata --format='{{artist}}\n<b>{{album}}</b>')
-		notify-send -t $notification_timeout \
+		dunstify -t $notification_timeout \
 				-h string:x-dunst-stack-tag:music_notif \
 				-i "$album_art" \
 				"$song_title" "$notif_body"
@@ -104,7 +104,7 @@ function show_music_notif {
 function show_brightness_notif {
     brightness=$(get_brightness)
     get_brightness_icon
-    notify-send -t $notification_timeout \
+    dunstify -t $notification_timeout \
         -h string:x-dunst-stack-tag:brightness_notif \
         -h int:value:$brightness \
         "$brightness_icon $brightness%"  # <- dùng khoảng trắng đẹp

@@ -9,7 +9,7 @@ NOTIFICATION_TIMEOUT=3000
 
 # Tìm đường dẫn tuyệt đối của các lệnh
 HYPRCTL=$(which hyprctl 2>/dev/null || echo "/usr/bin/hyprctl")
-NOTIFY_SEND=$(which notify-send 2>/dev/null || echo "/usr/bin/notify-send")
+NOTIFY_SEND=$(which dunstify 2>/dev/null || echo "/usr/bin/dunstify")
 TOFI=$(which tofi 2>/dev/null || echo "/usr/bin/tofi")
 WOFI=$(which wofi 2>/dev/null || echo "/usr/bin/wofi")
 ROFI=$(which rofi 2>/dev/null || echo "/usr/bin/rofi")
@@ -243,7 +243,7 @@ check_requirements() {
     fi
     
     if [ ! -x "$NOTIFY_SEND" ]; then
-        missing_deps+=("notify-send")
+        missing_deps+=("dunstify")
     fi
     
     # Kiểm tra ít nhất một trong các công cụ chọn

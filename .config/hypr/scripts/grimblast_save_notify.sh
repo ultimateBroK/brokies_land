@@ -20,5 +20,5 @@ grimblast save "$MODE" "$FULLPATH"
 wl-copy < "$FULLPATH"
 
 # Gửi thông báo có ảnh preview
-notify-send -i "$FULLPATH" "📸 Screenshot ($MODE)" "$FILENAME copied to clipboard"
+dunstify -i "$FULLPATH" "📸 Screenshot ($MODE)" "$FILENAME copied to clipboard"
 
