@@ -48,7 +48,7 @@
 
 [urgency_normal]
     script = $HOME/.config/dunst/scripts/playNotificationSound_Normal.sh
-    timeout = 10
+    timeout = 5
 		background = "#0D0F16CC"
 		foreground = "#CDD6F4"
 		frame_color = "#00ffbb"
@@ -56,7 +56,7 @@
 
 [urgency_critical]
     script = $HOME/.config/dunst/scripts/playNotificationSound.sh
-    timeout = 15
+    timeout = 10
 		background = "#0D0F16"
 		foreground = "#CDD6F4"
 		frame_color = "#00FFBB"
