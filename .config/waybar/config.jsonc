@@ -214,8 +214,8 @@
     },
     "interval": 10,
     "format": "{icon} {capacity}%",
-    "format-charging": "<span color='#a6e3a1'>󰂄</span> {capacity}%",
-    "format-plugged": "<span color='#a6e3a1'>󰚥</span> {capacity}%",
+    "format-charging": "<span color='#1e1e2e'>󰂄</span> {capacity}%",
+    "format-plugged": "<span color='#1e1e2e'>󰚥</span> {capacity}%",
     "format-alt": "{icon} {time}",
     "format-icons": [
       "<span color='#f38ba8'>󰂃</span>",
@@ -223,12 +223,12 @@
       "<span color='#f9e2af'>󰁻</span>",
       "<span color='#f9e2af'>󰁼</span>",
       "<span color='#f9e2af'>󰁽</span>",
-      "<span color='#a6e3a1'>󰁾</span>",
-      "<span color='#a6e3a1'>󰁿</span>",
-      "<span color='#a6e3a1'>󰂀</span>",
-      "<span color='#a6e3a1'>󰂁</span>",
-      "<span color='#a6e3a1'>󰂂</span>",
-      "<span color='#a6e3a1'>󰁹</span>"
+      "<span color='#00FF96'>󰁾</span>",
+      "<span color='#00FF96'>󰁿</span>",
+      "<span color='#00FF96'>󰂀</span>",
+      "<span color='#00FF96'>󰂁</span>",
+      "<span color='#00FF96'>󰂂</span>",
+      "<span color='#00FF96'>󰁹</span>"
     ]
   },
   "pulseaudio": {
