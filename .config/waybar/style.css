@@ -215,7 +215,6 @@ window#waybar {
     color: #00ffbb;
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 13px;
-    box-shadow: 0 0 8px rgba(0, 255, 150, 0.5);
 }
 
 /* ========== SMOOTH TRANSITIONS ========== */
