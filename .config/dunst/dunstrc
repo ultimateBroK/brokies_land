@@ -11,6 +11,7 @@
 		transparency = 30
     follow = mouse
     show_indicators = true
+		notification_limit = 8
 	  sticky_history = yes
     separator_height = 3
   		line_height = 5
@@ -19,7 +20,6 @@
     text_icon_padding = 10
     separator_color = auto
     separator_width = 1
-    startup_notification = false
     corner_radius = 15
     width = 400
     height = 500
@@ -48,7 +48,7 @@
 
 [urgency_normal]
     script = $HOME/.config/dunst/scripts/playNotificationSound_Normal.sh
-    timeout = 5
+    timeout = 8
 		background = "#0D0F16CC"
 		foreground = "#CDD6F4"
 		frame_color = "#00ffbb"
@@ -56,7 +56,7 @@
 
 [urgency_critical]
     script = $HOME/.config/dunst/scripts/playNotificationSound.sh
-    timeout = 10
+    timeout = 15
 		background = "#0D0F16"
 		foreground = "#CDD6F4"
 		frame_color = "#00FFBB"
