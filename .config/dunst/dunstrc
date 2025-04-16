@@ -78,6 +78,6 @@
     highlight = "#FABD99"
     set_stack_tag = "backlight"
 
-# 📸 Script log ảnh nhạc (bạn cần tạo script này hoặc bỏ đi nếu không dùng)
+# 📸 Script log ảnh nhạc
 [songArtLogger]
     script = $HOME/.config/dunst/scripts/songArtLogger.sh
