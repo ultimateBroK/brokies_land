@@ -17,14 +17,12 @@
 
 Brokies Land is a ready-to-use Hyprland configuration designed for Linux users who want a functional and aesthetic desktop environment without spending hours on configuration.
 
-<details>
-<summary><b>✨ Features</b></summary>
+<b>✨ Features</b>
 
 - **Simple Setup** - Easy installation and configuration process
 - **Modern Aesthetic** - Clean, minimal interface with thoughtful design
 - **Performance Focused** - Optimized for efficiency on various hardware
 - **100% Free** - Open source and freely available
-</details>
 
 ## 🗂️ Components
 
@@ -141,24 +139,28 @@ Hyprland
     <th>Function</th>
   </tr>
   <tr>
-    <td><code>SUPER + T</code></td>
-    <td>Open terminal</td>
+    <td><code>SUPER + Return</code></td>
+    <td>Open terminal (Ghostty)</td>
   </tr>
   <tr>
     <td><code>SUPER + E</code></td>
-    <td>Open file manager</td>
+    <td>Open file manager (Nautilus)</td>
   </tr>
   <tr>
     <td><code>SUPER + B</code></td>
-    <td>Open browser</td>
+    <td>Open browser (Zen Browser)</td>
   </tr>
   <tr>
     <td><code>SUPER + C</code></td>
-    <td>Open code editor</td>
+    <td>Open code editor (Zed)</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + T</code></td>
+    <td>Open Trading View</td>
   </tr>
   <tr>
     <td><code>SUPER + A</code></td>
-    <td>App launcher</td>
+    <td>App launcher (Wofi)</td>
   </tr>
   <tr>
     <td><code>SUPER + Q</code></td>
@@ -177,12 +179,24 @@ Hyprland
     <td>Navigate between windows</td>
   </tr>
   <tr>
+    <td><code>SUPER + SHIFT + Arrow Keys</code></td>
+    <td>Move window in direction</td>
+  </tr>
+  <tr>
     <td><code>SUPER + SHIFT + 1-0</code></td>
     <td>Move window to workspace</td>
   </tr>
   <tr>
     <td><code>SUPER + 1-0</code></td>
     <td>Switch to workspace</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + S</code></td>
+    <td>Toggle special workspace</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + SHIFT + S</code></td>
+    <td>Move to special workspace</td>
   </tr>
   <tr>
     <td><code>SUPER + L</code></td>
@@ -205,8 +219,8 @@ Hyprland
     <td>Show clipboard history</td>
   </tr>
   <tr>
-    <td><code>SUPER + S</code></td>
-    <td>Toggle scratchpad</td>
+    <td><code>SUPER + ALT + P</code></td>
+    <td>Toggle performance modes</td>
   </tr>
   <tr>
     <td><code>Print</code></td>
@@ -214,11 +228,19 @@ Hyprland
   </tr>
   <tr>
     <td><code>SUPER + Print</code></td>
+    <td>Screenshot current output</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + SHIFT + Print</code></td>
     <td>Screenshot active window</td>
   </tr>
   <tr>
     <td><code>SUPER + ALT + Print</code></td>
     <td>Screenshot selected area</td>
+  </tr>
+  <tr>
+    <td><code>CTRL + Escape</code></td>
+    <td>Restart Waybar</td>
   </tr>
 </table>
 
