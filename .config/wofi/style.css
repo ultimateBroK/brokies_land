@@ -1,132 +1,126 @@
 @import url('~/.cache/wal/colors-waybar.css');
 
-@define-color mauve  @color9;
-@define-color red  @color9;
-@define-color lavender  @color7;
-@define-color text  @color7;
-
-/* Essential animations */
-@keyframes slideInFromTop {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes led-glow {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 200% 0%; }
-}
+/* Định nghĩa màu */
+@define-color accent @color9;
+@define-color text @color7;
+@define-color background @background;
 
 * {
     all: unset;
     font-family: 'JetBrainsMono Nerd Font', monospace;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 window {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 20px;
-    width: 700px;
-    max-height: 500px;
-    animation: slideInFromTop 0.3s ease-out forwards;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
+    /* Kích thước theo config: 50% màn hình */
+    width: 50%;
+    height: 50%;
+    /* Đảm bảo tối đa không vượt quá kích thước hợp lý */
+    max-width: 600px;
 }
 
 #outer-box {
-    padding: 20px;
-    border-radius: 20px;
+    padding: 12px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-#scroll {
-    padding: 10px 5px;
-    border-radius: 16px;
-    width: 100%;
-    max-height: 350px;
-    box-sizing: border-box;
-    
-    /* Gradient fading effect */
-    background-image: linear-gradient(to bottom, 
-        rgba(0, 0, 0, 0.3) 0%, 
-        rgba(0, 0, 0, 0) 10%, 
-        rgba(0, 0, 0, 0) 90%, 
-        rgba(0, 0, 0, 0.3) 100%);
-    
-    /* Fading mask */
-    mask-image: linear-gradient(to bottom, 
-        transparent 0%, 
-        black 10%, 
-        black 90%, 
-        transparent 100%);
-}
-
-#input-container {
-    position: relative;
-    margin: 0 0 20px 0;
-    width: 90%;
-    border-radius: 14px;
-}
-
+/* Thanh tìm kiếm với prompt "Search" */
 #input {
-    padding: 15px;
-    border-radius: 12px;
+    padding: 8px 12px;
+    margin: 0 0 10px 0;
+    border-radius: 8px;
     color: @text;
-    background-color: alpha(@background, .3);
-    width: 100%;
-    box-sizing: border-box;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0, .3), 
-                inset 0 0 5px rgba(138, 173, 244, 0.2);
-    position: relative;
-}
-
-#input::before {
-    content: "";
-    position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px;
-    z-index: -1;
-    border-radius: 14px;
-    background: linear-gradient(90deg, 
-        @color1, @color9, @color3, @color4, 
-        @color5, @color2, @color7, @color1);
-    background-size: 200% 100%;
-    animation: led-glow 3s linear infinite;
-    opacity: 0.9;
-    box-shadow: 0 0 15px rgba(138, 173, 244, 0.5);
+    background-color: rgba(30, 30, 40, 0.6);
+    border: 1px solid alpha(@accent, 0.3);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 }
 
 #input:focus {
-    background-color: alpha(@background, .4);
+    border-color: alpha(@accent, 0.7);
 }
 
-#input image {
-    color: @red;
-    padding-right: 10px;
+#inner-box {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: calc(100% - 44px); /* Chiều cao trừ đi input + margin */
 }
 
+/* Container danh sách - hide_scroll=true */
+#scroll {
+    border-radius: 8px;
+    background-color: rgba(20, 20, 30, 0.4);
+    /* Ẩn thanh cuộn theo config */
+    overflow-y: hidden;
+    /* Đảm bảo lấp đầy không gian còn lại */
+    height: 100%;
+    padding: 4px;
+}
+
+/* Mục ứng dụng với một cột */
 #entry {
-    background-color: transparent;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    background-color: rgba(30, 30, 40, 0.4);
     transition: all 0.2s ease;
-    padding: 10px;
-    margin: 3px 0;
-    border-radius: 10px;
+    border: 2px solid transparent;
+    
+    /* Bố cục một cột */
+    display: flex;
+    align-items: center;
+    min-height: 44px;
 }
 
+/* Hiệu ứng entry được chọn */
 #entry:selected {
-    background-color: rgba(138, 173, 244, 0.2);
-    box-shadow: 0 2px 8px rgba(138, 173, 244, 0.4);
+    background-color: rgba(50, 50, 60, 0.9);
+    border-color: @accent;
+    box-shadow: 0 0 8px alpha(@accent, 0.6);
+}
+
+#entry:hover:not(:selected) {
+    background-color: rgba(40, 40, 50, 0.7);
+    border-color: alpha(@accent, 0.3);
+}
+
+/* Icon - allow_images=true */
+#img {
+    margin-right: 14px;
+    border-radius: 4px;
+    min-width: 28px;
+    min-height: 28px;
+}
+
+/* Text - với insensitive=true (không phân biệt chữ hoa/thường) */
+#text {
+    color: @text;
+    font-size: 14px;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #entry:selected #text {
-    color: @text;
+    color: @accent;
     font-weight: bold;
 }
 
-#text {
-    margin: 5px;
-    color: @text;
+/* Với hide_scroll=true, tuy nhiên vẫn nên định nghĩa nếu người dùng sau đó thay đổi */
+scrollbar {
+    background-color: transparent;
+    margin: 0 2px;
+    opacity: 0;
+}
+
+scrollbar slider {
+    background-color: alpha(@accent, 0.5);
+    border-radius: 4px;
+    min-height: 20px;
+    opacity: 0;
 }
