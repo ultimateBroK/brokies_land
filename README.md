@@ -44,52 +44,63 @@ Brokies Land is a ready-to-use Hyprland configuration designed for Linux users w
 
 <details>
 <summary><b>Interface</b></summary>
+<div class="content" style="margin-left: 15px;">
 
-- `waybar` - Status bar
-- `tofi` or `wofi` - Application launcher
-- `dunst` - Notification daemon
+- <code>waybar</code> - Status bar for showing system information
+- <code>tofi</code> - Minimal and fast application launcher
+- <code>dunst</code> - Lightweight notification daemon
+</div>
 </details>
 
 <details>
 <summary><b>Terminal & File Management</b></summary>
+<div class="content" style="margin-left: 15px;">
 
-- `kitty` or `ghostty` - Terminal emulators
-- `nautilus` - File manager
+- <code>kitty</code> - Fast, feature-rich GPU-based terminal emulator
+- <code>ghostty</code> - Modern, GPU-accelerated terminal alternative
+- <code>nautilus</code> - GNOME's file manager with Wayland support
+</div>
 </details>
 
 <details>
 <summary><b>System Tools</b></summary>
+<div class="content" style="margin-left: 15px;">
 
-- `hyprlock` - Screen locker
-- `hypridle` - Idle daemon
-- `wlogout` - Session management
-- `swww` - Wallpaper manager
-- `grimblast` - Screenshot utility
+- <code>hyprlock</code> - Secure screen locker for Hyprland
+- <code>hypridle</code> - Idle management daemon
+- <code>wlogout</code> - Wayland logout menu
+- <code>swww</code> - Efficient wallpaper daemon with smooth transitions
+- <code>grimblast</code> - Screenshot utility with built-in editor
+</div>
 </details>
 
 <details>
 <summary><b>Appearance</b></summary>
+<div class="content" style="margin-left: 15px;">
 
-- `nwg-look` - GTK settings manager
-- `kvantum` - Qt theme engine
-- `noto-fonts-cjk` - Font package
-- `bibata-cursor-theme` - Cursor theme
-- `fluent-icon-theme-git` - Icon theme
-- <a href="https://github.com/vinceliuice/Orchis-theme">Orchis-theme</a> - GTK theme
+- <code>nwg-look</code> - GTK settings manager for Wayland
+- <code>kvantum</code> - SVG-based Qt theme engine
+- <code>noto-fonts-cjk</code> - Google Noto CJK fonts
+- <code>bibata-cursor-theme</code> - Modern cursor theme
+- <code>fluent-icon-theme-git</code> - Fluent design icon theme
+- <a href="https://github.com/vinceliuice/Orchis-theme">Orchis-theme</a> - Modern GTK theme based on Material Design
+</div>
 </details>
 
 <details>
 <summary><b>Additional Utilities</b></summary>
+<div class="content" style="margin-left: 15px;">
 
-- `cliphist` - Clipboard manager
-- `qt5-wayland` & `qt6-wayland` - Qt Wayland support
-- `polkit-kde-agent` - Authentication agent
-- `brightnessctl` - Brightness control
-- `playerctl` - Media player control
-- `pavucontrol` - Audio control panel
-- `bluez` & `bluez-utils` - Bluetooth support
-- `jamesdsp` - Audio effects processor
-- `gnome-clocks` - Clock application
+- <code>cliphist</code> - Wayland clipboard manager
+- <code>qt5-wayland</code> & <code>qt6-wayland</code> - Wayland support for Qt applications
+- <code>polkit-kde-agent</code> - Authentication agent for system permissions
+- <code>brightnessctl</code> - Brightness control utility
+- <code>playerctl</code> - Media player controller
+- <code>pavucontrol</code> - PulseAudio volume control
+- <code>bluez</code> & <code>bluez-utils</code> - Bluetooth protocol stack and utilities
+- <code>jamesdsp</code> - Sound effects processor for PipeWire/PulseAudio
+- <code>gnome-clocks</code> - Alarms, timers, and world clock application
+</div>
 </details>
 
 <details>
