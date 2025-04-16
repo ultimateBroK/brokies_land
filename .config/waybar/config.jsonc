@@ -24,6 +24,7 @@
     "group/hardware",
     "group/audio",
     "power-profiles-daemon",
+    "idle_inhibitor",
     "custom/power"
   ],
   // Remove main background, keep spacing and margins
@@ -31,6 +32,16 @@
   "spacing": 5,
   "background": "rgba(0, 0, 0, 0)", // Completely transparent main background
   "border-radius": 8,
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "󰾪"
+    },
+    "tooltip": true,
+    "tooltip-format-activated": "Idle Inhibitor Active",
+    "tooltip-format-deactivated": "Idle Inhibitor Inactive"
+  },
   "hyprland/window": {
     "format": "{class}",
     "icon": true,
@@ -53,9 +64,10 @@
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate",
       // "logout": "hyprctl dispatch exit",
-      "logout": "swaymsg exit",
-      // "lock": "hyprlock"
-      "lock": "swaylock"
+      // "logout": "swaymsg exit",
+      "logout": "exit",
+      "lock": "hyprlock"
+      // "lock": "swaylock"
     }
   },
   "power-profiles-daemon": {
@@ -64,7 +76,7 @@
     "tooltip": true,
     "format-icons": {
       "default": "󰾆", // fallback
-      "performance": "", // chip
+      "performance": "", // chip
       "balanced": "󰾅", // leaf-circle
       "power-saver": "󱉚" // battery-heart
     }

@@ -1,4 +1,3 @@
 #!/bin/bash
-
-mpv $HOME/.config/dunst/assets/notification/notification-sound-3-262896.wav
-
+# File in assets
+mpv $HOME/Music/noti/your-broke-andrew-tate.mp3
