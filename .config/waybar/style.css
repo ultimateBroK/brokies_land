@@ -7,7 +7,7 @@
     min-height: 0;
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13.5px;
 }
 
 window#waybar {
@@ -31,6 +31,8 @@ window#waybar {
 #group-audio,
 #group-datetime,
 #custom-power,
+#idle_inhibitor,
+#power-profiles-daemon,
 #cava {
     padding: 2px 10px;
     margin: 3px 2px;
@@ -63,39 +65,54 @@ window#waybar {
 #group-datetime:hover,
 #custom-power:hover,
 #power-profiles-daemon:hover,
+#idle_inhibitor:hover,
 #cava:hover {
     background-color: rgba(69, 71, 90, 0.7);
     color: #89b4fa;
 }
 
-/* ========== POWER PROFILE ========== */
-#power-profiles-daemon {
-    padding: 2px 10px;
-    margin: 3px 2px;
-    background-color: rgba(30, 30, 46, 0.5);
-    border-radius: 10px;
-    color: #cdd6f4;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+/* ========== IDLE INHIBITOR ========== */
+#idle_inhibitor {
+    transition: all 0.3s ease;
 }
 
+#idle_inhibitor.activated {
+    color: #1e1e2e;
+    border: 1px solid rgba(166, 227, 161, 0.3);
+    background-color: rgba(0, 255, 150, 0.9);
+    box-shadow: 0 0 8px rgba(0, 255, 150, 0.5);
+
+}
+
+#idle_inhibitor.deactivated {
+    background-color: rgba(30, 30, 46, 0.5);
+    color: #cdd6f4;
+}
+
+#idle_inhibitor.activated:hover {
+    background-color: rgba(166, 227, 161, 0.7);
+    color: #1e1e2e;
+}
+
+#idle_inhibitor.deactivated:hover {
+    background-color: rgba(69, 71, 90, 0.7);
+    color: #f38ba8;
+}
+
+/* ========== POWER PROFILE ========== */
 #power-profiles-daemon.performance {
     background-color: rgba(255, 40, 0, 0.9);
     color: #ffffff;
-    box-shadow: 0 0 8px rgba(255, 40, 0, 0.5);
 }
 
 #power-profiles-daemon.balanced {
     background-color: rgba(0, 255, 150, 0.9);
     color: #1e1e2e;
-    box-shadow: 0 0 8px rgba(0, 255, 150, 0.5);
 }
 
 #power-profiles-daemon.power-saver {
     background-color: rgba(64, 180, 255, 0.9);
     color: #1e1e2e;
-    box-shadow: 0 0 8px rgba(64, 180, 255, 0.5);
 }
 
 #power-profiles-daemon.performance:hover,
@@ -189,7 +206,6 @@ window#waybar {
 
 /* ========== CUSTOM POWER MENU ========== */
 #custom-power {
-    font-size: 16px;
     color: #89b4fa;
     background-color: rgba(24, 24, 38, 0.9);
     border: 1px solid #89b4fa;
@@ -214,7 +230,6 @@ window#waybar {
 #cava {
     color: #00ffbb;
     font-family: "JetBrainsMono Nerd Font", monospace;
-    font-size: 13px;
 }
 
 /* ========== SMOOTH TRANSITIONS ========== */
@@ -225,6 +240,7 @@ window#waybar {
 #backlight,
 #pulseaudio,
 #pulseaudio.microphone,
+#idle_inhibitor,
 #clock {
     transition: background-color 0.2s ease, color 0.2s ease;
 }

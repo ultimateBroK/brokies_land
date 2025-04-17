@@ -10,13 +10,13 @@
   "modules-left": [
     "hyprland/workspaces",
     //"sway/workspaces",
-    "clock",
     "hyprland/window"
     //"sway/window"
   ],
   "modules-center": [
+    "cava",
     "custom/mpris_scrolling",
-    "cava"
+    "clock"
   ],
   "modules-right": [
     "tray",
@@ -40,12 +40,13 @@
     },
     "tooltip": true,
     "tooltip-format-activated": "Idle Inhibitor Active",
-    "tooltip-format-deactivated": "Idle Inhibitor Inactive"
+    "tooltip-format-deactivated": "Idle Inhibitor Inactive",
+    "timeout": 30.0
   },
   "hyprland/window": {
     "format": "{class}",
     "icon": true,
-    "max-length": 30,
+    "max-length": 20,
     "separate-outputs": true,
   },
   "sway/window": {
@@ -75,10 +76,9 @@
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-      "default": "󰾆", // fallback
-      "performance": "", // chip
+      "performance": "",
       "balanced": "󰾅", // leaf-circle
-      "power-saver": "󱉚" // battery-heart
+      "power-saver": "󱈐" // battery-heart
     }
   },
   "hyprland/workspaces": {
@@ -113,7 +113,7 @@
     "framerate": 30,
     "autosens": 1,
     "sensitivity": 4,
-    "bars": 12,
+    "bars": 10,
     "lower_cutoff_freq": 20,
     "higher_cutoff_freq": 10000,
     "hide-empty": true,
