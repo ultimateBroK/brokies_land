@@ -8,19 +8,17 @@
   "margin-right": 2,
   "margin-left": 2,
   "modules-left": [
+    "clock",
     "hyprland/workspaces",
-    //"sway/workspaces",
-    "hyprland/window"
-    //"sway/window"
+    //"sway/workspaces"
+    "group/system"
   ],
   "modules-center": [
-    "cava",
     "custom/mpris_scrolling",
-    "clock"
+  		"cava"
   ],
   "modules-right": [
     "tray",
-    "group/system",
     "group/hardware",
     "group/audio",
     "power-profiles-daemon",
@@ -42,17 +40,6 @@
     "tooltip-format-activated": "Idle Inhibitor Active",
     "tooltip-format-deactivated": "Idle Inhibitor Inactive",
     "timeout": 30.0
-  },
-  "hyprland/window": {
-    "format": "{class}",
-    "icon": true,
-    "max-length": 20,
-    "separate-outputs": true,
-  },
-  "sway/window": {
-    "format": "{app_id}",
-    "icon": true,
-    "max-length": 30
   },
   "custom/power": {
     "format": "󰐥",
