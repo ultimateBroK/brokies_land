@@ -45,11 +45,9 @@ title=$(playerctl -p "$selected_player" metadata title 2>/dev/null)
 status=$(playerctl -p "$selected_player" status 2>/dev/null)
 pid=$(playerctl -p "$selected_player" metadata mpris:pid 2>/dev/null)
 
-# Escape ký tự
 artist=$(escape_special_chars "$artist")
 title=$(escape_special_chars "$title")
 
-# Lấy tiêu đề cửa sổ theo PID
 window_title=$(hyprctl clients | awk -v pid="$pid" '
   $1 == "pid:" && $2 == pid {found=1}
   found && $1 == "title:" {print substr($0, index($0,$2)); exit}
@@ -73,7 +71,7 @@ case "$lower_player" in
   *) icon="<span color='#f9e2af'>▶</span>" ;;
 esac
 
-# === Scroll & hiển thị ===
+# === Scroll và chuẩn bị hiển thị ===
 MAX_LENGTH=50
 # TITLE_MAX=$((MAX_LENGTH * 2 / 3))
 TITLE_MAX=30
@@ -92,15 +90,22 @@ if [[ "$prev_song_id" != "$current_song_id" ]]; then
   echo "$current_song_id" > "$song_id_file"
 fi
 
-if [[ "$status" == "Playing" ]]; then
+# === Icon trạng thái đơn giản ===
+case "$status" in
+  "Playing") status_icon="<span foreground='#94e2d5'>󰐊</span>" ;;
+  "Paused")  status_icon="<span foreground='#94e2d5'>󰏤</span>" ;;
+  *)         status_icon="<span foreground='#94e2d5'>■</span>" ;;
+esac
+
+# === Xuất kết quả ===
+if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
   if (( ${#title} + ${#artist} + 3 > MAX_LENGTH )); then
     scrolled_title=$(scroll_text "$title" $TITLE_MAX "$title_scroll_file")
     scrolled_artist=$(scroll_text "$artist" $ARTIST_MAX "$artist_scroll_file")
-    echo "$icon <span foreground='#f5c2e7' font_weight='bold'>$scrolled_title</span> - <span foreground='#cdd6f4'>$scrolled_artist</span>"
+    echo "$icon  <span foreground='#f5c2e7' font_weight='bold'>$scrolled_title</span> - <span foreground='#cdd6f4'>$scrolled_artist</span>  $status_icon"
   else
-    echo "$icon <span foreground='#f5c2e7' font_weight='bold'> $title</span> - <span foreground='#cdd6f4'>$artist</span>"
+    echo "$icon  <span foreground='#f5c2e7' font_weight='bold'>$title</span> - <span foreground='#cdd6f4'>$artist</span>  $status_icon"
   fi
 else
-  echo "$icon <span foreground='#bac2de' font_style='italic'> $title - $artist </span>"
+  echo "$icon  <span foreground='#bac2de' font_style='italic'>$title - $artist</span>  $status_icon"
 fi
-
