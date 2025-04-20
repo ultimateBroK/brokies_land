@@ -1,10 +1,11 @@
 <h1 align="center">🏠 Brokies Land 🏠</h1>
 
-<p align="center"><i>A minimal Hyprland configuration for Linux desktops</i></p>
+<p align="center"><i>A complete configuration for multiple Wayland compositors on Linux desktops</i></p>
 
 <p align="center">
   <a href="https://hyprland.org/"><img src="https://img.shields.io/badge/WM-Hyprland-blue" alt="Hyprland Badge"></a>
   <a href="https://github.com/ultimatebrok/brokies_land"><img src="https://img.shields.io/badge/Status-Active-green" alt="Status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow" alt="License"></a>
 </p>
 
 <div align="center">
@@ -15,23 +16,35 @@
 
 ## 🌟 Overview
 
-Brokies Land is a ready-to-use Hyprland configuration designed for Linux users who want a functional and aesthetic desktop environment without spending hours on configuration.
+Brokies Land is a ready-to-use configuration designed for Linux users who want a functional and aesthetic desktop environment without spending hours on configuration. It supports multiple Wayland compositors including Hyprland, Niri, and SwayFX, all combined with modern Wayland components and a carefully curated selection of applications and utilities.
 
 <b>✨ Features</b>
 
+- **Multiple Compositor Support** - Works with Hyprland, Niri, and SwayFX
 - **Simple Setup** - Easy installation and configuration process
 - **Modern Aesthetic** - Clean, minimal interface with thoughtful design
 - **Performance Focused** - Optimized for efficiency on various hardware
+- **Fully Integrated** - All components work together seamlessly
+- **Customizable** - Easy to modify and adapt to your preferences
 - **100% Free** - Open source and freely available
 
 ## 🗂️ Components
 
 <details open>
 <summary><b>Configuration Includes</b></summary>
-<p>The complete desktop setup with configuration for multiple components</p>
-</details>
+<p>The complete desktop setup includes configuration for:</p>
 
-## 🛠️ Dependencies
+- Hyprland compositor with multi-monitor support
+- Waybar status bar with custom modules
+- Notification system with Dunst
+- Tofi application launcher
+- Hyprlock screen locker
+- Wallpaper management with smooth transitions
+- Media player controls with visual feedback
+- Power management and system monitoring
+- Screenshot utilities with various capture options
+- Clipboard history management
+</details>
 
 <details>
 <summary><b>Core Components</b></summary>
@@ -116,6 +129,16 @@ Brokies Land is a ready-to-use Hyprland configuration designed for Linux users w
 paru -S hyprland xdg-desktop-portal-hyprland qt5-wayland qt6-wayland waybar kitty dunst tofi nautilus polkit-kde-agent swww brightnessctl grimblast-git hyprlock hypridle wleave-git wlogout playerctl pavucontrol cliphist nwg-look kvantum zen-browser-bin visual-studio-code-bin zed-preview-bin noto-fonts-cjk bluez bluez-utils ghostty jamesdsp bibata-cursor-theme fluent-icon-theme-git gnome-clocks
 ```
 
+### Optional Compositor Packages
+
+```bash
+# Install Niri (column-based Wayland compositor)
+paru -S niri-git
+
+# Install SwayFX (enhanced Sway with visual effects)
+paru -S swayfx-git
+```
+
 > You can substitute `paru` with `yay` if preferred
 
 ## 🚀 Quick Start
@@ -126,13 +149,79 @@ git clone https://github.com/ultimatebrok/brokies_land.git
 
 # Copy configuration files
 cp -r brokies_land/.config/* ~/.config/
+```
 
-# Start Hyprland
+### Starting Hyprland
+```bash
+# Start Hyprland (default)
 Hyprland
 ```
 
+### Starting Niri
+```bash
+# Install Niri first if not already installed
+# paru -S niri-git
+
+# Start Niri
+niri
+```
+
+### Starting SwayFX
+```bash
+# Install SwayFX first if not already installed
+# paru -S swayfx-git
+
+# Start SwayFX
+swayfx
+```
+
+## 🔄 Compositor-Specific Information
+
+<details>
+<summary><b>Hyprland</b></summary>
+<p>Hyprland is the primary compositor for Brokies Land with full feature support including:</p>
+
+- Dynamic tiling with dwindle layout
+- Smooth animations and rounded corners
+- Blur effects and shadows
+- Special workspaces feature
+- Performance mode script integration
+
+<p>The configuration is extensively documented in <code>.config/hypr/hyprland.conf</code></p>
+</details>
+
+<details>
+<summary><b>Niri</b></summary>
+<p>Niri is a modern Wayland compositor with a column-based layout system:</p>
+
+- Simple and predictable window management
+- Clean, minimalist approach
+- Spring-based animations
+- Streamlined configuration with KDL format
+
+<p>The configuration can be found in <code>.config/niri/config.kdl</code></p>
+
+<p><b>Note:</b> Some Hyprland-specific features might not be available in Niri due to architectural differences.</p>
+</details>
+
+<details>
+<summary><b>SwayFX</b></summary>
+<p>SwayFX is an enhanced fork of Sway with additional visual effects:</p>
+
+- Traditional i3-like tiling
+- Enhanced blur and visual effects
+- Compatibility with most Sway configurations
+- Stable and reliable performance
+
+<p>The configuration can be found in <code>.config/sway/config</code></p>
+
+<p><b>Note:</b> Keyboard shortcuts may differ slightly from the Hyprland defaults.</p>
+</details>
+
 ## ⌨️ Keyboard Shortcuts
 
+<details>
+<summary><b>Common Shortcuts (Available in all compositors)</b></summary>
 <table align="center">
   <tr>
     <th>Shortcut</th>
@@ -160,7 +249,7 @@ Hyprland
   </tr>
   <tr>
     <td><code>SUPER + A</code></td>
-    <td>App launcher (Wofi)</td>
+    <td>App launcher (Wofi/Tofi)</td>
   </tr>
   <tr>
     <td><code>SUPER + Q</code></td>
@@ -183,12 +272,38 @@ Hyprland
     <td>Move window in direction</td>
   </tr>
   <tr>
+    <td><code>SUPER + 1-0</code></td>
+    <td>Switch to workspace</td>
+  </tr>
+  <tr>
     <td><code>SUPER + SHIFT + 1-0</code></td>
     <td>Move window to workspace</td>
   </tr>
   <tr>
-    <td><code>SUPER + 1-0</code></td>
-    <td>Switch to workspace</td>
+    <td><code>SUPER + L</code></td>
+    <td>Lock screen</td>
+  </tr>
+  <tr>
+    <td><code>SUPER + V</code></td>
+    <td>Show clipboard history</td>
+  </tr>
+  <tr>
+    <td><code>Print</code></td>
+    <td>Screenshot full screen</td>
+  </tr>
+  <tr>
+    <td><code>CTRL + Escape</code></td>
+    <td>Restart Waybar</td>
+  </tr>
+</table>
+</details>
+
+<details>
+<summary><b>Hyprland-Specific Shortcuts</b></summary>
+<table align="center">
+  <tr>
+    <th>Shortcut</th>
+    <th>Function</th>
   </tr>
   <tr>
     <td><code>SUPER + S</code></td>
@@ -199,14 +314,6 @@ Hyprland
     <td>Move to special workspace</td>
   </tr>
   <tr>
-    <td><code>SUPER + L</code></td>
-    <td>Lock screen</td>
-  </tr>
-  <tr>
-    <td><code>SUPER + ESCAPE</code></td>
-    <td>Show logout menu</td>
-  </tr>
-  <tr>
     <td><code>SUPER + M</code></td>
     <td>Exit Hyprland</td>
   </tr>
@@ -215,16 +322,8 @@ Hyprland
     <td>Change wallpaper</td>
   </tr>
   <tr>
-    <td><code>SUPER + V</code></td>
-    <td>Show clipboard history</td>
-  </tr>
-  <tr>
     <td><code>SUPER + ALT + P</code></td>
     <td>Toggle performance modes</td>
-  </tr>
-  <tr>
-    <td><code>Print</code></td>
-    <td>Screenshot full screen</td>
   </tr>
   <tr>
     <td><code>SUPER + Print</code></td>
@@ -239,10 +338,43 @@ Hyprland
     <td>Screenshot selected area</td>
   </tr>
   <tr>
-    <td><code>CTRL + Escape</code></td>
-    <td>Restart Waybar</td>
+    <td><code>SUPER + ESCAPE</code></td>
+    <td>Show logout menu</td>
   </tr>
 </table>
+</details>
+
+<details>
+<summary><b>Niri-Specific Notes</b></summary>
+<p>Niri uses a column-based layout system rather than the dynamic tiling of Hyprland.</p>
+<ul>
+  <li>Window movement in Niri often moves entire columns of windows</li>
+  <li>Niri doesn't have special workspaces like Hyprland</li>
+  <li>To exit Niri, use <code>SUPER + M</code></li>
+</ul>
+<p>Full keybinding details can be found in <code>.config/niri/config.kdl</code></p>
+</details>
+
+<details>
+<summary><b>SwayFX-Specific Notes</b></summary>
+<p>SwayFX follows the i3-style keyboard shortcuts with some additions.</p>
+<ul>
+  <li>Layout management uses <code>SUPER + E</code> to toggle between split layouts</li>
+  <li>Resize mode can be entered with <code>SUPER + R</code></li>
+  <li>To exit SwayFX, use <code>SUPER + SHIFT + E</code></li>
+</ul>
+<p>Full keybinding details can be found in <code>.config/sway/config</code></p>
+</details>
+
+## 🎨 Customization
+
+Brokies Land is designed to be easily customized. Here are some quick customization tips:
+
+- **Wallpapers**: Add your own wallpapers to `.config/assets/backgrounds`
+- **Waybar**: Edit `.config/waybar/config.jsonc` to modify the status bar
+- **Keybindings**: Adjust `.config/hypr/hyprland.conf` for custom shortcuts
+- **Notifications**: Configure `.config/dunst/dunstrc` for notification appearance
+- **Colors**: Most components use Catppuccin Mocha theme colors by default
 
 ## 💖 Contributing
 
