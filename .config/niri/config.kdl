@@ -1,0 +1,331 @@
+// Niri Configuration
+// Converted from Hyprland config
+
+// --- Input Configuration ---
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            // Hyprland options: (none specified, using defaults similar to original)
+            options "grp:win_space_toggle,compose:ralt,ctrl:nocaps" // Example based on Niri defaults, adjust as needed
+        }
+    }
+
+    touchpad {
+        natural-scroll // from natural_scroll = true
+        tap            // Niri equivalent for enabling tap-to-click
+        // dwt         // Niri equivalent for disable_while_typing = true (uncomment if needed)
+    }
+
+    mouse {
+        accel-profile "adaptive" // from accel_profile = adaptive
+        // Niri uses libinput defaults for sensitivity unless accel-speed is set
+    }
+    
+    focus-follows-mouse
+    // Niri doesn't have direct global config for gestures like workspace_swipe
+    // These might need separate configuration (e.g., libinput-gestures)
+}
+
+// --- Layout Configuration ---
+layout {
+    gaps 5 // from gaps_in/gaps_out = 5
+
+    // Using border instead of focus-ring to match Hyprland's always-visible border
+    border {
+        width 3 // from border_size = 3
+
+        // Converted from Hyprland col.active_border (Cyber Neon example)
+        // Niri uses linear gradients (from, to)
+        // Simplified from Hyprland's 4-color gradient
+        active-gradient from="#00ffbbdd" to="#ff00ffdd" angle=135
+
+        // Converted from Hyprland col.inactive_border
+        inactive-gradient from="#00ffbb55" to="#ff00ff55" angle=135
+    }
+
+    focus-ring {
+      off // Disable default focus ring as we are using border
+    }
+
+    // Niri has shadow configuration, mapping Hyprland's settings approximately
+    shadow {
+        on // from shadow { enabled = true }
+        softness 6 // Mapped from Hyprland 'range', adjust as needed
+        spread 1   // Mapped from Hyprland 'range'/'render_power', adjust as needed
+        offset x=2 y=2 // from offset = 2 2
+        color "#00ffbb33" // from color = rgba(00ffbb33)
+    }
+
+    // Niri doesn't support blur effects like Hyprland's decoration { blur {...} }
+
+    // Niri doesn't have direct equivalents for Hyprland's dwindle/master layouts
+}
+
+// Apply rounding globally (from decoration { rounding = 10 })
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true // Ensures content is clipped to rounded corners
+}
+
+// --- Autostart Applications ---
+// Converted from Hyprland exec-once
+spawn-at-startup "/usr/bin/lxqt-policykit-agent"
+spawn-at-startup "/usr/bin/dunst"
+spawn-at-startup "/usr/bin/waybar"
+spawn-at-startup "/usr/bin/hypridle"
+spawn-at-startup "/usr/bin/dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "/usr/bin/dunstify" "-u" "critical" "Hello, brokie" "Enjoy your life recently? <b>Hell fucking nah</b>, get yo ass up and find the way to <u>ESCAPE THE MATRIX</u>"
+spawn-at-startup "/usr/bin/swww-daemon"
+spawn-at-startup "/usr/bin/wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "/usr/bin/wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "/usr/bin/fcitx5" "-d"
+
+// Theme settings (converted from exec)
+spawn-at-startup "/usr/bin/gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "Orchis-Teal-Dark"
+spawn-at-startup "/usr/bin/gsettings" "set" "org.gnome.desktop.interface" "color-scheme" "prefer-dark"
+
+// --- Environment Variables ---
+// Converted from Hyprland env =
+environment {
+    XDG_CURRENT_DESKTOP "niri" // Changed from Hyprland
+    XDG_SESSION_TYPE "wayland"
+    XDG_SESSION_DESKTOP "niri" // Changed from Hyprland
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_STYLE_OVERRIDE "kvantum"
+    GDK_BACKEND "wayland,x11,*" // Keep * for safety? Niri examples use "wayland,x11"
+    SDL_VIDEODRIVER "wayland"
+    CLUTTER_BACKEND "wayland"
+    WLR_DRM_NO_ATOMIC "1"
+    __GL_GSYNC_ALLOWED "0"
+    __GL_VRR_ALLOWED "0"
+    WLR_USE_LIBINPUT "1"
+    XCURSOR_SIZE "24"
+    XCURSOR_THEME "Bibata-Modern-Ice"
+    MOZ_ENABLE_WAYLAND "1"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+// --- Key Bindings ---
+// Converted from Hyprland bind = ($mainMod = Mod/Super)
+binds {
+    // Application launchers
+    Mod+Return { spawn "ghostty"; } // $terminal
+    Mod+C { spawn "zeditor"; } // $editor
+    Mod+B { spawn "/home/ultimatebrok/Downloads/zen-x86_64.AppImage"; } // $browser
+    Mod+E { spawn "nautilus"; } // $fileManager
+    Mod+A { spawn "wofi" "--show" "drun"; } // $menu
+    Mod+T { spawn "flatpak" "run" "com.tradingview.tradingview"; } // $trading
+    Alt+w { spawn "/home/ultimatebrok/.config/hypr/scripts/wallpaper.sh"; } // Keep script
+
+    // System actions
+    Ctrl+Escape { spawn "/home/ultimatebrok/.config/waybar/scripts/launch.sh"; } // Keep script
+    Super+L { spawn "hyprlock"; }
+    // Super+Escape { spawn "wlogout"; } // Niri doesn't typically use a separate logout manager bind
+    Mod+M { quit; } // exit
+
+    // Performance mode scripts
+    Mod+Alt+P { spawn "bash" "-c" "nohup $HOME/.config/hypr/scripts/enhanced_performance_mode.sh >/dev/null 2>&1 &"; }
+    Mod+Alt+1 { spawn "bash" "-c" "nohup $HOME/.config/hypr/scripts/enhanced_performance_mode.sh normal >/dev/null 2>&1 &"; }
+    Mod+Alt+2 { spawn "bash" "-c" "nohup $HOME/.config/hypr/scripts/enhanced_performance_mode.sh balanced >/dev/null 2>&1 &"; }
+    Mod+Alt+3 { spawn "bash" "-c" "nohup $HOME/.config/hypr/scripts/enhanced_performance_mode.sh performance >/dev/null 2>&1 &"; }
+    Mod+Alt+4 { spawn "bash" "-c" "nohup $HOME/.config/hypr/scripts/enhanced_performance_mode.sh gaming >/dev/null 2>&1 &"; }
+    Mod+Alt+5 { spawn "bash" "-c" "nohup $HOME/.config/hypr/scripts/enhanced_performance_mode.sh battery >/dev/null 2>&1 &"; }
+    Mod+Alt+6 { spawn "bash" "-c" "nohup $HOME/.config/hypr/scripts/enhanced_performance_mode.sh presentation >/dev/null 2>&1 &"; }
+
+    // Utilities
+    Super+V { spawn "bash" "-c" "cliphist list | tofi -c ~/.config/tofi/configV | cliphist decode | wl-copy"; }
+    Super+N { spawn "bash" "-c" "swww img ~/Pictures/Another_Wallpaper/renato-ramos-puma-37WxvlfW3to-unsplash.jpg --transition-fps 255 --transition-type grow --transition-duration 0.8"; }
+
+    // Screenshots (Using script paths from Hyprland config)
+    // Niri has built-in screenshot actions (screenshot, screenshot-screen, screenshot-window)
+    // You might prefer using those, but keeping the scripts for now.
+    Print { spawn "/home/ultimatebrok/.config/hypr/scripts/grimblast_save_notify.sh" "screen"; }
+    Mod+Print { spawn "/home/ultimatebrok/.config/hypr/scripts/grimblast_save_notify.sh" "output"; }
+    Mod+Shift+Print { spawn "/home/ultimatebrok/.config/hypr/scripts/grimblast_save_notify.sh" "active"; }
+    Mod+Alt+Print { spawn "/home/ultimatebrok/.config/hypr/scripts/grimblast_save_notify.sh" "area"; }
+
+    // Window management
+    Mod+Q { close-window; } // killactive
+    Mod+F { fullscreen-window; } // fullscreen, 0
+    Mod+Space { toggle-window-floating; } // togglefloating
+    // Mod+P { pseudo; } // No direct Niri equivalent for pseudo-tiling
+    // Mod+J { togglesplit; } // Niri layout is different, no direct split toggle
+
+    // Focus movement (Niri uses column/window focus)
+    Mod+Left { focus-column-left; } // movefocus, l
+    Mod+Right { focus-column-right; } // movefocus, r
+    Mod+Up { focus-window-up; } // movefocus, u
+    Mod+Down { focus-window-down; } // movefocus, d
+
+    // Move windows (Niri uses column/window movement)
+    Mod+Shift+Left { move-column-left; } // movewindow, l
+    Mod+Shift+Right { move-column-right; } // movewindow, r
+    Mod+Shift+Up { move-window-up; } // movewindow, u
+    Mod+Shift+Down { move-window-down; } // movewindow, d
+
+    // Workspace navigation
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+0 { focus-workspace 10; }
+
+    // Move window to workspace (Niri moves the *column* by default)
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // Niri doesn't have special workspaces like Hyprland's magic
+    // Mod+S { togglespecialworkspace, magic } -> No direct equivalent
+    // Mod+Shift+S { movetoworkspace, special:magic } -> No direct equivalent
+
+    // Workspace scrolling (Niri uses PageUp/PageDown or custom binds)
+    Mod+Page_Up { focus-workspace-up; } // workspace, e+1 (Hyprland uses e+ / e-)
+    Mod+Page_Down { focus-workspace-down; } // workspace, e-1
+
+    // Mouse bindings (Niri uses different syntax/capabilities)
+    // Mod+mouse_down { focus-workspace-down; } // Approximate equivalent
+    // Mod+mouse_up { focus-workspace-up; } // Approximate equivalent
+    // bindm = $mainMod, mouse:272, movewindow -> Niri uses built-in drag-to-move (usually Mod+LeftClick)
+    // bindm = $mainMod, mouse:273, resizewindow -> Niri uses built-in drag-to-resize (usually Mod+RightClick)
+
+    // Media controls (Converted from bindel/bindl, added allow-when-locked)
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "volume_up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "volume_down"; }
+    XF86AudioMicMute allow-when-locked=true { spawn "pamixer" "--default-source" "-m"; }
+    XF86AudioMute allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "volume_mute"; }
+    XF86AudioPlay allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "play_pause"; }
+    XF86AudioPause allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "play_pause"; }
+    XF86AudioNext allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "next_track"; }
+    XF86AudioPrev allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "prev_track"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "brightness_up"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "/home/ultimatebrok/.config/dunst/scripts/volume_brightness.sh" "brightness_down"; }
+}
+
+// --- Window Rules ---
+// Converted from Hyprland windowrule/windowrulev2
+
+// Apply opacity rule globally (approximating windowrulev2 = opacity 0.95 0.95, class:^(.*)$)
+// Niri usually applies opacity conditionally (e.g., for inactive windows)
+// This makes *all* windows slightly transparent. Remove if not desired.
+// window-rule {
+//    opacity 0.95
+// }
+// Example: Make inactive windows transparent instead
+window-rule {
+    match is-active=false
+    opacity 0.95
+}
+
+
+// Floating windows
+window-rule {
+    match app-id=r#"^pavucontrol$"# // Match specific app ID regex
+    open-floating true
+    // Niri doesn't have a simple 'center' rule, floating windows often default center.
+    // Use default-floating-position if specific placement needed.
+}
+window-rule {
+    match app-id=r#"^blueman-manager$"#
+    open-floating true
+}
+window-rule {
+    match title=r#"^Picture-in-Picture$"# // Match title regex
+    open-floating true
+    // Example: Position PiP window
+    default-floating-position x=32 y=32 relative-to="bottom-right"
+}
+
+// --- Monitor Configuration ---
+// Convert Hyprland monitor lines to Niri output blocks
+// You need to uncomment and adjust these based on `niri msg outputs`
+/*
+output "eDP-1" {
+    // mode "1920x1080@60.000" // Set specific mode if needed, else Niri picks
+    scale 1.0
+    position x=0 y=0
+}
+
+output "HDMI-A-1" {
+    // mode "1920x1080@60.000"
+    scale 1.0
+    position x=1920 y=0 // Position relative to eDP-1 (adjust based on actual setup)
+}
+*/
+
+// --- Animation Settings ---
+// Converted from Hyprland animations {}
+animations {
+    // enabled = yes (default in Niri)
+    // Niri has simpler animation controls, no direct Bezier curve mapping
+    // slowdown 0.8 // Adjust slowdown factor (0.1-10.0), lower is faster
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-open {
+        duration-ms 150
+        curve "ease-out-expo"
+    }
+
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
+}
+
+// --- Miscellaneous Settings ---
+// screenshot-path (Niri has this setting directly)
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// Settings from Hyprland's misc/render/xwayland sections often don't have direct
+// equivalents or are handled differently by Niri/wlroots.
+// E.g., vrr can be set per-output: output "eDP-1" { variable-refresh-rate on-demand=true }
+
+// --- Layer Rules ---
+// Niri layer rules are different from Hyprland's
+// Hyprland layerrule = blur, wofi -> Niri doesn't support blur
+// Other layer rules (ignorezero, ignorealpha) might not have direct equivalents
+// Example Niri layer rule:
+// layer-rule {
+//    match layer="overlay" namespace="wofi"
+//    anchor "top" "left" "right"
+//    margin top=10 left=10 right=10
+// }

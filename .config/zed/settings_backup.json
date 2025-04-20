@@ -8,15 +8,11 @@
 // command palette (Cmd+Shift+P / Ctrl+Shift+P)
 {
   // --- General Appearance & Behavior ---
-  "use_system_path_prompts": false,
-  "icon_theme": "Symbols",
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
+
   "theme": {
-    "mode": "dark", // "system" | "light" | "dark" - Follows OS theme
+    "mode": "system", // "system" | "light" | "dark" - Follows OS theme
     "light": "Vercel Light",
-    "dark": "Vesper"
+    "dark": "Vercel Dark"
   },
   "ui_font_family": "JetBrains Mono",
   "ui_font_size": 16,
@@ -32,8 +28,8 @@
     "enabled": true, // Explicitly enable
     "enable_experimental_live_diffs": false, // Consider enabling for live diffs (experimental)
     "default_model": {
-      "provider": "copilot_chat", // Consider "zed.dev" for Zed's provider.
-      "model": "claude-3-7-sonnet" // Consider newer models.
+      "provider": "google", // Consider "zed.dev" for Zed's provider.
+      "model": "gemini-2.0-pro-exp" // Consider newer models.
     },
     "version": "2"
   },
@@ -56,7 +52,7 @@
     "file_icons": true,
     "git_status": false, // Consider `true` if you use Git heavily
     "activate_on_close": "history",
-    "show_close_button": "hover"
+    "always_show_close_button": false
   },
   "preview_tabs": {
     "enabled": true,
@@ -270,7 +266,7 @@
 
     // --- LaTeX ---
     "LaTeX": {
-      "show_edit_predictions": false, // Disable AI completions
+      "show_inline_completions": false, // Disable AI completions
       "soft_wrap": "preferred_line_length",
       "preferred_line_length": 110
     }

@@ -32,8 +32,8 @@
     "enabled": true, // Explicitly enable
     "enable_experimental_live_diffs": false, // Consider enabling for live diffs (experimental)
     "default_model": {
-      "provider": "copilot_chat", // Consider "zed.dev" for Zed's provider.
-      "model": "claude-3-7-sonnet" // Consider newer models.
+      "provider": "zed.dev", // Consider "zed.dev" for Zed's provider.
+      "model": "claude-3-7-sonnet-latest" // Consider newer models.
     },
     "version": "2"
   },

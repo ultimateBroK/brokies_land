@@ -1,16 +1,14 @@
 {
-  "layer": "top",
   "position": "top",
+  "layer": "top",
   "mode": "dock",
   "exclusive": true,
   "passthrough": false,
-  "height": 30,
   "margin-right": 2,
   "margin-left": 2,
   "modules-left": [
     "clock",
     "hyprland/workspaces",
-    //"sway/workspaces"
     "group/system"
   ],
   "modules-center": [
@@ -25,10 +23,9 @@
     "idle_inhibitor",
     "custom/power"
   ],
-  // Remove main background, keep spacing and margins
   "margin": 5,
   "spacing": 5,
-  "background": "rgba(0, 0, 0, 0)", // Completely transparent main background
+  "background": "rgba(0, 0, 0, 0)",
   "border-radius": 8,
   "idle_inhibitor": {
     "format": "{icon}",
@@ -51,11 +48,8 @@
       "reboot": "reboot",
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate",
-      // "logout": "hyprctl dispatch exit",
-      // "logout": "swaymsg exit",
       "logout": "exit",
       "lock": "hyprlock"
-      // "lock": "swaylock"
     }
   },
   "power-profiles-daemon": {
@@ -64,8 +58,8 @@
     "tooltip": true,
     "format-icons": {
       "performance": "",
-      "balanced": "󰾅", // leaf-circle
-      "power-saver": "󱈐" // battery-heart
+      "balanced": "󰾅",
+      "power-saver": "󱈐"
     }
   },
   "hyprland/workspaces": {
@@ -100,7 +94,7 @@
     "framerate": 30,
     "autosens": 1,
     "sensitivity": 4,
-    "bars": 10,
+    "bars": 12,
     "lower_cutoff_freq": 20,
     "higher_cutoff_freq": 10000,
     "hide-empty": true,
@@ -140,7 +134,7 @@
     "on-scroll-down": "playerctl position 5-"
   },
   "group/system": {
-    "orientation": "horizontal",
+    "orientation": "inherit",
     "modules": [
       "memory",
       "cpu",
@@ -148,29 +142,32 @@
     ],
     "drawer": {
       "transition-duration": 500,
-      "children-class": "system-drawer"
+      "children-class": "system-drawer",
+      "transition-left-to-right": true
     }
   },
   "group/hardware": {
-    "orientation": "horizontal",
+    "orientation": "inherit",
     "modules": [
       "battery",
       "backlight"
     ],
     "drawer": {
       "transition-duration": 500,
-      "children-class": "hardware-drawer"
+      "children-class": "hardware-drawer",
+      "transition-left-to-right": false
     }
   },
   "group/audio": {
-    "orientation": "horizontal",
+    "orientation": "inherit",
     "modules": [
       "pulseaudio",
       "pulseaudio#microphone"
     ],
     "drawer": {
       "transition-duration": 500,
-      "children-class": "audio-drawer"
+      "children-class": "audio-drawer",
+      "transition-left-to-right": false
     }
   },
   "clock": {
@@ -299,5 +296,5 @@
   "tray": {
     "icon-size": 18,
     "spacing": 10
-  }
-}
+  },
+},

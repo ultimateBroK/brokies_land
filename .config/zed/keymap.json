@@ -17,11 +17,5 @@
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
     }
-  },
-  {
-    "context": "Editor && showing_completions", // IMPORTANT: Only applies when the completion menu is showing
-    "bindings": {
-      "enter": "editor::Newline"
-    }
   }
 ]

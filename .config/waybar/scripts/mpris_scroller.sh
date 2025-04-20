@@ -72,9 +72,9 @@ case "$lower_player" in
 esac
 
 # === Scroll và chuẩn bị hiển thị ===
-MAX_LENGTH=50
-# TITLE_MAX=$((MAX_LENGTH * 2 / 3))
-TITLE_MAX=30
+MAX_LENGTH=40
+TITLE_MAX=$((MAX_LENGTH * 2 / 3))
+# TITLE_MAX=20
 ARTIST_MAX=$((MAX_LENGTH - TITLE_MAX))
 
 title_scroll_file="/tmp/mpris_title_scroll_${selected_player// /_}"
@@ -109,3 +109,4 @@ if [[ "$status" == "Playing" || "$status" == "Paused" ]]; then
 else
   echo "$icon  <span foreground='#bac2de' font_style='italic'>$title - $artist</span>  $status_icon"
 fi
+
