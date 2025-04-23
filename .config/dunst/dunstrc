@@ -5,7 +5,7 @@
     format = "<b>%s</b>\n%b"
     sort = yes
     indicate_hidden = yes
-    origin = top-center
+    origin = top-right
     geometry = "300x5-0+30"
     alignment = left
     transparency = 30
