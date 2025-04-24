@@ -3,7 +3,7 @@ allow_images=true
 width=50%
 height=50%
 show=drun
-prompt=Search
+prompt=
 term=kitty
 hide_scroll=true
 print_command=true
@@ -12,3 +12,6 @@ columns=1
 no_actions=true
 layer=overlay
 
+
+orientation=vertical
+allow_markup=true
