@@ -1,5 +1,5 @@
 [global]
-    font = "JetBrainsMono Nerd Font 10"
+    font = "JetBrainsMono Nerd Font 9"
     allow_markup = yes
     markup = full
     format = "<b>%s</b>\n%b"
@@ -11,23 +11,23 @@
     transparency = 30
     follow = mouse
     show_indicators = true
-    notification_limit = 8
+    notification_limit = 4
     sticky_history = yes
-    separator_height = 3
-    line_height = 5
-    padding = 16
-    horizontal_padding = 16
+    separator_height = 2
+    line_height = 3
+    padding = 8
+    horizontal_padding = 12
     text_icon_padding = 10
     separator_color = auto
     separator_width = 1
-    corner_radius = 15
+    corner_radius = 20
     width = 400
-    height = 500
+    height = 300
     progress_bar_corner_radius = 5
     icon_position = left
-    icon_corner_radius = 15
-    min_icon_size = 64
-    max_icon_size = 128
+    icon_corner_radius = 20
+    min_icon_size = 32
+    max_icon_size = 64
     offset = 10x10
     icon_theme = Fluent
     enable_recursive_icon_lookup = true
@@ -78,6 +78,7 @@
     highlight = "#FABD99"
     set_stack_tag = "backlight"
 
-# 📸 Script log ảnh nhạc
+# 📸 Script log ảnh nhạc (bạn cần tạo script này hoặc bỏ đi nếu không dùng)
 [songArtLogger]
     script = $HOME/.config/dunst/scripts/songArtLogger.sh
+
