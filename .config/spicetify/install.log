@@ -1,0 +1,8 @@
+[16:04:52 2025-04-10] FETCHING Version 2.39.6
+[16:04:52 2025-04-10] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.39.6/spicetify-2.39.6-linux-amd64.tar.gz
+[16:04:55 2025-04-10] EXTRACTING /home/ultimatebrok/.spicetify/spicetify.tar.gz
+[16:04:55 2025-04-10] SETTING EXECUTABLE PERMISSIONS TO /home/ultimatebrok/.spicetify/spicetify
+[16:04:55 2025-04-10] REMOVING /home/ultimatebrok/.spicetify/spicetify.tar.gz
+[16:04:55 2025-04-10] spicetify path already set in /home/ultimatebrok/.zshrc, continuing...
+[16:04:55 2025-04-10] spicetify v2.39.6 was installed successfully to /home/ultimatebrok/.spicetify
+[16:04:55 2025-04-10] Run 'spicetify --help' to get started
