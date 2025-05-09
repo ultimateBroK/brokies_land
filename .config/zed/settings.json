@@ -16,13 +16,13 @@
   "theme": {
     "mode": "dark", // "system" | "light" | "dark" - Follows OS theme
     "light": "Vercel Light",
-    "dark": "Vesper"
+    "dark": "Rich Vesper"
   },
-  "ui_font_family": "JetBrains Mono",
+  "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_size": 16,
-  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 16,
-  "border_size": 0.5,
+  "border_size": 1,
   "modal_max_width": "medium",
   "base_keymap": "VSCode", // Keymap: "Zed" | "VSCode" | "Sublime" | "Atom" | "JetBrains"
   "auto_update": true,

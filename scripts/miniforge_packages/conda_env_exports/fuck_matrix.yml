@@ -1,0 +1,49 @@
+name: fuck_matrix
+channels:
+  - conda-forge
+dependencies:
+  - _libgcc_mutex=0.1
+  - _openmp_mutex=4.5
+  - bzip2=1.0.8
+  - ca-certificates=2025.1.31
+  - ld_impl_linux-64=2.43
+  - libexpat=2.7.0
+  - libffi=3.4.6
+  - libgcc=14.2.0
+  - libgcc-ng=14.2.0
+  - libgomp=14.2.0
+  - liblzma=5.8.1
+  - libnsl=2.0.1
+  - libsqlite=3.49.1
+  - libuuid=2.38.1
+  - libxcrypt=4.4.36
+  - libzlib=1.3.1
+  - ncurses=6.5
+  - openssl=3.5.0
+  - pip=25.0.1
+  - python=3.11.12
+  - readline=8.2
+  - setuptools=79.0.0
+  - tk=8.6.13
+  - tzdata=2025b
+  - wheel=0.45.1
+  - pip:
+      - astor==0.8.1
+      - certifi==2025.4.26
+      - charset-normalizer==3.4.1
+      - click==8.1.8
+      - fabric==0.0.2
+      - gengir==1.0.2
+      - idna==3.10
+      - loguru==0.7.3
+      - lxml==4.9.4
+      - numpy==2.2.5
+      - psutil==7.0.0
+      - pycairo==1.28.0
+      - pygobject==3.50.0
+      - requests==2.32.3
+      - setproctitle==1.3.6
+      - typer==0.4.2
+      - urllib3==2.4.0
+      - watchdog==6.0.0
+prefix: /home/ultimatebrok/miniforge3/envs/fuck_matrix

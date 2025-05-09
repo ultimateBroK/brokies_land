@@ -1,0 +1,127 @@
+// Gruvbox mode
+
+configuration {
+    modi: "drun,window,run";
+    icon-theme: "WhiteSur-dark";
+    show-icons: true;
+    terminal: "kitty";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    drun-display-format: "{icon} {name}";
+    display-drun: "";
+    sidebar-mode: true;
+}
+
+* {
+    bg: #1C1C1E;
+    bg-col:  #242426;
+    bg-col-light: #242426;
+    border-col: #242426;
+    selected-col: #1C1C1E;
+    fg: #E5E5EA;
+    blue: #0A84FF;
+    fg-col: #E5E5EA;
+    fg-col2: #FF768E;
+    grey: #E5E5EA;
+    rad: 4px;
+}
+
+element-text, element-icon{
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    location: center;
+    width: 32%;
+    padding: 12px;
+    border-radius: 16px; 
+    background-color: @bg;
+}
+
+mainbox {
+    spacing: 12px;
+    children: [ inputbar, view-container];
+    background-color: #0000;
+}
+
+view-container{
+    children: [listview];
+    orientation: horizontal;
+    border-radius: @rad;
+    border-color: @border-col;
+    background-color: @bg-col;    
+}
+
+prompt{
+    text-color: @fg-col;
+    border-color: @border-col;
+    background-color: @bg-col;
+    font: "SF Pro Display 24";
+    horizontal-align: 0;
+    padding: 10px 0 0 10px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    orientation: horizontal;
+    padding: 0.2em;
+    border-radius: @rad;
+    border: 2px;
+    border-color: @border-col;
+    background-color: @bg-col;
+}
+
+
+entry {
+    background-color: @bg-col;
+    border-radius: @rad;
+    text-color: @fg-col;
+    font: "SF Pro Display Medium 16";
+    padding: 1.4%;
+    placeholder: "Search";
+}
+
+listview {
+    cycle: false;
+    dynamic: true;
+    border-radius: @rad;
+    layout: vertical;
+    lines: 3;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 1.4%;
+    orientation: horizontal;
+    border-radius: @rad;
+    background-color: @bg-col;
+}
+
+element-icon {
+    size: 32px;
+}
+
+element-text{
+    expand: true;
+    horizontal-align: 0;
+    margin: 0 4px;
+    font: "SF Pro Display 16";
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @bg-col;
+    padding: 0px;
+    margin: 0px;
+    text-color: @fg-col2;
+}
+
+element selected, element-text selected { 
+    text-color: @blue; 
+}
+
+listview, element, element-selected, element-text { cursor: pointer; }
+entry { cursor: text; }
+

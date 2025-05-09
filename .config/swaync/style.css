@@ -1,0 +1,54 @@
+.notification {
+  background-color: rgba(20, 20, 30, 0.95);
+  border: 2px solid rgba(137, 180, 250, 0.6);
+  padding: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+.notification-title {
+  color: #cdd6f4;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.notification-body {
+  color: #a6adc8;
+  font-size: 0.95em;
+}
+
+.notification-icon {
+  border-radius: 12px;
+}
+
+.control-center {
+  background-color: rgba(30, 30, 46, 0.92);
+  border: 2px solid rgba(137, 180, 250, 0.6);
+  padding: 20px;
+  border-radius: 18px;
+  margin: 20px;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+.control-center > box {
+  spacing: 16px;
+  padding: 10px;
+}
+
+/* Spotify/mpv custom styling */
+.notification.app-name-Spotify,
+.notification.app-name-mpv {
+  border: 2px solid #fab387;
+  background-color: rgba(30, 30, 46, 0.9);
+}
+
+.notification.app-name-Spotify .notification-title {
+  color: #f9e2af;
+}
+
+.notification.app-name-Spotify .notification-body {
+  color: #cdd6f4;
+}
+
