@@ -28,22 +28,19 @@
   "auto_update": true,
 
   // --- Assistant (AI) ---
-  "assistant": {
-    "enabled": true, // Explicitly enable
-    "enable_experimental_live_diffs": false, // Consider enabling for live diffs (experimental)
+  "agent": {
+    "enabled": true,
     "default_model": {
-      "provider": "zed.dev", // Consider "zed.dev" for Zed's provider.
-      "model": "claude-3-7-sonnet-latest" // Consider newer models.
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-20241022"
     },
     "version": "2"
   },
 
   // --- Panels & Layout ---
-  // Grouped and consistent order
-
   "project_panel": { "dock": "right" },
   "outline_panel": { "dock": "right" },
-  "chat_panel": { "dock": "left" }, // Consider if you use Zed's chat
+  "chat_panel": { "dock": "left" },
   "notification_panel": { "dock": "left" },
 
   "tab_bar": {
@@ -54,7 +51,7 @@
   "tabs": {
     "close_position": "right",
     "file_icons": true,
-    "git_status": false, // Consider `true` if you use Git heavily
+    "git_status": false,
     "activate_on_close": "history",
     "show_close_button": "hover"
   },
@@ -64,34 +61,30 @@
     "enable_preview_from_code_navigation": false
   },
   "toolbar": {
-    "breadcrumbs": true, // Useful for navigating large projects
-    "quick_actions": true // For Run, Build, etc.
+    "breadcrumbs": true,
+    "quick_actions": true
   },
 
   // --- Editor: Core Functionality ---
-
   "autosave": "on_focus_change",
   "restore_on_startup": "last_session",
-  "format_on_save": "on", // Global, overridden by language-specific
-  "use_autoclose": true, // Automatically close brackets, quotes, etc.
+  "format_on_save": "on",
+  "use_autoclose": true,
   "hover_popover_enabled": true,
   "show_completions_on_input": true,
 
   // --- Editor: Visual ---
-
   "current_line_highlight": "all",
   "cursor_blink": true,
   "cursor_shape": "underline",
   "autoscroll_on_clicks": true,
-  "indent_guides": { "enabled": false }, // Cleaner look, less visual clutter
+  "indent_guides": { "enabled": false },
 
   // --- Editor: Predictions & Hints ---
-
-  "show_edit_predictions": true, // Copilot-like suggestions
+  "show_edit_predictions": true,
   "edit_predictions": {
     "mode": "subtle",
     "disabled_globs": [
-      // Files to exclude from predictions (security)
       "**/.env*",
       "**/*.pem",
       "**/*.key",
@@ -101,21 +94,20 @@
     ]
   },
   "inlay_hints": {
-    "enabled": false, // Disable by default for cleaner view.
-    "show_type_hints": true, // Enable if you want type hints.
-    "show_parameter_hints": true, // Enable if you want parameter hints.
-    "show_other_hints": true, // Enable if you want other hints.
-    "show_background": false, // No background for a cleaner look.
+    "enabled": false,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_background": false,
     "edit_debounce_ms": 700,
     "scroll_debounce_ms": 50
   },
 
   // --- Editor: Scrollbar ---
-
   "scrollbar": {
     "show": "auto",
-    "cursors": true, // Show other users' cursors (collaboration)
-    "git_diff": true, // Show Git changes in the scrollbar
+    "cursors": true,
+    "git_diff": true,
     "search_results": true,
     "selected_symbol": true,
     "diagnostics": "all",
@@ -126,216 +118,156 @@
   },
 
   // --- Language Configuration ---
-
-  "enable_language_server": true, // Enable Language Server Protocol (LSP)
+  "enable_language_server": true,
 
   "languages": {
     // --- Python ---
     "Python": {
       "tab_size": 4,
-      "language_servers": ["ruff"], // Use Ruff for linting AND formatting
-      "formatter": {
-        // Ruff (formatter)
-        "external": {
-          "command": "ruff",
-          "arguments": ["format", "--stdin-filepath", "{buffer_path}", "-"] // "-" is crucial
-        }
-      },
-      "linter": {
-        // Ruff (linter)
-        "external": {
-          "command": "ruff",
-          "arguments": ["check", "--stdin-filename", "{buffer_path}", "-"] // "-" is crucial
-        },
-        "debounce_ms": 200 // Adjust if needed
-      },
-      "diagnostics": {
-        // Control diagnostic display
-        "enable_syntax_errors": true,
-        "enable_diagnostics": true,
-        "diagnostics_debounce_ms": 250
-      },
+      "language_servers": ["pyright", "ruff"],
+      "formatter": "language_server",
       "format_on_save": "on",
-      "auto_doc_strings": true, // If you want automatic docstring generation
-      "diagnostic_mode": "open_files" // Diagnostics only for open files
+      "diagnostic_mode": "open_files"
     },
 
     // --- JavaScript ---
     "JavaScript": {
       "tab_size": 2,
-      "language_servers": ["biome"], // Biome for linting and formatting
-      "formatter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "linter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
+      "language_servers": ["typescript-language-server", "biome"],
+      "formatter": "language_server",
       "format_on_save": "on"
     },
 
     // --- TypeScript ---
     "TypeScript": {
       "tab_size": 2,
-      "language_servers": ["biome"], // Biome for linting and formatting
-      "formatter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "linter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
+      "language_servers": ["typescript-language-server", "biome"],
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+
+    // --- TSX ---
+    "TSX": {
+      "tab_size": 2,
+      "language_servers": ["typescript-language-server", "biome"],
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+
+    // --- JSX ---
+    "JSX": {
+      "tab_size": 2,
+      "language_servers": ["typescript-language-server", "biome"],
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+
+    // --- JSON ---
+    "JSON": {
+      "language_servers": ["json-language-server", "biome"],
+      "formatter": "language_server",
       "format_on_save": "on"
     },
 
     // --- Rust ---
     "Rust": {
       "tab_size": 4,
-      "formatter": "language_server", // rust-analyzer
+      "language_servers": ["rust-analyzer"],
+      "formatter": "language_server",
       "format_on_save": "on"
     },
 
-    // --- JSON ---
-    "JSON": {
-      "language_servers": ["biome"], // Biome for linting and formatting
-      "formatter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "linter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "format_on_save": "on"
-    },
-    // --- TSX ---
-    "TSX": {
+    // --- C++ ---
+    "C++": {
       "tab_size": 2,
-      "language_servers": ["biome"],
-      "formatter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "linter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
+      "language_servers": ["clangd"],
+      "formatter": "language_server",
       "format_on_save": "on"
     },
-    // --- JSX ---
-    "JSX": {
-      "tab_size": 2,
-      "language_servers": ["biome"],
-      "formatter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "linter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["check", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "format_on_save": "on"
-    },
+
     // --- Markdown ---
     "Markdown": {
-      "formatter": {
-        "external": {
-          "command": "biome",
-          "arguments": ["format", "--stdin-file-path", "{buffer_path}"]
-        }
-      },
-      "format_on_save": "on"
+      "formatter": "prettier",
+      "format_on_save": "on",
+      "soft_wrap": "preferred_line_length",
+      "preferred_line_length": 80
     },
 
     // --- LaTeX ---
     "LaTeX": {
-      "show_edit_predictions": false, // Disable AI completions
+      "show_edit_predictions": false,
       "soft_wrap": "preferred_line_length",
       "preferred_line_length": 110
     }
   },
 
   // --- LSP Configuration ---
-  // Configure specific language servers
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        // Example: rust-analyzer
-        // "checkOnSave": {      // Example: Use clippy instead of check (commented)
-        //   "command": "clippy"
-        // }
+        "check": {
+          "command": "clippy"
+        }
       }
-    }
-  },
-
-  // --- Biome Configuration ---
-  "biome": {
-    "enabled": true,
-    "path": null, // Path to Biome binary. null for bundled (recommended)
-    "formatter": {
-      "enabled": true,
-      "format_with_errors": false,
-      "indent_style": "space",
-      "indent_width": 2,
-      "line_width": 88,
-      "line_ending": "lf"
     },
-    "linter": {
-      "enabled": true,
-      "rules": {
-        "all": true, // Start with all rules enabled
-        "suspicious": {
-          // Example: Disable a specific rule
-          "noDebugger": "off"
+    "pyright": {
+      "settings": {
+        "python": {
+          "analysis": {
+            "typeCheckingMode": "basic",
+            "autoImportCompletions": true
+          }
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lint": {
+            "select": ["E", "F", "W", "C", "N"]
+          },
+          "format": {
+            "quote-style": "double",
+            "indent-style": "space"
+          }
+        }
+      }
+    },
+    "biome": {
+      "initialization_options": {
+        "formatter": {
+          "enabled": true,
+          "indentStyle": "space",
+          "indentWidth": 2,
+          "lineWidth": 88
+        },
+        "linter": {
+          "enabled": true
         }
       }
     }
   },
 
   // --- Terminal ---
-
   "terminal": {
     "alternate_scroll": "on",
     "blinking": "terminal_controlled",
     "copy_on_select": false,
     "dock": "bottom",
     "detect_venv": {
-      // Python virtual environment detection
       "on": {
         "directories": [".env", "env", ".venv", "venv"],
         "activate_script": "default"
       }
     },
     "env": {},
-    "font_family": "JetBrains Mono",
+    "font_family": "JetBrainsMono Nerd Font",
     "font_features": null,
-    "font_size": null, // Inherits from buffer font size
+    "font_size": null,
     "line_height": "comfortable",
     "option_as_meta": false,
     "button": true,
-    "shell": "system", // Use the system's default shell
+    "shell": "system",
     "toolbar": {
       "breadcrumbs": true
     },
