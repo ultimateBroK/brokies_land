@@ -1,3 +1,3 @@
 #!/bin/bash
 # File in assets
-mpv $HOME/Music/noti/your-broke-andrew-tate.mp3
+mpv $HOME/Music/noti/level-up.mp3
